@@ -46,13 +46,21 @@ This file will be completed after progressing through the curriculum rather than
 
 Every workshop that produces code receives its own directory.
 
-Example:
+Current examples:
 
 ```text
 workshops/
-└── learn-nodejs-repl/
-    ├── hello.js
-    └── README.md
+├── learn-nodejs-repl/
+│   ├── hello.js
+│   └── README.md
+│
+└── build-a-file-processor/
+    ├── server.js
+    ├── README.md
+    └── assets/
+        ├── poem.txt
+        ├── output.txt
+        └── stream-output.txt
 ```
 
 Each workshop README documents:
@@ -90,9 +98,17 @@ Current structure:
 freecodecamp-backend-development-and-apis/
 │
 ├── workshops/
-│   └── learn-nodejs-repl/
-│       ├── hello.js
-│       └── README.md
+│   ├── learn-nodejs-repl/
+│   │   ├── hello.js
+│   │   └── README.md
+│   │
+│   └── build-a-file-processor/
+│       ├── server.js
+│       ├── README.md
+│       └── assets/
+│           ├── poem.txt
+│           ├── output.txt
+│           └── stream-output.txt
 │
 ├── .gitignore
 ├── BACKEND_REVIEW.md
@@ -107,7 +123,7 @@ No project directories are created before they are reached in the official curri
 
 ## Current Checkpoint
 
-**Date:** August 19, 2026
+**Date:** August 25, 2026
 
 Current curriculum section:
 
@@ -116,15 +132,19 @@ Introduction to Node.js
 └── Working with Node.js and Event-Driven Architecture
 ```
 
-Completed practical workshop:
+Completed practical workshops:
 
 ```text
 Learn Node.js REPL
 23 / 23 steps completed
 Status: Passed
+
+Build a File Processor
+30 / 30 steps completed
+Status: Passed
 ```
 
-The workshop introduced the Node.js command-line interface and interactive REPL environment.
+The latest workshop expanded from basic Node.js runtime interaction into practical use of Node.js core modules, file-system operations, binary data, cryptography, operating-system information, paths, process information, and streams.
 
 The next curriculum item will only be started after the current repository checkpoint has been documented and committed.
 
@@ -135,6 +155,7 @@ The next curriculum item will only be started after the current repository check
 | # | Workshop | Type | Status |
 |---|---|---|---|
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
+| 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
 
 ---
 
@@ -181,6 +202,121 @@ Full notes and explanations are available in:
 
 ```text
 workshops/learn-nodejs-repl/README.md
+```
+
+---
+
+## Workshop 02 — Build a File Processor
+
+Location:
+
+```text
+workshops/build-a-file-processor/
+```
+
+Main source file:
+
+```text
+workshops/build-a-file-processor/server.js
+```
+
+Workshop assets:
+
+```text
+workshops/build-a-file-processor/assets/
+├── poem.txt
+├── output.txt
+└── stream-output.txt
+```
+
+This workshop introduced practical file processing and several major Node.js core APIs.
+
+Topics practiced include:
+
+```text
+fs
+fs.readFileSync()
+fs.readFile()
+fs/promises
+async / await
+fs.writeFileSync()
+fs.appendFileSync()
+fs.existsSync()
+fs.readdirSync()
+
+Buffer
+Buffer.from()
+Buffer.alloc()
+UTF-8
+hexadecimal encoding
+Base64 encoding and decoding
+
+crypto
+SHA-256 hashing
+crypto.randomBytes()
+crypto.randomUUID()
+
+os
+os.platform()
+os.arch()
+os.hostname()
+os.totalmem()
+os.freemem()
+os.uptime()
+os.cpus()
+
+path
+path.join()
+path.resolve()
+path.basename()
+path.dirname()
+path.extname()
+path.parse()
+
+process
+process.version
+process.platform
+process.env
+process.argv
+process.stdout
+process.stderr
+
+Streams
+fs.createReadStream()
+fs.createWriteStream()
+data events
+end events
+chunks
+readable.pipe(writable)
+```
+
+The final workshop code connects a readable file stream directly to a writable file stream:
+
+```js
+const readable = fs.createReadStream("assets/poem.txt");
+const writable = fs.createWriteStream("assets/stream-output.txt");
+
+readable.pipe(writable);
+```
+
+Conceptually:
+
+```text
+poem.txt
+   ↓
+Readable Stream
+   ↓
+pipe()
+   ↓
+Writable Stream
+   ↓
+stream-output.txt
+```
+
+Full notes and explanations are available in:
+
+```text
+workshops/build-a-file-processor/README.md
 ```
 
 ---
@@ -253,7 +389,7 @@ The local development environment and the freeCodeCamp Codespace are separate en
 
 Node.js is the JavaScript runtime used throughout the back-end curriculum.
 
-The first workshop demonstrates that Node.js can execute JavaScript in several ways:
+The first workshop demonstrated that Node.js can execute JavaScript in several ways:
 
 ```text
 JavaScript expression
@@ -269,7 +405,20 @@ Interactive input
 Node.js REPL
 ```
 
-Later sections of the curriculum will build on this foundation to introduce modules, package management, HTTP, APIs, servers, and other back-end concepts.
+The second workshop extended that foundation into practical Node.js runtime APIs:
+
+```text
+Node.js
+├── File System
+├── Buffer
+├── Crypto
+├── Operating System
+├── Path
+├── Process
+└── Streams
+```
+
+These concepts establish a foundation for later work with modules, package management, servers, HTTP, APIs, and larger back-end applications.
 
 ---
 
@@ -278,6 +427,28 @@ Later sections of the curriculum will build on this foundation to introduce modu
 When useful, concepts from the curriculum are compared with real-world web-development work.
 
 The goal is to understand not only how a freeCodeCamp exercise works, but also how the same concepts appear in larger applications.
+
+Examples from the current workshops include:
+
+```text
+File System
+→ reading and writing application data
+
+Buffer
+→ binary data, files, network payloads
+
+Crypto
+→ hashing, secure random values, identifiers
+
+Path
+→ safe cross-platform file paths
+
+Process
+→ environment configuration and command-line arguments
+
+Streams
+→ large files, uploads, downloads, networking, media processing
+```
 
 These comparisons are supplementary.
 
@@ -314,14 +485,21 @@ Will consolidate the major theoretical concepts learned throughout the complete 
 ## Progress
 
 ```text
-Repository initialized                     ✅
-Node.js and npm local environment verified ✅
-Git remote configured                      ✅
-Main branch synchronized                   ✅
-Learn Node.js REPL                         ✅ 23/23
-Workshop source preserved                  ✅
-Workshop README documented                 ✅
-Final back-end review                      ⏳ Deferred until later
+Repository initialized                         ✅
+Node.js and npm local environment verified     ✅
+Git remote configured                          ✅
+Main branch synchronized                       ✅
+
+Learn Node.js REPL                             ✅ 23/23
+├── Workshop source preserved                  ✅
+└── Workshop README documented                 ✅
+
+Build a File Processor                         ✅ 30/30
+├── Workshop source preserved                  ✅
+├── Workshop assets preserved                  ✅
+└── Workshop README documented                 ✅
+
+Final back-end review                          ⏳ Deferred until later
 ```
 
 ---
@@ -351,6 +529,14 @@ In Progress
 ```
 
 Latest completed practical checkpoint:
+
+```text
+Build a File Processor
+30 / 30
+✅ Completed
+```
+
+Previously completed:
 
 ```text
 Learn Node.js REPL
