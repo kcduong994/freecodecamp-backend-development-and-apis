@@ -54,13 +54,20 @@ workshops/
 │   ├── hello.js
 │   └── README.md
 │
-└── build-a-file-processor/
-    ├── server.js
-    ├── README.md
-    └── assets/
-        ├── poem.txt
-        ├── output.txt
-        └── stream-output.txt
+├── build-a-file-processor/
+│   ├── server.js
+│   ├── README.md
+│   └── assets/
+│       ├── poem.txt
+│       ├── output.txt
+│       └── stream-output.txt
+│
+└── build-a-case-converter/
+    ├── .npmignore
+    ├── index.js
+    ├── index.test.js
+    ├── package.json
+    └── README.md
 ```
 
 Each workshop README documents:
@@ -102,13 +109,20 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── hello.js
 │   │   └── README.md
 │   │
-│   └── build-a-file-processor/
-│       ├── server.js
-│       ├── README.md
-│       └── assets/
-│           ├── poem.txt
-│           ├── output.txt
-│           └── stream-output.txt
+│   ├── build-a-file-processor/
+│   │   ├── server.js
+│   │   ├── README.md
+│   │   └── assets/
+│   │       ├── poem.txt
+│   │       ├── output.txt
+│   │       └── stream-output.txt
+│   │
+│   └── build-a-case-converter/
+│       ├── .npmignore
+│       ├── index.js
+│       ├── index.test.js
+│       ├── package.json
+│       └── README.md
 │
 ├── .gitignore
 ├── BACKEND_REVIEW.md
@@ -123,13 +137,16 @@ No project directories are created before they are reached in the official curri
 
 ## Current Checkpoint
 
-**Date:** August 25, 2026
+**Date:** September 2, 2026
 
-Current curriculum section:
+Current curriculum area:
 
 ```text
 Introduction to Node.js
 └── Working with Node.js and Event-Driven Architecture
+    ├── Node.js runtime and REPL
+    ├── Node.js core modules and streams
+    └── npm package development and testing
 ```
 
 Completed practical workshops:
@@ -142,9 +159,13 @@ Status: Passed
 Build a File Processor
 30 / 30 steps completed
 Status: Passed
+
+Build a Case Converter
+45 / 45 steps completed
+Status: Passed
 ```
 
-The latest workshop expanded from basic Node.js runtime interaction into practical use of Node.js core modules, file-system operations, binary data, cryptography, operating-system information, paths, process information, and streams.
+The latest workshop extends the Node.js foundation into reusable package development with npm, CommonJS exports, package metadata, automated assertions, npm scripts, Semantic Versioning, publication dry runs, and `.npmignore`.
 
 The next curriculum item will only be started after the current repository checkpoint has been documented and committed.
 
@@ -156,6 +177,7 @@ The next curriculum item will only be started after the current repository check
 |---|---|---|---|
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
 | 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
+| 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
 
 ---
 
@@ -321,6 +343,165 @@ workshops/build-a-file-processor/README.md
 
 ---
 
+## Workshop 03 — Build a Case Converter
+
+Location:
+
+```text
+workshops/build-a-case-converter/
+```
+
+Main source file:
+
+```text
+workshops/build-a-case-converter/index.js
+```
+
+Automated tests:
+
+```text
+workshops/build-a-case-converter/index.test.js
+```
+
+npm package metadata:
+
+```text
+workshops/build-a-case-converter/package.json
+```
+
+npm publication exclusions:
+
+```text
+workshops/build-a-case-converter/.npmignore
+```
+
+This workshop introduced the complete lifecycle of a small reusable Node.js package: initialization, implementation, module exports, documentation, automated testing, npm scripts, and publication preparation.
+
+Topics practiced include:
+
+```text
+npm init
+package.json
+package metadata
+entry point
+Semantic Versioning (SemVer)
+
+String transformation
+toUpperCase()
+toLowerCase()
+charAt()
+slice()
+split()
+map()
+join()
+
+CommonJS
+module.exports
+require()
+
+Package README documentation
+usage examples
+
+node:assert/strict
+assert.strictEqual()
+automated tests
+intentional test failure
+test repair
+
+npm scripts
+npm test
+
+npm publish --dry-run
+npm package inspection
+.npmignore
+.gitignore vs .npmignore
+npm publication preparation
+```
+
+The package exposes four public functions:
+
+```js
+getUpperCase();
+getLowerCase();
+getSentenceCase();
+getProperCase();
+```
+
+Example:
+
+```js
+const caseConverter = require("./index");
+
+const str = "hello free Code Camp!";
+
+console.log(caseConverter.getUpperCase(str));
+// HELLO FREE CODE CAMP!
+
+console.log(caseConverter.getLowerCase(str));
+// hello free code camp!
+
+console.log(caseConverter.getSentenceCase(str));
+// Hello free code camp!
+
+console.log(caseConverter.getProperCase(str));
+// Hello Free Code Camp!
+```
+
+The module exports its public API through CommonJS:
+
+```js
+module.exports = {
+  getUpperCase,
+  getLowerCase,
+  getSentenceCase,
+  getProperCase,
+};
+```
+
+The automated test suite uses Node.js's built-in strict assertion API:
+
+```js
+const assert = require("node:assert/strict");
+const caseConverter = require("./index");
+
+assert.strictEqual(
+  caseConverter.getUpperCase("hello free Code Camp!"),
+  "HELLO FREE CODE CAMP!",
+);
+```
+
+The test script is executed through npm:
+
+```bash
+npm test
+```
+
+The package publication process is inspected safely with:
+
+```bash
+npm publish --dry-run
+```
+
+The test file is intentionally excluded from the npm publication package with:
+
+```text
+.npmignore
+```
+
+containing:
+
+```text
+index.test.js
+```
+
+Full notes and explanations are available in:
+
+```text
+workshops/build-a-case-converter/README.md
+```
+
+---
+
 ## Repository Principles
 
 This repository follows several rules throughout the certification.
@@ -418,7 +599,27 @@ Node.js
 └── Streams
 ```
 
-These concepts establish a foundation for later work with modules, package management, servers, HTTP, APIs, and larger back-end applications.
+The third workshop extends the foundation into package development:
+
+```text
+Node.js
+   ↓
+npm
+   ↓
+package.json
+   ↓
+Reusable module
+   ↓
+Automated tests
+   ↓
+npm scripts
+   ↓
+Publication dry run
+   ↓
+Publishable package
+```
+
+These concepts establish a foundation for later work with dependencies, servers, HTTP, APIs, middleware, databases, and larger back-end applications.
 
 ---
 
@@ -448,6 +649,24 @@ Process
 
 Streams
 → large files, uploads, downloads, networking, media processing
+
+CommonJS modules
+→ organizing reusable application functionality
+
+package.json
+→ application/package metadata and npm scripts
+
+Automated assertions
+→ detecting regressions and incorrect behavior
+
+Semantic Versioning
+→ communicating release compatibility
+
+npm publish --dry-run
+→ validating package contents before publication
+
+.npmignore
+→ controlling what is distributed in an npm package
 ```
 
 These comparisons are supplementary.
@@ -499,6 +718,13 @@ Build a File Processor                         ✅ 30/30
 ├── Workshop assets preserved                  ✅
 └── Workshop README documented                 ✅
 
+Build a Case Converter                         ✅ 45/45
+├── Workshop source preserved                  ✅
+├── package.json preserved                     ✅
+├── automated tests preserved                  ✅
+├── .npmignore preserved                       ✅
+└── Workshop README documented                 ✅
+
 Final back-end review                          ⏳ Deferred until later
 ```
 
@@ -531,14 +757,18 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a File Processor
-30 / 30
+Build a Case Converter
+45 / 45
 ✅ Completed
 ```
 
 Previously completed:
 
 ```text
+Build a File Processor
+30 / 30
+✅ Completed
+
 Learn Node.js REPL
 23 / 23
 ✅ Completed
