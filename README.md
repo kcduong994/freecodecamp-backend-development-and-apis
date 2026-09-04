@@ -46,7 +46,7 @@ This file will be completed after progressing through the curriculum rather than
 
 Every workshop that produces code receives its own directory.
 
-Current examples:
+Current workshops:
 
 ```text
 workshops/
@@ -91,9 +91,27 @@ Important knowledge will later be summarized in `BACKEND_REVIEW.md`.
 
 ### Certification Projects
 
-Certification projects will be stored separately from workshops.
+Certification projects are stored separately from workshops:
 
-They will contain the complete source code required by the project and a dedicated README describing the implementation, architecture, requirements, execution flow, testing, and concepts demonstrated.
+```text
+certification-projects/
+└── build-a-prime-number-checker-module/
+    ├── index.js
+    ├── package.json
+    └── README.md
+```
+
+Certification projects are requirement-driven rather than step-by-step workshop exercises.
+
+Each project directory preserves:
+
+- the final source code;
+- the required package or project metadata;
+- a dedicated README;
+- implementation reasoning;
+- algorithm or architecture notes;
+- local verification;
+- freeCodeCamp completion status.
 
 ---
 
@@ -124,6 +142,12 @@ freecodecamp-backend-development-and-apis/
 │       ├── package.json
 │       └── README.md
 │
+├── certification-projects/
+│   └── build-a-prime-number-checker-module/
+│       ├── index.js
+│       ├── package.json
+│       └── README.md
+│
 ├── .gitignore
 ├── BACKEND_REVIEW.md
 └── README.md
@@ -137,16 +161,18 @@ No project directories are created before they are reached in the official curri
 
 ## Current Checkpoint
 
-**Date:** September 2, 2026
+**Date:** September 4, 2026
 
 Current curriculum area:
 
 ```text
-Introduction to Node.js
-└── Working with Node.js and Event-Driven Architecture
+Back-End Development and APIs Certification
+└── Node.js and npm module development
     ├── Node.js runtime and REPL
     ├── Node.js core modules and streams
-    └── npm package development and testing
+    ├── npm package development and testing
+    └── Certification Project:
+        Build a Prime Number Checker Module
 ```
 
 Completed practical workshops:
@@ -165,9 +191,32 @@ Build a Case Converter
 Status: Passed
 ```
 
-The latest workshop extends the Node.js foundation into reusable package development with npm, CommonJS exports, package metadata, automated assertions, npm scripts, Semantic Versioning, publication dry runs, and `.npmignore`.
+Completed certification projects:
 
-The next curriculum item will only be started after the current repository checkpoint has been documented and committed.
+```text
+Build a Prime Number Checker Module
+1 / 1 completed
+Status: Passed
+```
+
+The latest checkpoint moves from guided npm-package exercises into a requirement-driven certification project.
+
+The project applies:
+
+```text
+npm package structure
+package.json metadata
+CommonJS
+module.exports
+algorithm design
+Number.isInteger()
+modulo arithmetic
+Math.sqrt()
+O(√n) reasoning
+freeCodeCamp automated project tests
+```
+
+The next curriculum item will only be started after this checkpoint has been documented, committed, pushed, and submitted to freeCodeCamp.
 
 ---
 
@@ -178,6 +227,14 @@ The next curriculum item will only be started after the current repository check
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
 | 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
 | 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
+
+---
+
+## Completed Certification Projects
+
+| # | Project | Type | Status |
+|---|---|---|---|
+| 1 | Build a Prime Number Checker Module | Certification Project | ✅ Completed — 1/1 |
 
 ---
 
@@ -502,6 +559,151 @@ workshops/build-a-case-converter/README.md
 
 ---
 
+## Certification Project 01 — Build a Prime Number Checker Module
+
+Location:
+
+```text
+certification-projects/build-a-prime-number-checker-module/
+```
+
+Main source file:
+
+```text
+certification-projects/build-a-prime-number-checker-module/index.js
+```
+
+npm package metadata:
+
+```text
+certification-projects/build-a-prime-number-checker-module/package.json
+```
+
+Project documentation:
+
+```text
+certification-projects/build-a-prime-number-checker-module/README.md
+```
+
+This is the first certification project preserved in the repository.
+
+Unlike the previous workshops, freeCodeCamp supplied user stories rather than step-by-step implementation instructions.
+
+The project required a reusable npm module exposing:
+
+```js
+isPrime(number)
+```
+
+through CommonJS.
+
+Final implementation:
+
+```js
+function isPrime(number) {
+  if (!Number.isInteger(number) || number <= 1) {
+    return false;
+  }
+
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = {
+  isPrime,
+};
+```
+
+The package metadata includes:
+
+```text
+name
+version
+description
+keywords
+license
+author
+type: commonjs
+main: index.js
+```
+
+Important concepts applied:
+
+```text
+npm package creation
+package.json
+CommonJS
+module.exports
+named exports
+
+Number.isInteger()
+input validation
+prime-number definition
+
+modulo operator %
+divisibility testing
+
+Math.sqrt()
+factor-pair reasoning
+O(√n) time complexity
+
+require()
+destructuring import
+local Node.js verification
+
+user stories
+automated certification tests
+```
+
+Conceptually:
+
+```text
+Input number
+     ↓
+Integer and > 1?
+     ├── No → false
+     └── Yes
+           ↓
+Check divisors from 2 to √number
+           ↓
+Any exact divisor?
+     ├── Yes → false
+     └── No  → true
+```
+
+Local verification:
+
+```powershell
+node -e "const { isPrime } = require('./index'); console.log(isPrime(2), isPrime(11), isPrime(9), isPrime(1))"
+```
+
+Expected output:
+
+```text
+true true false false
+```
+
+The project passed the official freeCodeCamp certification-project tests:
+
+```text
+Build a Prime Number Checker Module
+1 / 1
+✅ Completed
+```
+
+Full notes and explanations are available in:
+
+```text
+certification-projects/build-a-prime-number-checker-module/README.md
+```
+
+---
+
 ## Repository Principles
 
 This repository follows several rules throughout the certification.
@@ -516,7 +718,7 @@ Topics are not implemented early simply because they will be needed later.
 
 Code is kept as small as the lesson requires.
 
-Additional files are not created simply to make a workshop look more complex.
+Additional files are not created simply to make a workshop or project look more complex.
 
 ### 3. Preserve Practical Work
 
@@ -526,13 +728,29 @@ Workshop and certification-project source code is stored after the corresponding
 
 README files are intended to explain the reasoning behind the code rather than merely repeat instructions.
 
-### 5. Separate Practice from Final Review
+### 5. Separate Workshops from Certification Projects
 
-Workshop README files document individual practical exercises.
+Guided workshops are stored under:
+
+```text
+workshops/
+```
+
+Requirement-driven certification projects are stored under:
+
+```text
+certification-projects/
+```
+
+This keeps practice exercises separate from independently completed assessment work.
+
+### 6. Separate Practice from Final Review
+
+Workshop and certification-project README files document individual practical exercises.
 
 `BACKEND_REVIEW.md` will eventually serve as the consolidated theoretical review for the complete back-end curriculum.
 
-### 6. Do Not Copy Course Infrastructure
+### 7. Do Not Copy Course Infrastructure
 
 freeCodeCamp testing infrastructure, course runners, loggers, and internal grading files are not copied into this repository unless they are explicitly part of a project requirement.
 
@@ -553,7 +771,7 @@ npm
 PowerShell
 ```
 
-Official freeCodeCamp workshops may also use:
+Official freeCodeCamp workshops and projects may also use:
 
 ```text
 GitHub Codespaces
@@ -570,7 +788,7 @@ The local development environment and the freeCodeCamp Codespace are separate en
 
 Node.js is the JavaScript runtime used throughout the back-end curriculum.
 
-The first workshop demonstrated that Node.js can execute JavaScript in several ways:
+The first workshop demonstrated several ways Node.js can execute JavaScript:
 
 ```text
 JavaScript expression
@@ -599,7 +817,7 @@ Node.js
 └── Streams
 ```
 
-The third workshop extends the foundation into package development:
+The third workshop extended the foundation into npm package development:
 
 ```text
 Node.js
@@ -619,17 +837,31 @@ Publication dry run
 Publishable package
 ```
 
+The first certification project then required those concepts to be applied independently:
+
+```text
+User Stories
+    ↓
+npm Package
+    ↓
+Algorithm Design
+    ↓
+CommonJS Export
+    ↓
+Local Verification
+    ↓
+Certification Tests
+```
+
 These concepts establish a foundation for later work with dependencies, servers, HTTP, APIs, middleware, databases, and larger back-end applications.
 
 ---
 
 ## Real-World Learning
 
-When useful, concepts from the curriculum are compared with real-world web-development work.
+When useful, concepts from the curriculum are compared with real-world back-end development.
 
-The goal is to understand not only how a freeCodeCamp exercise works, but also how the same concepts appear in larger applications.
-
-Examples from the current workshops include:
+Examples from the completed work include:
 
 ```text
 File System
@@ -654,7 +886,7 @@ CommonJS modules
 → organizing reusable application functionality
 
 package.json
-→ application/package metadata and npm scripts
+→ package metadata, module configuration, and npm scripts
 
 Automated assertions
 → detecting regressions and incorrect behavior
@@ -667,6 +899,18 @@ npm publish --dry-run
 
 .npmignore
 → controlling what is distributed in an npm package
+
+Modulo arithmetic
+→ divisibility and algorithmic checks
+
+Math.sqrt()
+→ reducing unnecessary search work
+
+O(√n)
+→ reasoning about algorithmic efficiency
+
+User stories
+→ translating requirements into implementation
 ```
 
 These comparisons are supplementary.
@@ -689,11 +933,11 @@ BACKEND_REVIEW.md
 
 ### Workshop README
 
-Explains one practical workshop in detail.
+Explains one guided practical workshop in detail.
 
 ### Certification Project README
 
-Documents a complete certification project, including its architecture and implementation.
+Documents a complete requirement-driven project, including implementation, algorithm or architecture, verification, and completion status.
 
 ### BACKEND_REVIEW.md
 
@@ -704,28 +948,60 @@ Will consolidate the major theoretical concepts learned throughout the complete 
 ## Progress
 
 ```text
-Repository initialized                         ✅
-Node.js and npm local environment verified     ✅
-Git remote configured                          ✅
-Main branch synchronized                       ✅
+Repository initialized                              ✅
+Node.js and npm local environment verified          ✅
+Git remote configured                               ✅
+Main branch synchronized                            ✅
 
-Learn Node.js REPL                             ✅ 23/23
-├── Workshop source preserved                  ✅
-└── Workshop README documented                 ✅
+Learn Node.js REPL                                  ✅ 23/23
+├── Workshop source preserved                       ✅
+└── Workshop README documented                      ✅
 
-Build a File Processor                         ✅ 30/30
-├── Workshop source preserved                  ✅
-├── Workshop assets preserved                  ✅
-└── Workshop README documented                 ✅
+Build a File Processor                              ✅ 30/30
+├── Workshop source preserved                       ✅
+├── Workshop assets preserved                       ✅
+└── Workshop README documented                      ✅
 
-Build a Case Converter                         ✅ 45/45
-├── Workshop source preserved                  ✅
-├── package.json preserved                     ✅
-├── automated tests preserved                  ✅
-├── .npmignore preserved                       ✅
-└── Workshop README documented                 ✅
+Build a Case Converter                              ✅ 45/45
+├── Workshop source preserved                       ✅
+├── package.json preserved                          ✅
+├── automated tests preserved                       ✅
+├── .npmignore preserved                            ✅
+└── Workshop README documented                      ✅
 
-Final back-end review                          ⏳ Deferred until later
+Build a Prime Number Checker Module                 ✅ 1/1
+├── Certification project passed                    ✅
+├── Project source preserved                        ✅
+├── package.json preserved                          ✅
+├── Local Node.js verification completed            ✅
+└── Project README documented                       ✅
+
+Final back-end review                               ⏳ Deferred until later
+```
+
+---
+
+## Current Learning Summary
+
+Completed guided workshops:
+
+```text
+3
+```
+
+Completed certification projects:
+
+```text
+1
+```
+
+Current practical record:
+
+```text
+Learn Node.js REPL                     23 / 23 ✅
+Build a File Processor                 30 / 30 ✅
+Build a Case Converter                 45 / 45 ✅
+Build a Prime Number Checker Module     1 / 1  ✅
 ```
 
 ---
@@ -757,14 +1033,19 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Case Converter
-45 / 45
+Build a Prime Number Checker Module
+Certification Project
+1 / 1
 ✅ Completed
 ```
 
 Previously completed:
 
 ```text
+Build a Case Converter
+45 / 45
+✅ Completed
+
 Build a File Processor
 30 / 30
 ✅ Completed

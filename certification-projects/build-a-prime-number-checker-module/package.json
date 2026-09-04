@@ -1,0 +1,14 @@
+{
+  "name": "prime-checker",
+  "version": "1.0.0",
+  "description": "A prime number checker module.",
+  "keywords": [
+    "prime",
+    "number",
+    "checker"
+  ],
+  "license": "MIT",
+  "author": "Duong Kim Cuong",
+  "type": "commonjs",
+  "main": "index.js"
+}
