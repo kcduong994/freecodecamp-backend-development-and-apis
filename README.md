@@ -62,11 +62,25 @@ workshops/
 │       ├── output.txt
 │       └── stream-output.txt
 │
-└── build-a-case-converter/
-    ├── .npmignore
-    ├── index.js
-    ├── index.test.js
+├── build-a-case-converter/
+│   ├── .npmignore
+│   ├── index.js
+│   ├── index.test.js
+│   ├── package.json
+│   └── README.md
+│
+└── build-a-web-server/
+    ├── public/
+    │   ├── 404.html
+    │   ├── about.html
+    │   ├── forrest1.png
+    │   ├── forrest2.png
+    │   ├── forrest3.png
+    │   ├── index.html
+    │   ├── products.html
+    │   └── style.css
     ├── package.json
+    ├── server.js
     └── README.md
 ```
 
@@ -135,11 +149,25 @@ freecodecamp-backend-development-and-apis/
 │   │       ├── output.txt
 │   │       └── stream-output.txt
 │   │
-│   └── build-a-case-converter/
-│       ├── .npmignore
-│       ├── index.js
-│       ├── index.test.js
+│   ├── build-a-case-converter/
+│   │   ├── .npmignore
+│   │   ├── index.js
+│   │   ├── index.test.js
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   └── build-a-web-server/
+│       ├── public/
+│       │   ├── 404.html
+│       │   ├── about.html
+│       │   ├── forrest1.png
+│       │   ├── forrest2.png
+│       │   ├── forrest3.png
+│       │   ├── index.html
+│       │   ├── products.html
+│       │   └── style.css
 │       ├── package.json
+│       ├── server.js
 │       └── README.md
 │
 ├── certification-projects/
@@ -161,18 +189,28 @@ No project directories are created before they are reached in the official curri
 
 ## Current Checkpoint
 
-**Date:** September 4, 2026
+**Date:** September 15, 2026
 
 Current curriculum area:
 
 ```text
 Back-End Development and APIs Certification
-└── Node.js and npm module development
-    ├── Node.js runtime and REPL
-    ├── Node.js core modules and streams
-    ├── npm package development and testing
-    └── Certification Project:
-        Build a Prime Number Checker Module
+└── HTTP and the Web Standards Model
+    ├── Understanding how HTTP, DNS and TCP/IP work
+    ├── Understanding the HTTP Request-Response Model
+    ├── Understanding the Web Standards Model
+    ├── Build a Web Server
+    │   └── 60 / 60 completed
+    ├── HTTP and the Web Standards Model Review
+    └── HTTP and the Web Standards Model Quiz
+```
+
+Latest completed practical checkpoint:
+
+```text
+Build a Web Server
+60 / 60 steps completed
+Status: Passed
 ```
 
 Completed practical workshops:
@@ -189,6 +227,10 @@ Status: Passed
 Build a Case Converter
 45 / 45 steps completed
 Status: Passed
+
+Build a Web Server
+60 / 60 steps completed
+Status: Passed
 ```
 
 Completed certification projects:
@@ -199,24 +241,33 @@ Build a Prime Number Checker Module
 Status: Passed
 ```
 
-The latest checkpoint moves from guided npm-package exercises into a requirement-driven certification project.
+The latest workshop moves from Node.js package development into the fundamentals of HTTP server implementation.
 
-The project applies:
+It applies:
 
 ```text
-npm package structure
-package.json metadata
-CommonJS
-module.exports
-algorithm design
-Number.isInteger()
-modulo arithmetic
-Math.sqrt()
-O(√n) reasoning
-freeCodeCamp automated project tests
+Node.js http module
+HTTP request-response model
+TCP port listening
+request.url
+request headers
+response.end()
+response.writeHead()
+HTTP 200 and 404 status codes
+Content-Type headers
+MIME types
+fs.readFile()
+path.join()
+path.extname()
+custom 404 handling
+CommonJS and ESM
+package.json type: module
+curl
+wrk load testing
+basic server-performance reasoning
 ```
 
-The next curriculum item will only be started after this checkpoint has been documented, committed, pushed, and submitted to freeCodeCamp.
+The next curriculum items are the **HTTP and the Web Standards Model Review** and **Quiz**.
 
 ---
 
@@ -227,6 +278,7 @@ The next curriculum item will only be started after this checkpoint has been doc
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
 | 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
 | 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
+| 4 | Build a Web Server | Workshop | ✅ Completed — 60/60 |
 
 ---
 
@@ -559,6 +611,245 @@ workshops/build-a-case-converter/README.md
 
 ---
 
+## Workshop 04 — Build a Web Server
+
+Location:
+
+```text
+workshops/build-a-web-server/
+```
+
+Main source file:
+
+```text
+workshops/build-a-web-server/server.js
+```
+
+ESM configuration:
+
+```text
+workshops/build-a-web-server/package.json
+```
+
+Static client files:
+
+```text
+workshops/build-a-web-server/public/
+├── 404.html
+├── about.html
+├── forrest1.png
+├── forrest2.png
+├── forrest3.png
+├── index.html
+├── products.html
+└── style.css
+```
+
+This workshop built a working HTTP server from scratch using Node.js core modules rather than a framework.
+
+The server listens on:
+
+```text
+http://localhost:3001
+```
+
+Topics practiced include:
+
+```text
+HTTP client-server architecture
+HTTP request-response model
+Node.js http module
+http.createServer()
+server.listen()
+TCP ports
+localhost
+curl
+curl --verbose
+
+request object
+request.headers
+request.url
+
+response object
+response.end()
+response.writeHead()
+
+URL-to-file mapping
+root path /
+index.html
+path.join()
+path.extname()
+file extensions
+
+fs.readFile()
+callback-based asynchronous I/O
+ErrnoException
+ENOENT
+error.message
+control flow with return
+
+custom 404 page
+HTTP 200 OK
+HTTP 404 Not Found
+
+Content-Type
+MIME types
+text/html
+text/css
+text/javascript
+image/png
+application/octet-stream
+
+CommonJS
+require()
+ECMAScript Modules
+import
+package.json
+"type": "module"
+
+wrk
+load testing
+threads
+concurrent connections
+requests per second
+server logging overhead
+```
+
+The server maps the root request:
+
+```text
+/
+```
+
+to:
+
+```text
+/index.html
+```
+
+using:
+
+```js
+const url = request.url === "/" ? "/index.html" : request.url;
+```
+
+It then builds the requested file path:
+
+```js
+const filePath = join("public", url);
+```
+
+The file extension is normalized:
+
+```js
+const ext = extname(filePath).toLowerCase();
+```
+
+A MIME mapping is used to choose the correct response media type:
+
+```js
+const mimeTypes = {
+  ".html": "text/html",
+  ".css": "text/css",
+  ".png": "image/png",
+  ".js": "text/javascript",
+};
+
+const contentType = mimeTypes[ext] || "application/octet-stream";
+```
+
+Requested files are read asynchronously:
+
+```js
+readFile(filePath, (error, file) => {
+  // success or 404 handling
+});
+```
+
+Successful responses use:
+
+```js
+response.writeHead(200, {
+  "Content-Type": contentType,
+});
+```
+
+Missing resources cause the server to read:
+
+```text
+public/404.html
+```
+
+and return:
+
+```text
+404 Not Found
+Content-Type: text/html
+```
+
+The project was also converted from CommonJS:
+
+```js
+const http = require("http");
+```
+
+to ESM:
+
+```js
+import http from "http";
+import { join, extname } from "path";
+import { readFile } from "fs";
+```
+
+with:
+
+```json
+{
+  "type": "module"
+}
+```
+
+in `package.json`.
+
+The server was tested manually with `curl`:
+
+```bash
+curl http://localhost:3001
+curl -v http://localhost:3001/not-found
+```
+
+and load-tested with:
+
+```bash
+wrk -t2 -c5 -d5s http://localhost:3001
+```
+
+The load test uses:
+
+```text
+2 worker threads
+5 concurrent connections
+5 second duration
+```
+
+The workshop also demonstrated why unnecessary per-request logging can reduce throughput.
+
+Full notes and explanations are available in:
+
+```text
+workshops/build-a-web-server/README.md
+```
+
+Completion status:
+
+```text
+Build a Web Server
+60 / 60
+✅ Completed
+```
+
+---
+
 ## Certification Project 01 — Build a Prime Number Checker Module
 
 Location:
@@ -619,19 +910,6 @@ module.exports = {
 };
 ```
 
-The package metadata includes:
-
-```text
-name
-version
-description
-keywords
-license
-author
-type: commonjs
-main: index.js
-```
-
 Important concepts applied:
 
 ```text
@@ -658,22 +936,6 @@ local Node.js verification
 
 user stories
 automated certification tests
-```
-
-Conceptually:
-
-```text
-Input number
-     ↓
-Integer and > 1?
-     ├── No → false
-     └── Yes
-           ↓
-Check divisors from 2 to √number
-           ↓
-Any exact divisor?
-     ├── Yes → false
-     └── No  → true
 ```
 
 Local verification:
@@ -778,6 +1040,8 @@ GitHub Codespaces
 Linux
 Bash
 freeCodeCamp course tooling
+wrk
+curl
 ```
 
 The local development environment and the freeCodeCamp Codespace are separate environments and may use different Node.js or npm versions.
@@ -837,7 +1101,7 @@ Publication dry run
 Publishable package
 ```
 
-The first certification project then required those concepts to be applied independently:
+The first certification project required those concepts to be applied independently:
 
 ```text
 User Stories
@@ -853,7 +1117,27 @@ Local Verification
 Certification Tests
 ```
 
-These concepts establish a foundation for later work with dependencies, servers, HTTP, APIs, middleware, databases, and larger back-end applications.
+The fourth workshop then moved into networking and HTTP:
+
+```text
+Client
+   ↓
+HTTP Request
+   ↓
+Node.js http Server
+   ↓
+URL → File Path
+   ↓
+File System
+   ↓
+HTTP Status + Headers + Body
+   ↓
+HTTP Response
+   ↓
+Client
+```
+
+This establishes a foundation for the upcoming Express, middleware, REST API, web-service, and database sections.
 
 ---
 
@@ -885,6 +1169,9 @@ Streams
 CommonJS modules
 → organizing reusable application functionality
 
+ES Modules
+→ modern JavaScript module organization
+
 package.json
 → package metadata, module configuration, and npm scripts
 
@@ -911,6 +1198,33 @@ O(√n)
 
 User stories
 → translating requirements into implementation
+
+HTTP requests
+→ communication from clients to web servers
+
+HTTP responses
+→ status, headers, and body returned by servers
+
+HTTP status codes
+→ machine-readable request outcomes
+
+Content-Type
+→ telling clients how to interpret response bodies
+
+MIME types
+→ mapping file formats to media types
+
+404 handling
+→ returning controlled responses for missing resources
+
+curl
+→ direct HTTP inspection and endpoint testing
+
+wrk
+→ simple HTTP load and throughput testing
+
+Request logging
+→ useful for debugging but potentially expensive at high request volume
 ```
 
 These comparisons are supplementary.
@@ -976,6 +1290,16 @@ Build a Prime Number Checker Module                 ✅ 1/1
 ├── Local Node.js verification completed            ✅
 └── Project README documented                       ✅
 
+Build a Web Server                                  ✅ 60/60
+├── Workshop source preserved                       ✅
+├── Static public assets preserved                  ✅
+├── package.json / ESM configuration preserved      ✅
+├── HTTP server implementation preserved            ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+
+HTTP and the Web Standards Model Review             ⏳ Next
+HTTP and the Web Standards Model Quiz               ⏳ Next
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -986,7 +1310,7 @@ Final back-end review                               ⏳ Deferred until later
 Completed guided workshops:
 
 ```text
-3
+4
 ```
 
 Completed certification projects:
@@ -1002,6 +1326,18 @@ Learn Node.js REPL                     23 / 23 ✅
 Build a File Processor                 30 / 30 ✅
 Build a Case Converter                 45 / 45 ✅
 Build a Prime Number Checker Module     1 / 1  ✅
+Build a Web Server                     60 / 60 ✅
+```
+
+Current curriculum checkpoint:
+
+```text
+HTTP and the Web Standards Model
+12 / 14 steps complete
+
+Remaining:
+- Review
+- Quiz
 ```
 
 ---
@@ -1033,15 +1369,20 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Prime Number Checker Module
-Certification Project
-1 / 1
+Build a Web Server
+Workshop
+60 / 60
 ✅ Completed
 ```
 
 Previously completed:
 
 ```text
+Build a Prime Number Checker Module
+Certification Project
+1 / 1
+✅ Completed
+
 Build a Case Converter
 45 / 45
 ✅ Completed
@@ -1053,4 +1394,11 @@ Build a File Processor
 Learn Node.js REPL
 23 / 23
 ✅ Completed
+```
+
+Next:
+
+```text
+HTTP and the Web Standards Model Review
+HTTP and the Web Standards Model Quiz
 ```
