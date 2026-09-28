@@ -69,16 +69,22 @@ workshops/
 │   ├── package.json
 │   └── README.md
 │
-└── build-a-web-server/
-    ├── public/
-    │   ├── 404.html
-    │   ├── about.html
-    │   ├── forrest1.png
-    │   ├── forrest2.png
-    │   ├── forrest3.png
-    │   ├── index.html
-    │   ├── products.html
-    │   └── style.css
+├── build-a-web-server/
+│   ├── public/
+│   │   ├── 404.html
+│   │   ├── about.html
+│   │   ├── forrest1.png
+│   │   ├── forrest2.png
+│   │   ├── forrest3.png
+│   │   ├── index.html
+│   │   ├── products.html
+│   │   └── style.css
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
+│
+└── build-a-random-joke-app/
+    ├── package-lock.json
     ├── package.json
     ├── server.js
     └── README.md
@@ -156,16 +162,22 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── package.json
 │   │   └── README.md
 │   │
-│   └── build-a-web-server/
-│       ├── public/
-│       │   ├── 404.html
-│       │   ├── about.html
-│       │   ├── forrest1.png
-│       │   ├── forrest2.png
-│       │   ├── forrest3.png
-│       │   ├── index.html
-│       │   ├── products.html
-│       │   └── style.css
+│   ├── build-a-web-server/
+│   │   ├── public/
+│   │   │   ├── 404.html
+│   │   │   ├── about.html
+│   │   │   ├── forrest1.png
+│   │   │   ├── forrest2.png
+│   │   │   ├── forrest3.png
+│   │   │   ├── index.html
+│   │   │   ├── products.html
+│   │   │   └── style.css
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   │
+│   └── build-a-random-joke-app/
+│       ├── package-lock.json
 │       ├── package.json
 │       ├── server.js
 │       └── README.md
@@ -189,27 +201,28 @@ No project directories are created before they are reached in the official curri
 
 ## Current Checkpoint
 
-**Date:** September 15, 2026
+**Date:** September 28, 2026
 
-Current curriculum area:
+Current practical curriculum area:
 
 ```text
 Back-End Development and APIs Certification
-└── HTTP and the Web Standards Model
-    ├── Understanding how HTTP, DNS and TCP/IP work
-    ├── Understanding the HTTP Request-Response Model
-    ├── Understanding the Web Standards Model
-    ├── Build a Web Server
-    │   └── 60 / 60 completed
-    ├── HTTP and the Web Standards Model Review
-    └── HTTP and the Web Standards Model Quiz
+└── Express.js fundamentals
+    ├── basic Express application setup
+    ├── routing with app.get()
+    ├── request and response objects
+    ├── response methods with res.send()
+    ├── Build a Random Joke App
+    │   └── 8 / 8 completed
+    └── Next practical item:
+        Certification Project — Build a Personal Profile App
 ```
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Web Server
-60 / 60 steps completed
+Build a Random Joke App
+8 / 8 steps completed
 Status: Passed
 ```
 
@@ -231,6 +244,10 @@ Status: Passed
 Build a Web Server
 60 / 60 steps completed
 Status: Passed
+
+Build a Random Joke App
+8 / 8 steps completed
+Status: Passed
 ```
 
 Completed certification projects:
@@ -241,33 +258,37 @@ Build a Prime Number Checker Module
 Status: Passed
 ```
 
-The latest workshop moves from Node.js package development into the fundamentals of HTTP server implementation.
+The latest workshop moves from lower-level Node.js HTTP handling into higher-level Express routing and response helpers.
 
 It applies:
 
 ```text
-Node.js http module
-HTTP request-response model
-TCP port listening
-request.url
-request headers
-response.end()
-response.writeHead()
-HTTP 200 and 404 status codes
-Content-Type headers
-MIME types
-fs.readFile()
-path.join()
-path.extname()
-custom 404 handling
-CommonJS and ESM
-package.json type: module
-curl
-wrk load testing
-basic server-performance reasoning
+Express.js
+CommonJS
+require("express")
+express()
+app.listen()
+app.get()
+req
+res
+res.send()
+HTTP GET routing
+HTTP 200 responses
+JavaScript arrays
+Math.random()
+Math.floor()
+random array selection
+package.json
+package-lock.json
+npm install
+node --check
+curl HTTP verification
+local browser/server testing
 ```
 
-The next curriculum items are the **HTTP and the Web Standards Model Review** and **Quiz**.
+The workshop was also verified locally after being copied from Codespaces: dependencies installed successfully, JavaScript syntax passed `node --check`, the Express server started on port `3000`, and `/`, `/joke`, and `/about` all returned `HTTP/1.1 200 OK`.
+
+The next practical item shown by the curriculum is **Certification Project — Build a Personal Profile App**.
 
 ---
 
@@ -279,6 +300,7 @@ The next curriculum items are the **HTTP and the Web Standards Model Review** an
 | 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
 | 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
 | 4 | Build a Web Server | Workshop | ✅ Completed — 60/60 |
+| 5 | Build a Random Joke App | Workshop | ✅ Completed — 8/8 |
 
 ---
 
@@ -850,6 +872,155 @@ Build a Web Server
 
 ---
 
+## Workshop 05 — Build a Random Joke App
+
+Location:
+
+```text
+workshops/build-a-random-joke-app/
+```
+
+Main source file:
+
+```text
+workshops/build-a-random-joke-app/server.js
+```
+
+Dependency metadata:
+
+```text
+workshops/build-a-random-joke-app/package.json
+workshops/build-a-random-joke-app/package-lock.json
+```
+
+This workshop introduced basic Express.js routing and response methods by building a small HTTP service that returns a welcome message, a random joke, and an about message.
+
+Topics practiced include:
+
+```text
+Express.js
+CommonJS
+require()
+express()
+Express application
+app.listen()
+
+HTTP GET
+routing
+route handlers
+app.get()
+req
+res
+res.send()
+HTTP 200 OK
+localhost
+port 3000
+
+JavaScript arrays
+global scope
+array indexing
+Math.random()
+Math.floor()
+array.length
+random selection
+
+npm install
+package.json
+package-lock.json
+node --check
+curl
+local HTTP verification
+```
+
+The application defines three routes:
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/` | Return the welcome message |
+| `GET` | `/joke` | Return one random joke |
+| `GET` | `/about` | Return information about the Express server |
+
+The Express application is created with:
+
+```js
+const express = require("express");
+const app = express();
+const port = 3000;
+```
+
+A route follows the pattern:
+
+```js
+app.get("/path", (req, res) => {
+  res.send("response");
+});
+```
+
+The random joke route uses:
+
+```js
+app.get("/joke", (req, res) => {
+  const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+  res.send(randomJoke);
+});
+```
+
+Conceptually:
+
+```text
+Client
+  ↓
+HTTP GET request
+  ↓
+Express router
+  ↓
+matching app.get(...)
+  ↓
+route handler
+  ↓
+res.send(...)
+  ↓
+HTTP response
+```
+
+Compared with the previous Node.js HTTP workshop:
+
+```text
+Node.js http                  Express
+-------------------------     -------------------------
+http.createServer()           express()
+request.url                   app.get("/path", ...)
+response.end()                res.send()
+server.listen()               app.listen()
+```
+
+Local verification completed successfully:
+
+```text
+npm install                   ✅
+node --check server.js        ✅
+node server.js                ✅
+GET /                         ✅ 200 OK
+GET /joke                     ✅ 200 OK
+GET /about                    ✅ 200 OK
+```
+
+Full notes and explanations are available in:
+
+```text
+workshops/build-a-random-joke-app/README.md
+```
+
+Completion status:
+
+```text
+Build a Random Joke App
+8 / 8
+✅ Completed
+```
+
+---
+
 ## Certification Project 01 — Build a Prime Number Checker Module
 
 Location:
@@ -1137,7 +1308,23 @@ HTTP Response
 Client
 ```
 
-This establishes a foundation for the upcoming Express, middleware, REST API, web-service, and database sections.
+The fifth workshop introduced Express on top of Node.js:
+
+```text
+Node.js
+   ↓
+Express
+   ↓
+app.get() routing
+   ↓
+req / res
+   ↓
+res.send()
+   ↓
+HTTP response
+```
+
+This establishes a foundation for later Express middleware, parameters, JSON APIs, REST services, error handling, databases, and larger back-end applications.
 
 ---
 
@@ -1225,6 +1412,21 @@ wrk
 
 Request logging
 → useful for debugging but potentially expensive at high request volume
+
+Express routing
+→ mapping HTTP methods and URL paths to application behavior
+
+app.get()
+→ declaring GET endpoints without manually inspecting request.url
+
+res.send()
+→ sending and completing Express responses with a high-level helper
+
+package-lock.json
+→ preserving a reproducible dependency resolution
+
+Random route responses
+→ generating dynamic server output from application data
 ```
 
 These comparisons are supplementary.
@@ -1298,8 +1500,17 @@ Build a Web Server                                  ✅ 60/60
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
 
-HTTP and the Web Standards Model Review             ⏳ Next
-HTTP and the Web Standards Model Quiz               ⏳ Next
+Build a Random Joke App                             ✅ 8/8
+├── Workshop source preserved                       ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Express dependency installed locally            ✅
+├── JavaScript syntax verification completed        ✅
+├── All three routes verified with HTTP 200          ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+
+Build a Personal Profile App                        ⏳ Next practical item
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -1310,7 +1521,7 @@ Final back-end review                               ⏳ Deferred until later
 Completed guided workshops:
 
 ```text
-4
+5
 ```
 
 Completed certification projects:
@@ -1327,17 +1538,30 @@ Build a File Processor                 30 / 30 ✅
 Build a Case Converter                 45 / 45 ✅
 Build a Prime Number Checker Module     1 / 1  ✅
 Build a Web Server                     60 / 60 ✅
+Build a Random Joke App                 8 / 8  ✅
 ```
 
-Current curriculum checkpoint:
+Current practical checkpoint:
 
 ```text
-HTTP and the Web Standards Model
-12 / 14 steps complete
+Express.js fundamentals
+Build a Random Joke App
+8 / 8 completed
 
-Remaining:
-- Review
-- Quiz
+Local verification:
+- npm install: passed
+- node --check server.js: passed
+- server startup on port 3000: passed
+- GET /: 200 OK
+- GET /joke: 200 OK
+- GET /about: 200 OK
+```
+
+Next practical curriculum item:
+
+```text
+Certification Project
+Build a Personal Profile App
 ```
 
 ---
@@ -1369,15 +1593,30 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Web Server
+Build a Random Joke App
 Workshop
-60 / 60
+8 / 8
 ✅ Completed
+```
+
+Local verification:
+
+```text
+npm install                   ✅
+node --check server.js        ✅
+node server.js                ✅
+GET /                         ✅ 200 OK
+GET /joke                     ✅ 200 OK
+GET /about                    ✅ 200 OK
 ```
 
 Previously completed:
 
 ```text
+Build a Web Server
+60 / 60
+✅ Completed
+
 Build a Prime Number Checker Module
 Certification Project
 1 / 1
@@ -1396,9 +1635,9 @@ Learn Node.js REPL
 ✅ Completed
 ```
 
-Next:
+Next practical item:
 
 ```text
-HTTP and the Web Standards Model Review
-HTTP and the Web Standards Model Quiz
+Certification Project
+Build a Personal Profile App
 ```
