@@ -109,9 +109,15 @@ Certification projects are stored separately from workshops:
 
 ```text
 certification-projects/
-└── build-a-prime-number-checker-module/
-    ├── index.js
+├── build-a-prime-number-checker-module/
+│   ├── index.js
+│   ├── package.json
+│   └── README.md
+│
+└── build-a-personal-profile-app/
+    ├── package-lock.json
     ├── package.json
+    ├── server.js
     └── README.md
 ```
 
@@ -176,9 +182,15 @@ freecodecamp-backend-development-and-apis/
 │       └── README.md
 │
 ├── certification-projects/
-│   └── build-a-prime-number-checker-module/
-│       ├── index.js
+│   ├── build-a-prime-number-checker-module/
+│   │   ├── index.js
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   └── build-a-personal-profile-app/
+│       ├── package-lock.json
 │       ├── package.json
+│       ├── server.js
 │       └── README.md
 │
 ├── .gitignore
@@ -298,6 +310,7 @@ The next practical item shown in the curriculum is **Build a Submission Form**.
 | # | Project | Type | Status |
 |---|---|---|---|
 | 1 | Build a Prime Number Checker Module | Certification Project | ✅ Completed — 1/1 |
+| 2 | Build a Personal Profile App | Certification Project | ✅ Completed — 1/1 |
 
 ---
 
@@ -741,7 +754,7 @@ Requested files are read asynchronously:
 
 ```js
 readFile(filePath, (error, file) => {
-  *// success or 404 handling*
+  // success or 404 handling
 });
 ```
 
