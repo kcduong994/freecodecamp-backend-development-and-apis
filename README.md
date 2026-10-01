@@ -1,5 +1,4 @@
 # freeCodeCamp Back-End Development and APIs
-
 Personal learning repository for the **freeCodeCamp Back-End Development and APIs Certification**.
 
 This repository follows the curriculum sequentially. The purpose is not only to complete the certification, but also to understand how back-end systems work, document the concepts learned, and preserve the code produced in workshops and certification projects.
@@ -7,7 +6,6 @@ This repository follows the curriculum sequentially. The purpose is not only to 
 ---
 
 ## Learning Approach
-
 The curriculum is studied in its official order without skipping ahead.
 
 The repository follows this workflow:
@@ -29,7 +27,6 @@ Final Back-End Review
 Each type of lesson is handled differently.
 
 ### Theory
-
 Theory lessons are studied directly through freeCodeCamp.
 
 Separate source files are not created for every theory lesson.
@@ -43,7 +40,6 @@ BACKEND_REVIEW.md
 This file will be completed after progressing through the curriculum rather than being used as a running lesson transcript.
 
 ### Workshops
-
 Every workshop that produces code receives its own directory.
 
 Current workshops:
@@ -102,7 +98,6 @@ Each workshop README documents:
 - workshop completion and verification.
 
 ### Reviews and Quizzes
-
 Reviews and quizzes are used to verify understanding.
 
 Answers are not stored as standalone projects merely to increase repository size.
@@ -110,7 +105,6 @@ Answers are not stored as standalone projects merely to increase repository size
 Important knowledge will later be summarized in `BACKEND_REVIEW.md`.
 
 ### Certification Projects
-
 Certification projects are stored separately from workshops:
 
 ```text
@@ -136,7 +130,6 @@ Each project directory preserves:
 ---
 
 ## Repository Structure
-
 Current structure:
 
 ```text
@@ -200,29 +193,27 @@ No project directories are created before they are reached in the official curri
 ---
 
 ## Current Checkpoint
-
-**Date:** September 28, 2026
+**Date:** October 1, 2026
 
 Current practical curriculum area:
 
 ```text
 Back-End Development and APIs Certification
-└── Express.js fundamentals
-    ├── basic Express application setup
-    ├── routing with app.get()
-    ├── request and response objects
-    ├── response methods with res.send()
+└── Express.js fundamentals and JSON APIs
     ├── Build a Random Joke App
     │   └── 8 / 8 completed
+    ├── Certification Project — Build a Personal Profile App
+    │   └── 1 / 1 completed
     └── Next practical item:
-        Certification Project — Build a Personal Profile App
+        Build a Submission Form
 ```
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Random Joke App
-8 / 8 steps completed
+Build a Personal Profile App
+Certification Project
+1 / 1 completed
 Status: Passed
 ```
 
@@ -232,19 +223,15 @@ Completed practical workshops:
 Learn Node.js REPL
 23 / 23 steps completed
 Status: Passed
-
 Build a File Processor
 30 / 30 steps completed
 Status: Passed
-
 Build a Case Converter
 45 / 45 steps completed
 Status: Passed
-
 Build a Web Server
 60 / 60 steps completed
 Status: Passed
-
 Build a Random Joke App
 8 / 8 steps completed
 Status: Passed
@@ -256,9 +243,12 @@ Completed certification projects:
 Build a Prime Number Checker Module
 1 / 1 completed
 Status: Passed
+Build a Personal Profile App
+1 / 1 completed
+Status: Passed
 ```
 
-The latest workshop moves from lower-level Node.js HTTP handling into higher-level Express routing and response helpers.
+The latest certification project applies Express routing independently and introduces a JSON API response with `res.json()`.
 
 It applies:
 
@@ -272,28 +262,28 @@ app.get()
 req
 res
 res.send()
+res.json()
 HTTP GET routing
 HTTP 200 responses
+JSON APIs
+application/json
+JavaScript objects
 JavaScript arrays
-Math.random()
-Math.floor()
-random array selection
 package.json
 package-lock.json
 npm install
 node --check
 curl HTTP verification
-local browser/server testing
+local server/API testing
 ```
 
-The workshop was also verified locally after being copied from Codespaces: dependencies installed successfully, JavaScript syntax passed `node --check`, the Express server started on port `3000`, and `/`, `/joke`, and `/about` all returned `HTTP/1.1 200 OK`.
+The project was verified locally after being copied from Codespaces: dependencies installed successfully, JavaScript syntax passed `node --check`, the Express server started on port `3000`, all four routes returned `HTTP/1.1 200 OK`, and `/api/profile` returned the expected JSON payload with the correct `application/json` content type.
 
-The next practical item shown by the curriculum is **Certification Project — Build a Personal Profile App**.
+The next practical item shown in the curriculum is **Build a Submission Form**.
 
 ---
 
 ## Completed Workshops
-
 | # | Workshop | Type | Status |
 |---|---|---|---|
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
@@ -305,7 +295,6 @@ The next practical item shown by the curriculum is **Certification Project — B
 ---
 
 ## Completed Certification Projects
-
 | # | Project | Type | Status |
 |---|---|---|---|
 | 1 | Build a Prime Number Checker Module | Certification Project | ✅ Completed — 1/1 |
@@ -313,7 +302,6 @@ The next practical item shown by the curriculum is **Certification Project — B
 ---
 
 ## Workshop 01 — Learn Node.js REPL
-
 Location:
 
 ```text
@@ -360,7 +348,6 @@ workshops/learn-nodejs-repl/README.md
 ---
 
 ## Workshop 02 — Build a File Processor
-
 Location:
 
 ```text
@@ -396,19 +383,16 @@ fs.writeFileSync()
 fs.appendFileSync()
 fs.existsSync()
 fs.readdirSync()
-
 Buffer
 Buffer.from()
 Buffer.alloc()
 UTF-8
 hexadecimal encoding
 Base64 encoding and decoding
-
 crypto
 SHA-256 hashing
 crypto.randomBytes()
 crypto.randomUUID()
-
 os
 os.platform()
 os.arch()
@@ -417,7 +401,6 @@ os.totalmem()
 os.freemem()
 os.uptime()
 os.cpus()
-
 path
 path.join()
 path.resolve()
@@ -425,7 +408,6 @@ path.basename()
 path.dirname()
 path.extname()
 path.parse()
-
 process
 process.version
 process.platform
@@ -433,7 +415,6 @@ process.env
 process.argv
 process.stdout
 process.stderr
-
 Streams
 fs.createReadStream()
 fs.createWriteStream()
@@ -448,7 +429,6 @@ The final workshop code connects a readable file stream directly to a writable f
 ```js
 const readable = fs.createReadStream("assets/poem.txt");
 const writable = fs.createWriteStream("assets/stream-output.txt");
-
 readable.pipe(writable);
 ```
 
@@ -475,7 +455,6 @@ workshops/build-a-file-processor/README.md
 ---
 
 ## Workshop 03 — Build a Case Converter
-
 Location:
 
 ```text
@@ -516,7 +495,6 @@ package.json
 package metadata
 entry point
 Semantic Versioning (SemVer)
-
 String transformation
 toUpperCase()
 toLowerCase()
@@ -525,23 +503,18 @@ slice()
 split()
 map()
 join()
-
 CommonJS
 module.exports
 require()
-
 Package README documentation
 usage examples
-
 node:assert/strict
 assert.strictEqual()
 automated tests
 intentional test failure
 test repair
-
 npm scripts
 npm test
-
 npm publish --dry-run
 npm package inspection
 .npmignore
@@ -562,18 +535,13 @@ Example:
 
 ```js
 const caseConverter = require("./index");
-
 const str = "hello free Code Camp!";
-
 console.log(caseConverter.getUpperCase(str));
 // HELLO FREE CODE CAMP!
-
 console.log(caseConverter.getLowerCase(str));
 // hello free code camp!
-
 console.log(caseConverter.getSentenceCase(str));
 // Hello free code camp!
-
 console.log(caseConverter.getProperCase(str));
 // Hello Free Code Camp!
 ```
@@ -594,7 +562,6 @@ The automated test suite uses Node.js's built-in strict assertion API:
 ```js
 const assert = require("node:assert/strict");
 const caseConverter = require("./index");
-
 assert.strictEqual(
   caseConverter.getUpperCase("hello free Code Camp!"),
   "HELLO FREE CODE CAMP!",
@@ -634,7 +601,6 @@ workshops/build-a-case-converter/README.md
 ---
 
 ## Workshop 04 — Build a Web Server
-
 Location:
 
 ```text
@@ -687,33 +653,27 @@ TCP ports
 localhost
 curl
 curl --verbose
-
 request object
 request.headers
 request.url
-
 response object
 response.end()
 response.writeHead()
-
 URL-to-file mapping
 root path /
 index.html
 path.join()
 path.extname()
 file extensions
-
 fs.readFile()
 callback-based asynchronous I/O
 ErrnoException
 ENOENT
 error.message
 control flow with return
-
 custom 404 page
 HTTP 200 OK
 HTTP 404 Not Found
-
 Content-Type
 MIME types
 text/html
@@ -721,14 +681,12 @@ text/css
 text/javascript
 image/png
 application/octet-stream
-
 CommonJS
 require()
 ECMAScript Modules
 import
 package.json
 "type": "module"
-
 wrk
 load testing
 threads
@@ -776,7 +734,6 @@ const mimeTypes = {
   ".png": "image/png",
   ".js": "text/javascript",
 };
-
 const contentType = mimeTypes[ext] || "application/octet-stream";
 ```
 
@@ -784,7 +741,7 @@ Requested files are read asynchronously:
 
 ```js
 readFile(filePath, (error, file) => {
-  // success or 404 handling
+  *// success or 404 handling*
 });
 ```
 
@@ -873,7 +830,6 @@ Build a Web Server
 ---
 
 ## Workshop 05 — Build a Random Joke App
-
 Location:
 
 ```text
@@ -904,7 +860,6 @@ require()
 express()
 Express application
 app.listen()
-
 HTTP GET
 routing
 route handlers
@@ -915,7 +870,6 @@ res.send()
 HTTP 200 OK
 localhost
 port 3000
-
 JavaScript arrays
 global scope
 array indexing
@@ -923,7 +877,6 @@ Math.random()
 Math.floor()
 array.length
 random selection
-
 npm install
 package.json
 package-lock.json
@@ -1022,7 +975,6 @@ Build a Random Joke App
 ---
 
 ## Certification Project 01 — Build a Prime Number Checker Module
-
 Location:
 
 ```text
@@ -1066,16 +1018,13 @@ function isPrime(number) {
   if (!Number.isInteger(number) || number <= 1) {
     return false;
   }
-
   for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {
       return false;
     }
   }
-
   return true;
 }
-
 module.exports = {
   isPrime,
 };
@@ -1089,22 +1038,17 @@ package.json
 CommonJS
 module.exports
 named exports
-
 Number.isInteger()
 input validation
 prime-number definition
-
 modulo operator %
 divisibility testing
-
 Math.sqrt()
 factor-pair reasoning
 O(√n) time complexity
-
 require()
 destructuring import
 local Node.js verification
-
 user stories
 automated certification tests
 ```
@@ -1137,32 +1081,148 @@ certification-projects/build-a-prime-number-checker-module/README.md
 
 ---
 
-## Repository Principles
+## Certification Project 02 — Build a Personal Profile App
+Location:
 
+```text
+certification-projects/build-a-personal-profile-app/
+```
+
+Main source file:
+
+```text
+certification-projects/build-a-personal-profile-app/server.js
+```
+
+Dependency metadata:
+
+```text
+certification-projects/build-a-personal-profile-app/package.json
+certification-projects/build-a-personal-profile-app/package-lock.json
+```
+
+Project documentation:
+
+```text
+certification-projects/build-a-personal-profile-app/README.md
+```
+
+This is the second certification project preserved in the repository.
+
+The project required an Express HTTP server listening on port `3000` with three plain-text routes and one JSON API route.
+
+Required routes:
+
+| Method | Path | Response |
+|---|---|---|
+| `GET` | `/` | `Welcome to Camper Bot's homepage!` |
+| `GET` | `/hobbies` | `I cycle, go boating, and play guitar.` |
+| `GET` | `/skills` | `JavaScript, Node.js, and Express.js!` |
+| `GET` | `/api/profile` | JSON profile object |
+
+Final JSON route:
+
+```js
+app.get("/api/profile", (req, res) => {
+  res.json({
+    name: "Camper Bot",
+    hobbies: ["cycling", "boating", "guitar"],
+    skills: ["JavaScript", "Node.js", "Express.js"],
+  });
+});
+```
+
+Expected JSON response:
+
+```json
+{
+  "name": "Camper Bot",
+  "hobbies": ["cycling", "boating", "guitar"],
+  "skills": ["JavaScript", "Node.js", "Express.js"]
+}
+```
+
+Important concepts applied:
+
+```text
+Express.js
+CommonJS
+require()
+app.get()
+app.listen()
+HTTP GET
+route handlers
+req
+res
+res.send()
+res.json()
+HTTP 200 OK
+Content-Type
+application/json
+JSON serialization
+JavaScript objects
+JavaScript arrays
+npm init
+npm install
+package.json
+package-lock.json
+node --check
+curl
+local API verification
+user stories
+automated certification tests
+```
+
+Local verification completed successfully:
+
+```text
+npm install                      ✅
+node --check server.js           ✅
+node server.js                   ✅
+GET /                            ✅ 200 OK
+GET /hobbies                     ✅ 200 OK
+GET /skills                      ✅ 200 OK
+GET /api/profile                 ✅ 200 OK
+JSON Content-Type                ✅ application/json
+JSON object shape                ✅
+```
+
+The project passed the official freeCodeCamp certification-project tests:
+
+```text
+Build a Personal Profile App
+1 / 1
+✅ Completed
+```
+
+Full notes and explanations are available in:
+
+```text
+certification-projects/build-a-personal-profile-app/README.md
+```
+
+---
+
+## Repository Principles
 This repository follows several rules throughout the certification.
 
 ### 1. Curriculum First
-
 The official freeCodeCamp curriculum determines the learning order.
 
 Topics are not implemented early simply because they will be needed later.
 
 ### 2. Understand Before Expanding
-
 Code is kept as small as the lesson requires.
 
 Additional files are not created simply to make a workshop or project look more complex.
 
 ### 3. Preserve Practical Work
-
 Workshop and certification-project source code is stored after the corresponding freeCodeCamp work has been successfully completed.
 
 ### 4. Document How Things Work
-
 README files are intended to explain the reasoning behind the code rather than merely repeat instructions.
 
 ### 5. Separate Workshops from Certification Projects
-
 Guided workshops are stored under:
 
 ```text
@@ -1178,13 +1238,11 @@ certification-projects/
 This keeps practice exercises separate from independently completed assessment work.
 
 ### 6. Separate Practice from Final Review
-
 Workshop and certification-project README files document individual practical exercises.
 
 `BACKEND_REVIEW.md` will eventually serve as the consolidated theoretical review for the complete back-end curriculum.
 
 ### 7. Do Not Copy Course Infrastructure
-
 freeCodeCamp testing infrastructure, course runners, loggers, and internal grading files are not copied into this repository unless they are explicitly part of a project requirement.
 
 Only the learner's relevant source code and documentation are preserved.
@@ -1192,7 +1250,6 @@ Only the learner's relevant source code and documentation are preserved.
 ---
 
 ## Development Environment
-
 The repository is developed locally using:
 
 ```text
@@ -1220,7 +1277,6 @@ The local development environment and the freeCodeCamp Codespace are separate en
 ---
 
 ## Node.js in This Curriculum
-
 Node.js is the JavaScript runtime used throughout the back-end curriculum.
 
 The first workshop demonstrated several ways Node.js can execute JavaScript:
@@ -1229,11 +1285,9 @@ The first workshop demonstrated several ways Node.js can execute JavaScript:
 JavaScript expression
         ↓
 node -e / node -p
-
 JavaScript file
         ↓
 node file.js
-
 Interactive input
         ↓
 Node.js REPL
@@ -1324,12 +1378,29 @@ res.send()
 HTTP response
 ```
 
+The second certification project then applies Express independently and introduces a JSON API:
+
+```text
+User Stories
+    ↓
+Express Server
+    ↓
+GET Routes
+    ↓
+res.send() / res.json()
+    ↓
+JSON API
+    ↓
+Local Verification
+    ↓
+Certification Tests
+```
+
 This establishes a foundation for later Express middleware, parameters, JSON APIs, REST services, error handling, databases, and larger back-end applications.
 
 ---
 
 ## Real-World Learning
-
 When useful, concepts from the curriculum are compared with real-world back-end development.
 
 Examples from the completed work include:
@@ -1337,94 +1408,64 @@ Examples from the completed work include:
 ```text
 File System
 → reading and writing application data
-
 Buffer
 → binary data, files, network payloads
-
 Crypto
 → hashing, secure random values, identifiers
-
 Path
 → safe cross-platform file paths
-
 Process
 → environment configuration and command-line arguments
-
 Streams
 → large files, uploads, downloads, networking, media processing
-
 CommonJS modules
 → organizing reusable application functionality
-
 ES Modules
 → modern JavaScript module organization
-
 package.json
 → package metadata, module configuration, and npm scripts
-
 Automated assertions
 → detecting regressions and incorrect behavior
-
 Semantic Versioning
 → communicating release compatibility
-
 npm publish --dry-run
 → validating package contents before publication
-
 .npmignore
 → controlling what is distributed in an npm package
-
 Modulo arithmetic
 → divisibility and algorithmic checks
-
 Math.sqrt()
 → reducing unnecessary search work
-
 O(√n)
 → reasoning about algorithmic efficiency
-
 User stories
 → translating requirements into implementation
-
 HTTP requests
 → communication from clients to web servers
-
 HTTP responses
 → status, headers, and body returned by servers
-
 HTTP status codes
 → machine-readable request outcomes
-
 Content-Type
 → telling clients how to interpret response bodies
-
 MIME types
 → mapping file formats to media types
-
 404 handling
 → returning controlled responses for missing resources
-
 curl
 → direct HTTP inspection and endpoint testing
-
 wrk
 → simple HTTP load and throughput testing
-
 Request logging
 → useful for debugging but potentially expensive at high request volume
-
 Express routing
 → mapping HTTP methods and URL paths to application behavior
-
 app.get()
 → declaring GET endpoints without manually inspecting request.url
-
 res.send()
 → sending and completing Express responses with a high-level helper
-
 package-lock.json
 → preserving a reproducible dependency resolution
-
 Random route responses
 → generating dynamic server output from application data
 ```
@@ -1436,7 +1477,6 @@ They do not replace the official curriculum or change its learning order.
 ---
 
 ## Documentation Strategy
-
 Documentation is organized at three levels:
 
 ```text
@@ -1448,50 +1488,41 @@ BACKEND_REVIEW.md
 ```
 
 ### Workshop README
-
 Explains one guided practical workshop in detail.
 
 ### Certification Project README
-
 Documents a complete requirement-driven project, including implementation, algorithm or architecture, verification, and completion status.
 
 ### BACKEND_REVIEW.md
-
 Will consolidate the major theoretical concepts learned throughout the complete certification.
 
 ---
 
 ## Progress
-
 ```text
 Repository initialized                              ✅
 Node.js and npm local environment verified          ✅
 Git remote configured                               ✅
-Main branch synchronized                            ✅
-
+Main branch synchronized                             ✅
 Learn Node.js REPL                                  ✅ 23/23
 ├── Workshop source preserved                       ✅
 └── Workshop README documented                      ✅
-
 Build a File Processor                              ✅ 30/30
 ├── Workshop source preserved                       ✅
 ├── Workshop assets preserved                       ✅
 └── Workshop README documented                      ✅
-
 Build a Case Converter                              ✅ 45/45
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
 ├── automated tests preserved                       ✅
 ├── .npmignore preserved                            ✅
 └── Workshop README documented                      ✅
-
 Build a Prime Number Checker Module                 ✅ 1/1
 ├── Certification project passed                    ✅
 ├── Project source preserved                        ✅
 ├── package.json preserved                          ✅
 ├── Local Node.js verification completed            ✅
 └── Project README documented                       ✅
-
 Build a Web Server                                  ✅ 60/60
 ├── Workshop source preserved                       ✅
 ├── Static public assets preserved                  ✅
@@ -1499,7 +1530,6 @@ Build a Web Server                                  ✅ 60/60
 ├── HTTP server implementation preserved            ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
 Build a Random Joke App                             ✅ 8/8
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
@@ -1509,15 +1539,24 @@ Build a Random Joke App                             ✅ 8/8
 ├── All three routes verified with HTTP 200          ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
-Build a Personal Profile App                        ⏳ Next practical item
+Build a Personal Profile App                        ✅ 1/1
+├── Certification project passed                    ✅
+├── Project source preserved                        ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Express dependency installed locally            ✅
+├── JavaScript syntax verification completed        ✅
+├── All four routes verified with HTTP 200           ✅
+├── JSON Content-Type verified                      ✅
+├── JSON response shape verified                    ✅
+└── Project README documented                       ✅
+Build a Submission Form                             ⏳ Next practical item
 Final back-end review                               ⏳ Deferred until later
 ```
 
 ---
 
 ## Current Learning Summary
-
 Completed guided workshops:
 
 ```text
@@ -1527,7 +1566,7 @@ Completed guided workshops:
 Completed certification projects:
 
 ```text
-1
+2
 ```
 
 Current practical record:
@@ -1539,35 +1578,36 @@ Build a Case Converter                 45 / 45 ✅
 Build a Prime Number Checker Module     1 / 1  ✅
 Build a Web Server                     60 / 60 ✅
 Build a Random Joke App                 8 / 8  ✅
+Build a Personal Profile App            1 / 1  ✅
 ```
 
 Current practical checkpoint:
 
 ```text
-Express.js fundamentals
-Build a Random Joke App
-8 / 8 completed
-
+Certification Project
+Build a Personal Profile App
+1 / 1 completed
 Local verification:
 - npm install: passed
 - node --check server.js: passed
 - server startup on port 3000: passed
 - GET /: 200 OK
-- GET /joke: 200 OK
-- GET /about: 200 OK
+- GET /hobbies: 200 OK
+- GET /skills: 200 OK
+- GET /api/profile: 200 OK
+- /api/profile Content-Type: application/json
+- JSON profile object: verified
 ```
 
 Next practical curriculum item:
 
 ```text
-Certification Project
-Build a Personal Profile App
+Build a Submission Form
 ```
 
 ---
 
 ## Goal
-
 The long-term objective of this repository is to demonstrate both:
 
 ```text
@@ -1583,7 +1623,6 @@ Understanding why the code works, being able to explain it, and applying the sam
 ---
 
 ## Current Status
-
 **freeCodeCamp Back-End Development and APIs Certification**
 
 ```text
@@ -1593,43 +1632,45 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Random Joke App
-Workshop
-8 / 8
+Build a Personal Profile App
+Certification Project
+1 / 1
 ✅ Completed
 ```
 
 Local verification:
 
 ```text
-npm install                   ✅
-node --check server.js        ✅
-node server.js                ✅
-GET /                         ✅ 200 OK
-GET /joke                     ✅ 200 OK
-GET /about                    ✅ 200 OK
+npm install                      ✅
+node --check server.js           ✅
+node server.js                   ✅
+GET /                            ✅ 200 OK
+GET /hobbies                     ✅ 200 OK
+GET /skills                      ✅ 200 OK
+GET /api/profile                 ✅ 200 OK
+Content-Type: application/json   ✅
+JSON profile payload             ✅
 ```
 
 Previously completed:
 
 ```text
+Build a Random Joke App
+8 / 8
+✅ Completed
 Build a Web Server
 60 / 60
 ✅ Completed
-
 Build a Prime Number Checker Module
 Certification Project
 1 / 1
 ✅ Completed
-
 Build a Case Converter
 45 / 45
 ✅ Completed
-
 Build a File Processor
 30 / 30
 ✅ Completed
-
 Learn Node.js REPL
 23 / 23
 ✅ Completed
@@ -1638,6 +1679,5 @@ Learn Node.js REPL
 Next practical item:
 
 ```text
-Certification Project
-Build a Personal Profile App
+Build a Submission Form
 ```
