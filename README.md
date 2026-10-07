@@ -79,7 +79,17 @@ workshops/
 │   ├── server.js
 │   └── README.md
 │
-└── build-a-random-joke-app/
+├── build-a-random-joke-app/
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
+│
+└── build-a-submission-form/
+    ├── middleware/
+    │   └── error.middleware.js
+    ├── routes/
+    │   └── api.routes.js
     ├── package-lock.json
     ├── package.json
     ├── server.js
@@ -175,7 +185,17 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── server.js
 │   │   └── README.md
 │   │
-│   └── build-a-random-joke-app/
+│   ├── build-a-random-joke-app/
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   │
+│   └── build-a-submission-form/
+│       ├── middleware/
+│       │   └── error.middleware.js
+│       ├── routes/
+│       │   └── api.routes.js
 │       ├── package-lock.json
 │       ├── package.json
 │       ├── server.js
@@ -205,27 +225,27 @@ No project directories are created before they are reached in the official curri
 ---
 
 ## Current Checkpoint
-**Date:** October 1, 2026
+**Date:** October 7, 2026
 
 Current practical curriculum area:
 
 ```text
 Back-End Development and APIs Certification
-└── Express.js fundamentals and JSON APIs
-    ├── Build a Random Joke App
-    │   └── 8 / 8 completed
-    ├── Certification Project — Build a Personal Profile App
-    │   └── 1 / 1 completed
+└── Express Middleware
+    ├── Express Middleware Theory
+    │   └── completed
+    ├── Build a Submission Form
+    │   └── 22 / 22 completed
     └── Next practical item:
-        Build a Submission Form
+        Build a Data Sanitizer
 ```
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Personal Profile App
-Certification Project
-1 / 1 completed
+Build a Submission Form
+Workshop
+22 / 22 completed
 Status: Passed
 ```
 
@@ -247,6 +267,9 @@ Status: Passed
 Build a Random Joke App
 8 / 8 steps completed
 Status: Passed
+Build a Submission Form
+22 / 22 steps completed
+Status: Passed
 ```
 
 Completed certification projects:
@@ -260,38 +283,45 @@ Build a Personal Profile App
 Status: Passed
 ```
 
-The latest certification project applies Express routing independently and introduces a JSON API response with `res.json()`.
+The latest workshop moves from basic Express routing into the middleware execution model and structured API organization.
 
 It applies:
 
 ```text
 Express.js
-CommonJS
-require("express")
-express()
-app.listen()
-app.get()
+ES Modules
+import / export
+app.use()
+application-level middleware
+express.json()
+express.urlencoded()
+Router()
+router.get()
+router-level routing
+base-path mounting
 req
 res
-res.send()
+next
+next(error)
+404 handling
+400 handling
+500 handling
+custom error middleware
+(err, req, res, next)
+res.status()
 res.json()
-HTTP GET routing
-HTTP 200 responses
-JSON APIs
-application/json
-JavaScript objects
-JavaScript arrays
+middleware ordering
 package.json
 package-lock.json
 npm install
 node --check
 curl HTTP verification
-local server/API testing
+local API testing
 ```
 
-The project was verified locally after being copied from Codespaces: dependencies installed successfully, JavaScript syntax passed `node --check`, the Express server started on port `3000`, all four routes returned `HTTP/1.1 200 OK`, and `/api/profile` returned the expected JSON payload with the correct `application/json` content type.
+The workshop was verified locally after being copied from Codespaces: dependencies installed successfully, all three JavaScript files passed `node --check`, the Express server started on port `3000`, and the `/api`, `/api/crash`, `/api/bad-request`, and `/nonsense` routes returned the expected `200`, `500`, `400`, and `404` responses.
 
-The next practical item shown in the curriculum is **Build a Submission Form**.
+The next practical item shown in the curriculum is **Build a Data Sanitizer**.
 
 ---
 
@@ -303,6 +333,7 @@ The next practical item shown in the curriculum is **Build a Submission Form**.
 | 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
 | 4 | Build a Web Server | Workshop | ✅ Completed — 60/60 |
 | 5 | Build a Random Joke App | Workshop | ✅ Completed — 8/8 |
+| 6 | Build a Submission Form | Workshop | ✅ Completed — 22/22 |
 
 ---
 
@@ -987,6 +1018,208 @@ Build a Random Joke App
 
 ---
 
+## Workshop 06 — Build a Submission Form
+Location:
+
+```text
+workshops/build-a-submission-form/
+```
+
+Main source file:
+
+```text
+workshops/build-a-submission-form/server.js
+```
+
+Router module:
+
+```text
+workshops/build-a-submission-form/routes/api.routes.js
+```
+
+Error middleware:
+
+```text
+workshops/build-a-submission-form/middleware/error.middleware.js
+```
+
+Dependency metadata:
+
+```text
+workshops/build-a-submission-form/package.json
+workshops/build-a-submission-form/package-lock.json
+```
+
+This workshop introduced the Express middleware execution model by building a structured API with application-level middleware, router-level organization, request-body parsing, 404 handling, and centralized error handling.
+
+Topics practiced include:
+
+```text
+Express.js
+ES Modules
+import
+export default
+named exports
+app.use()
+application-level middleware
+router-level middleware
+express.json()
+express.urlencoded()
+req
+res
+next
+NextFunction
+Router()
+router.get()
+base paths
+route mounting
+HTTP 200
+HTTP 400
+HTTP 404
+HTTP 500
+next(error)
+error.status
+req.originalUrl
+error-handling middleware
+(err, req, res, next)
+res.status()
+res.json()
+middleware ordering
+JSON error responses
+npm start
+node --check
+curl
+local API verification
+```
+
+The application-level middleware stack is assembled in `server.js`:
+
+```js
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api", apiRouter);
+
+app.use(notFoundHandler);
+app.use(finalErrorHandler);
+```
+
+The API router defines three routes:
+
+| Method | Path | Purpose |
+|---|---|---|
+| `GET` | `/api` | Return `API is available!` |
+| `GET` | `/api/crash` | Demonstrate an internal `500` error |
+| `GET` | `/api/bad-request` | Demonstrate a custom `400` error |
+
+The router is mounted under a shared base path:
+
+```js
+app.use("/api", apiRouter);
+```
+
+The workshop demonstrates the difference between normal middleware flow:
+
+```text
+next()
+↓
+continue to the next regular middleware or route
+```
+
+and error flow:
+
+```text
+next(error)
+↓
+skip regular handlers
+↓
+enter error-handling middleware
+```
+
+A catch-all handler creates controlled `404` errors:
+
+```js
+function notFoundHandler(req, res, next) {
+  const error = new Error(`Not Found - ${req.originalUrl}`);
+  error.status = 404;
+  next(error);
+}
+```
+
+The final error middleware uses Express's four-parameter error-handler signature:
+
+```js
+function finalErrorHandler(err, req, res, next) {
+  const status = err.status || 500;
+
+  console.error(err);
+
+  res.status(status).json({
+    error: true,
+    status,
+    message:
+      status === 500
+        ? "Internal Server Error (Check Server Logs)"
+        : err.message,
+  });
+}
+```
+
+Conceptually:
+
+```text
+Incoming Request
+      ↓
+Logger Middleware
+      ↓
+express.json()
+      ↓
+express.urlencoded()
+      ↓
+API Router
+      ↓
+notFoundHandler
+      ↓
+finalErrorHandler
+      ↓
+HTTP Response
+```
+
+Local verification completed successfully:
+
+```text
+npm install                                  ✅
+node --check server.js                       ✅
+node --check routes/api.routes.js            ✅
+node --check middleware/error.middleware.js  ✅
+npm start                                    ✅
+GET /api                                     ✅ 200
+GET /api/crash                               ✅ 500
+GET /api/bad-request                         ✅ 400
+GET /nonsense                                ✅ 404
+```
+
+Full notes and explanations are available in:
+
+```text
+workshops/build-a-submission-form/README.md
+```
+
+Completion status:
+
+```text
+Build a Submission Form
+22 / 22
+✅ Completed
+```
+
+---
+
 ## Certification Project 01 — Build a Prime Number Checker Module
 Location:
 
@@ -1409,7 +1642,25 @@ Local Verification
 Certification Tests
 ```
 
-This establishes a foundation for later Express middleware, parameters, JSON APIs, REST services, error handling, databases, and larger back-end applications.
+The sixth workshop then introduces Express middleware and centralized error handling:
+
+```text
+Incoming Request
+    ↓
+Application Middleware
+    ↓
+Body Parsers
+    ↓
+Mounted Router
+    ↓
+Route Handler
+    ↓
+404 / Error Pipeline
+    ↓
+JSON Response
+```
+
+This establishes a foundation for later data sanitization, REST services, validation, WebSockets, databases, and larger back-end applications.
 
 ---
 
@@ -1481,7 +1732,18 @@ package-lock.json
 → preserving a reproducible dependency resolution
 Random route responses
 → generating dynamic server output from application data
+Application-level middleware
+→ applying shared behavior before requests reach route handlers
+Express Router
+→ separating route definitions from the application entry point
+next()
+→ continuing the normal middleware execution chain
+next(error)
+→ transferring control into the Express error-handling pipeline
+Centralized error handling
+→ producing consistent API error responses from one shared location
 ```
+
 
 These comparisons are supplementary.
 
@@ -1517,25 +1779,30 @@ Repository initialized                              ✅
 Node.js and npm local environment verified          ✅
 Git remote configured                               ✅
 Main branch synchronized                             ✅
+
 Learn Node.js REPL                                  ✅ 23/23
 ├── Workshop source preserved                       ✅
 └── Workshop README documented                      ✅
+
 Build a File Processor                              ✅ 30/30
 ├── Workshop source preserved                       ✅
 ├── Workshop assets preserved                       ✅
 └── Workshop README documented                      ✅
+
 Build a Case Converter                              ✅ 45/45
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
 ├── automated tests preserved                       ✅
 ├── .npmignore preserved                            ✅
 └── Workshop README documented                      ✅
+
 Build a Prime Number Checker Module                 ✅ 1/1
 ├── Certification project passed                    ✅
 ├── Project source preserved                        ✅
 ├── package.json preserved                          ✅
 ├── Local Node.js verification completed            ✅
 └── Project README documented                       ✅
+
 Build a Web Server                                  ✅ 60/60
 ├── Workshop source preserved                       ✅
 ├── Static public assets preserved                  ✅
@@ -1543,15 +1810,17 @@ Build a Web Server                                  ✅ 60/60
 ├── HTTP server implementation preserved            ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
+
 Build a Random Joke App                             ✅ 8/8
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
 ├── package-lock.json preserved                     ✅
 ├── Express dependency installed locally            ✅
 ├── JavaScript syntax verification completed        ✅
-├── All three routes verified with HTTP 200          ✅
+├── All three routes verified with HTTP 200         ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
+
 Build a Personal Profile App                        ✅ 1/1
 ├── Certification project passed                    ✅
 ├── Project source preserved                        ✅
@@ -1559,11 +1828,24 @@ Build a Personal Profile App                        ✅ 1/1
 ├── package-lock.json preserved                     ✅
 ├── Express dependency installed locally            ✅
 ├── JavaScript syntax verification completed        ✅
-├── All four routes verified with HTTP 200           ✅
+├── All four routes verified with HTTP 200          ✅
 ├── JSON Content-Type verified                      ✅
 ├── JSON response shape verified                    ✅
 └── Project README documented                       ✅
-Build a Submission Form                             ⏳ Next practical item
+
+Build a Submission Form                             ✅ 22/22
+├── Workshop source preserved                       ✅
+├── middleware/error.middleware.js preserved        ✅
+├── routes/api.routes.js preserved                  ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Local dependency installation completed         ✅
+├── JavaScript syntax verification completed        ✅
+├── 200 / 400 / 404 / 500 routes verified          ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+
+Build a Data Sanitizer                              ⏳ Next practical item
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -1573,7 +1855,7 @@ Final back-end review                               ⏳ Deferred until later
 Completed guided workshops:
 
 ```text
-5
+6
 ```
 
 Completed certification projects:
@@ -1592,30 +1874,33 @@ Build a Prime Number Checker Module     1 / 1  ✅
 Build a Web Server                     60 / 60 ✅
 Build a Random Joke App                 8 / 8  ✅
 Build a Personal Profile App            1 / 1  ✅
+Build a Submission Form                22 / 22 ✅
 ```
 
 Current practical checkpoint:
 
 ```text
-Certification Project
-Build a Personal Profile App
-1 / 1 completed
+Workshop
+Build a Submission Form
+22 / 22 completed
+
 Local verification:
-- npm install: passed
+- npm install: completed
 - node --check server.js: passed
+- node --check routes/api.routes.js: passed
+- node --check middleware/error.middleware.js: passed
 - server startup on port 3000: passed
-- GET /: 200 OK
-- GET /hobbies: 200 OK
-- GET /skills: 200 OK
-- GET /api/profile: 200 OK
-- /api/profile Content-Type: application/json
-- JSON profile object: verified
+- GET /api: 200 OK
+- GET /api/crash: 500
+- GET /api/bad-request: 400
+- GET /nonsense: 404
+- JSON error responses: verified
 ```
 
 Next practical curriculum item:
 
 ```text
-Build a Submission Form
+Build a Data Sanitizer
 ```
 
 ---
@@ -1645,29 +1930,33 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Personal Profile App
-Certification Project
-1 / 1
+Build a Submission Form
+Workshop
+22 / 22
 ✅ Completed
 ```
 
 Local verification:
 
 ```text
-npm install                      ✅
-node --check server.js           ✅
-node server.js                   ✅
-GET /                            ✅ 200 OK
-GET /hobbies                     ✅ 200 OK
-GET /skills                      ✅ 200 OK
-GET /api/profile                 ✅ 200 OK
-Content-Type: application/json   ✅
-JSON profile payload             ✅
+npm install                                  ✅
+node --check server.js                       ✅
+node --check routes/api.routes.js            ✅
+node --check middleware/error.middleware.js  ✅
+npm start                                    ✅
+GET /api                                     ✅ 200
+GET /api/crash                               ✅ 500
+GET /api/bad-request                         ✅ 400
+GET /nonsense                                ✅ 404
 ```
 
 Previously completed:
 
 ```text
+Build a Personal Profile App
+Certification Project
+1 / 1
+✅ Completed
 Build a Random Joke App
 8 / 8
 ✅ Completed
@@ -1692,5 +1981,5 @@ Learn Node.js REPL
 Next practical item:
 
 ```text
-Build a Submission Form
+Build a Data Sanitizer
 ```
