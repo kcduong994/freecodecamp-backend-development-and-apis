@@ -1,4 +1,4 @@
-# freeCodeCamp Back-End Development and APIs
+# **freeCodeCamp Back-End Development and APIs**
 
 Personal learning repository for the **freeCodeCamp Back-End Development and APIs Certification**.
 
@@ -6,7 +6,7 @@ This repository follows the curriculum sequentially. The purpose is not only to 
 
 ---
 
-## Learning Approach
+## **Learning Approach**
 
 The curriculum is studied in its official order without skipping ahead.
 
@@ -28,7 +28,7 @@ Final Back-End Review
 
 Each type of lesson is handled differently.
 
-### Theory
+### **Theory**
 
 Theory lessons are studied directly through freeCodeCamp.
 
@@ -42,7 +42,7 @@ BACKEND_REVIEW.md
 
 This file will be completed after progressing through the curriculum rather than being used as a running lesson transcript.
 
-### Workshops
+### **Workshops**
 
 Every workshop that produces code receives its own directory.
 
@@ -89,29 +89,45 @@ workshops/
 │   ├── server.js
 │   └── README.md
 │
-└── build-a-submission-form/
-    ├── middleware/
-    │   └── error.middleware.js
-    ├── routes/
-    │   └── api.routes.js
-    ├── package-lock.json
+├── build-a-submission-form/
+│   ├── middleware/
+│   │   └── error.middleware.js
+│   ├── routes/
+│   │   └── api.routes.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
+│
+└── build-a-weather-service-api/
+    ├── public/
+    │   └── index.html
+    ├── index.js
+    ├── weather.js
     ├── package.json
-    ├── server.js
+    ├── package-lock.json
     └── README.md
 ```
 
 Each workshop README documents:
 
 - the purpose of the workshop;
+
 - the commands and source code used;
+
 - how the code works;
+
 - important terminology;
+
 - expected output;
+
 - concepts demonstrated by the workshop;
+
 - concepts introduced but intentionally deferred until later lessons;
+
 - workshop completion and verification.
 
-### Labs
+### **Labs**
 
 Independent practice labs are stored separately from guided workshops:
 
@@ -132,12 +148,16 @@ Labs are requirement-driven practice exercises. They are used to apply concepts 
 Each lab README documents:
 
 - the lab objective and user stories;
+
 - the final source structure;
+
 - the middleware or application flow;
+
 - local verification;
+
 - freeCodeCamp completion status.
 
-### Reviews and Quizzes
+### **Reviews and Quizzes**
 
 Reviews and quizzes are used to verify understanding.
 
@@ -145,7 +165,7 @@ Answers are not stored as standalone projects merely to increase repository size
 
 Important knowledge will later be summarized in `BACKEND_REVIEW.md`.
 
-### Certification Projects
+### **Certification Projects**
 
 Certification projects are stored separately from workshops:
 
@@ -168,27 +188,31 @@ Certification projects are requirement-driven rather than step-by-step workshop 
 Each project directory preserves:
 
 - the final source code;
+
 - the required package or project metadata;
+
 - a dedicated README;
+
 - implementation reasoning;
+
 - algorithm or architecture notes;
+
 - local verification;
+
 - freeCodeCamp completion status.
 
 ---
 
-## Repository Structure
+## **Repository Structure**
 
 Current structure:
 
 ```text
 freecodecamp-backend-development-and-apis/
-│
 ├── workshops/
 │   ├── learn-nodejs-repl/
 │   │   ├── hello.js
 │   │   └── README.md
-│   │
 │   ├── build-a-file-processor/
 │   │   ├── server.js
 │   │   ├── README.md
@@ -196,14 +220,12 @@ freecodecamp-backend-development-and-apis/
 │   │       ├── poem.txt
 │   │       ├── output.txt
 │   │       └── stream-output.txt
-│   │
 │   ├── build-a-case-converter/
 │   │   ├── .npmignore
 │   │   ├── index.js
 │   │   ├── index.test.js
 │   │   ├── package.json
 │   │   └── README.md
-│   │
 │   ├── build-a-web-server/
 │   │   ├── public/
 │   │   │   ├── 404.html
@@ -217,23 +239,28 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── package.json
 │   │   ├── server.js
 │   │   └── README.md
-│   │
 │   ├── build-a-random-joke-app/
 │   │   ├── package-lock.json
 │   │   ├── package.json
 │   │   ├── server.js
 │   │   └── README.md
-│   │
-│   └── build-a-submission-form/
-│       ├── middleware/
-│       │   └── error.middleware.js
-│       ├── routes/
-│       │   └── api.routes.js
-│       ├── package-lock.json
+│   ├── build-a-submission-form/
+│   │   ├── middleware/
+│   │   │   └── error.middleware.js
+│   │   ├── routes/
+│   │   │   └── api.routes.js
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   └── build-a-weather-service-api/
+│       ├── public/
+│       │   └── index.html
+│       ├── index.js
+│       ├── weather.js
 │       ├── package.json
-│       ├── server.js
+│       ├── package-lock.json
 │       └── README.md
-│
 ├── labs/
 │   └── build-a-data-sanitizer/
 │       ├── public/
@@ -243,19 +270,16 @@ freecodecamp-backend-development-and-apis/
 │       ├── package.json
 │       ├── server.js
 │       └── README.md
-│
 ├── certification-projects/
 │   ├── build-a-prime-number-checker-module/
 │   │   ├── index.js
 │   │   ├── package.json
 │   │   └── README.md
-│   │
 │   └── build-a-personal-profile-app/
 │       ├── package-lock.json
 │       ├── package.json
 │       ├── server.js
 │       └── README.md
-│
 ├── .gitignore
 ├── BACKEND_REVIEW.md
 └── README.md
@@ -267,113 +291,69 @@ No project directories are created before they are reached in the official curri
 
 ---
 
-## Current Checkpoint
+## **Current Checkpoint**
 
-**Date:** October 8, 2026
+**Date:** October 14, 2026
 
-Current practical curriculum area:
+Current practical curriculum progression:
 
 ```text
 Back-End Development and APIs Certification
-└── Express Middleware
-    ├── Express Middleware Theory
-    │   └── completed
-    ├── Build a Submission Form
-    │   └── 22 / 22 completed
-    └── Build a Data Sanitizer
-        └── 1 / 1 completed
+├── Express Middleware
+│   ├── Build a Submission Form       ✅ 22/22
+│   └── Build a Data Sanitizer         ✅ 1/1
+└── Weather Service API practice
+    └── Build a Weather Service API   ✅ 20/20
 ```
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Data Sanitizer
-Lab
-1 / 1 completed
+Build a Weather Service API
+Workshop 07
+20 / 20 completed
 Status: Passed
 ```
 
-Completed practical workshops:
+The weather service extends the Express foundation with modular routes, URL parameters, server-to-server HTTP requests, asynchronous data handling, static front-end files, and self-documenting endpoints.
+
+Core topics demonstrated:
 
 ```text
-Learn Node.js REPL
-23 / 23 steps completed
-Status: Passed
-Build a File Processor
-30 / 30 steps completed
-Status: Passed
-Build a Case Converter
-45 / 45 steps completed
-Status: Passed
-Build a Web Server
-60 / 60 steps completed
-Status: Passed
-Build a Random Joke App
-8 / 8 steps completed
-Status: Passed
-Build a Submission Form
-22 / 22 steps completed
-Status: Passed
+ES Modules: import / export default
+express.Router()
+router.get()
+app.use() router mounting
+app.route().get().post()
+req.params
+res.send() / res.json() / res.redirect() / res.sendFile()
+HTTP 200 / 201 / 302 / 404
+async / await
+Node.js fetch()
+response.ok and response.json()
+try / catch
+express.static()
+path.join()
+fileURLToPath(import.meta.url)
+API endpoint discovery via GET /api/info
 ```
 
-Completed practical labs:
+Local verification (October 14, 2026): `npm install` completed with `0 vulnerabilities`; the Node.js server started on port `3000`; and the following HTTP responses were verified:
 
-```text
-Build a Data Sanitizer
-1 / 1 completed
-Status: Passed
-```
+| Method | Endpoint | Result |
+|---|---|---|
+| `GET` | `/` | `200`, HTML |
+| `GET` | `/api/info` | `200`, JSON with `endpoints` |
+| `GET` | `/api/status` | `200`, JSON status |
+| `GET` | `/api/weather` | `200`, JSON object containing `supportedCities` |
+| `GET` | `/api/weather/London` | `200`, JSON containing city, temperature, description |
+| `GET` | `/api/weather/NotARealCity` | `404`, JSON error |
 
-Completed certification projects:
-
-```text
-Build a Prime Number Checker Module
-1 / 1 completed
-Status: Passed
-Build a Personal Profile App
-1 / 1 completed
-Status: Passed
-```
-
-The latest lab applies the Express middleware execution model directly to submitted form data.
-
-It applies:
-
-```text
-Express.js
-CommonJS
-require()
-module.exports
-express.urlencoded()
-route-level middleware
-req.body
-input normalization
-input sanitization
-input validation
-next()
-res.redirect()
-res.sendFile()
-res.send()
-HTTP 200
-HTTP 302
-query parameters
-URL-encoded form data
-middleware ordering
-package.json
-package-lock.json
-npm install
-node --check
-curl HTTP verification
-local form and API testing
-```
-
-The lab was verified locally after being copied from Codespaces: dependencies installed successfully with `0 vulnerabilities`, both JavaScript files passed `node --check`, the Express server started on port `3000`, `GET /` redirected to `/form`, `GET /form` returned the HTML form, sanitized submissions converted the username to lowercase and removed HTML tags from the comment, and usernames shorter than three characters produced the expected `302` redirect.
-
-The next practical item in the current freeCodeCamp project sequence is **Build a Weather Service API**.
+The next practical item shown by freeCodeCamp is **Build a Timestamp Microservice** (Certification Project). Its code is not added before the official exercise is started.
 
 ---
 
-## Completed Workshops
+## **Completed Workshops**
 
 | # | Workshop | Type | Status |
 |---|---|---|---|
@@ -383,10 +363,11 @@ The next practical item in the current freeCodeCamp project sequence is **Build 
 | 4 | Build a Web Server | Workshop | ✅ Completed — 60/60 |
 | 5 | Build a Random Joke App | Workshop | ✅ Completed — 8/8 |
 | 6 | Build a Submission Form | Workshop | ✅ Completed — 22/22 |
+| 7 | Build a Weather Service API | Workshop | ✅ Completed — 20/20 |
 
 ---
 
-## Completed Labs
+## **Completed Labs**
 
 | # | Lab | Type | Status |
 |---|---|---|---|
@@ -394,7 +375,7 @@ The next practical item in the current freeCodeCamp project sequence is **Build 
 
 ---
 
-## Completed Certification Projects
+## **Completed Certification Projects**
 
 | # | Project | Type | Status |
 |---|---|---|---|
@@ -403,7 +384,7 @@ The next practical item in the current freeCodeCamp project sequence is **Build 
 
 ---
 
-## Workshop 01 — Learn Node.js REPL
+## **Workshop 01 — Learn Node.js REPL**
 
 Location:
 
@@ -414,7 +395,7 @@ workshops/learn-nodejs-repl/
 Permanent source code:
 
 ```js
-console.**log**("Hello from a file");
+console.log("Hello from a file");
 ```
 
 The workshop primarily focused on terminal and runtime interaction rather than application development.
@@ -450,7 +431,7 @@ workshops/learn-nodejs-repl/README.md
 
 ---
 
-## Workshop 02 — Build a File Processor
+## **Workshop 02 — Build a File Processor**
 
 Location:
 
@@ -531,9 +512,9 @@ readable.pipe(writable)
 The final workshop code connects a readable file stream directly to a writable file stream:
 
 ```js
-const readable = fs.**createReadStream**("assets/poem.txt");
-const writable = fs.**createWriteStream**("assets/stream-output.txt");
-readable.**pipe**(writable);
+const readable = fs.createReadStream("assets/poem.txt");
+const writable = fs.createWriteStream("assets/stream-output.txt");
+readable.pipe(writable);
 ```
 
 Conceptually:
@@ -558,7 +539,7 @@ workshops/build-a-file-processor/README.md
 
 ---
 
-## Workshop 03 — Build a Case Converter
+## **Workshop 03 — Build a Case Converter**
 
 Location:
 
@@ -630,25 +611,25 @@ npm publication preparation
 The package exposes four public functions:
 
 ```js
-**getUpperCase**();
-**getLowerCase**();
-**getSentenceCase**();
-**getProperCase**();
+getUpperCase();
+getLowerCase();
+getSentenceCase();
+getProperCase();
 ```
 
 Example:
 
 ```js
-const caseConverter = **require**("./index");
+const caseConverter = require("./index");
 const str = "hello free Code Camp!";
-console.**log**(caseConverter.**getUpperCase**(str));
-*// HELLO FREE CODE CAMP!*
-console.**log**(caseConverter.**getLowerCase**(str));
-*// hello free code camp!*
-console.**log**(caseConverter.**getSentenceCase**(str));
-*// Hello free code camp!*
-console.**log**(caseConverter.**getProperCase**(str));
-*// Hello Free Code Camp!*
+console.log(caseConverter.getUpperCase(str));
+// HELLO FREE CODE CAMP!
+console.log(caseConverter.getLowerCase(str));
+// hello free code camp!
+console.log(caseConverter.getSentenceCase(str));
+// Hello free code camp!
+console.log(caseConverter.getProperCase(str));
+// Hello Free Code Camp!
 ```
 
 The module exports its public API through CommonJS:
@@ -665,10 +646,10 @@ module.exports = {
 The automated test suite uses Node.js's built-in strict assertion API:
 
 ```js
-const assert = **require**("node:assert/strict");
-const caseConverter = **require**("./index");
-assert.**strictEqual**(
-  caseConverter.**getUpperCase**("hello free Code Camp!"),
+const assert = require("node:assert/strict");
+const caseConverter = require("./index");
+assert.strictEqual(
+  caseConverter.getUpperCase("hello free Code Camp!"),
   "HELLO FREE CODE CAMP!",
 );
 ```
@@ -676,13 +657,13 @@ assert.**strictEqual**(
 The test script is executed through npm:
 
 ```bash
-**npm** test
+npm test
 ```
 
 The package publication process is inspected safely with:
 
 ```bash
-**npm** publish --dry-run
+npm publish --dry-run
 ```
 
 The test file is intentionally excluded from the npm publication package with:
@@ -705,7 +686,7 @@ workshops/build-a-case-converter/README.md
 
 ---
 
-## Workshop 04 — Build a Web Server
+## **Workshop 04 — Build a Web Server**
 
 Location:
 
@@ -822,13 +803,13 @@ const url = request.url === "/" ? "/index.html" : request.url;
 It then builds the requested file path:
 
 ```js
-const filePath = **join**("public", url);
+const filePath = join("public", url);
 ```
 
 The file extension is normalized:
 
 ```js
-const ext = **extname**(filePath).**toLowerCase**();
+const ext = extname(filePath).toLowerCase();
 ```
 
 A MIME mapping is used to choose the correct response media type:
@@ -846,15 +827,15 @@ const contentType = mimeTypes[ext] || "application/octet-stream";
 Requested files are read asynchronously:
 
 ```js
-**readFile**(filePath, (error, file) => {
-  *// success or 404 handling*
+readFile(filePath, (error, file) => {
+  // success or 404 handling
 });
 ```
 
 Successful responses use:
 
 ```js
-response.**writeHead**(200, {
+response.writeHead(200, {
   "Content-Type": contentType,
 });
 ```
@@ -875,7 +856,7 @@ Content-Type: text/html
 The project was also converted from CommonJS:
 
 ```js
-const http = **require**("http");
+const http = require("http");
 ```
 
 to ESM:
@@ -899,14 +880,14 @@ in `package.json`.
 The server was tested manually with `curl`:
 
 ```bash
-**curl** http://localhost:3001
-**curl** -v http://localhost:3001/not-found
+curl http://localhost:3001
+curl -v http://localhost:3001/not-found
 ```
 
 and load-tested with:
 
 ```bash
-**wrk** -t2 -c5 -d5s http://localhost:3001
+wrk -t2 -c5 -d5s http://localhost:3001
 ```
 
 The load test uses:
@@ -935,7 +916,7 @@ Build a Web Server
 
 ---
 
-## Workshop 05 — Build a Random Joke App
+## **Workshop 05 — Build a Random Joke App**
 
 Location:
 
@@ -1003,25 +984,25 @@ The application defines three routes:
 The Express application is created with:
 
 ```js
-const express = **require**("express");
-const app = **express**();
+const express = require("express");
+const app = express();
 const port = 3000;
 ```
 
 A route follows the pattern:
 
 ```js
-app.**get**("/path", (req, res) => {
-  res.**send**("response");
+app.get("/path", (req, res) => {
+  res.send("response");
 });
 ```
 
 The random joke route uses:
 
 ```js
-app.**get**("/joke", (req, res) => {
-  const randomJoke = jokes[Math.**floor**(Math.**random**() * jokes.length)];
-  res.**send**(randomJoke);
+app.get("/joke", (req, res) => {
+  const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+  res.send(randomJoke);
 });
 ```
 
@@ -1081,7 +1062,7 @@ Build a Random Joke App
 
 ---
 
-## Workshop 06 — Build a Submission Form
+## **Workshop 06 — Build a Submission Form**
 
 Location:
 
@@ -1159,15 +1140,15 @@ local API verification
 The application-level middleware stack is assembled in `server.js`:
 
 ```js
-app.**use**((req, res, next) => {
-  console.**log**(`${req.method} ${req.url}`);
-  **next**();
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
 });
-app.**use**(express.**json**());
-app.**use**(express.**urlencoded**({ extended: true }));
-app.**use**("/api", apiRouter);
-app.**use**(notFoundHandler);
-app.**use**(finalErrorHandler);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api", apiRouter);
+app.use(notFoundHandler);
+app.use(finalErrorHandler);
 ```
 
 The API router defines three routes:
@@ -1181,7 +1162,7 @@ The API router defines three routes:
 The router is mounted under a shared base path:
 
 ```js
-app.**use**("/api", apiRouter);
+app.use("/api", apiRouter);
 ```
 
 The workshop demonstrates the difference between normal middleware flow:
@@ -1205,20 +1186,20 @@ enter error-handling middleware
 A catch-all handler creates controlled `404` errors:
 
 ```js
-function **notFoundHandler**(req, res, next) {
-  const error = new **Error**(`Not Found - ${req.originalUrl}`);
+function notFoundHandler(req, res, next) {
+  const error = new Error(`Not Found - ${req.originalUrl}`);
   error.status = 404;
-  **next**(error);
+  next(error);
 }
 ```
 
 The final error middleware uses Express's four-parameter error-handler signature:
 
 ```js
-function **finalErrorHandler**(err, req, res, next) {
+function finalErrorHandler(err, req, res, next) {
   const status = err.status || 500;
-  console.**error**(err);
-  res.**status**(status).**json**({
+  console.error(err);
+  res.status(status).json({
     error: true,
     status,
     message:
@@ -1279,7 +1260,122 @@ Build a Submission Form
 
 ---
 
-## Lab 01 — Build a Data Sanitizer
+## **Workshop 07 — Build a Weather Service API**
+
+**Location:** `workshops/build-a-weather-service-api/`
+
+**Completion:** ✅ **20 / 20 steps passed**, October 14, 2026.
+
+This workshop builds an Express weather service with a modular weather router, route parameters, calls to an external weather proxy, a browser-based interface, and a lightweight endpoint-discovery response.
+
+Project files:
+
+```text
+build-a-weather-service-api/
+├── public/
+│   └── index.html
+├── index.js
+├── weather.js
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+The project uses **ES Modules**, **Express 5**, and Node.js's built-in `fetch()` API. `index.js` holds application-level routing and static middleware. `weather.js` exports a separate Express router.
+
+### Router mounting and dynamic paths
+
+```js
+// weather.js (excerpt)
+import express from "express";
+const router = express.Router();
+const SUPPORTED_CITIES = ["London", "Tokyo", "New York", "Paris", "Seoul"];
+
+router.get("/", (req, res) => {
+  res.json({ supportedCities: SUPPORTED_CITIES });
+});
+
+export default router;
+```
+
+```js
+// index.js (excerpt)
+import weatherRouter from "./weather.js";
+// app is the Express application created with express().
+app.use("/api/weather", weatherRouter);
+```
+
+The router's relative `/` path resolves to `GET /api/weather`. The relative `/:city` path resolves to `GET /api/weather/:city`, with its city name available through `req.params.city`.
+
+### Fetching weather data
+
+The route handler uses `async`/`await` and a server-to-server request:
+
+```js
+router.get("/:city", async (req, res) => {
+  const { city } = req.params;
+
+  try {
+    const response = await fetch(
+      `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`Status ${response.status}`);
+    }
+
+    const data = await response.json();
+    res.json({
+      city: data.name,
+      temperature: data.main.temp,
+      description: data.weather[0].description,
+    });
+  } catch (error) {
+    res.status(404).json({
+      error: `Could not fetch weather data for "${city}".`,
+    });
+  }
+});
+```
+
+The check of `response.ok` is important because `fetch()` does not automatically throw on HTTP `404` or `500`. The workshop intentionally maps failed requests to a `404` JSON response. A production service should distinguish invalid city names from external provider/network failures.
+
+### Serving the browser interface
+
+`express.static(path.join(__dirname, "public"))` serves the assets under `public/`, while the root handler defines `res.sendFile(path.join(__dirname, "public", "index.html"))`. The ESM entry point derives `__dirname` from `fileURLToPath(import.meta.url)` and `path.dirname()`.
+
+**Known UI limitation:** The supplied `public/index.html` assumes optional `country` and `iconUrl` properties, but the implemented weather route returns only `city`, `temperature`, and `description`. The interface may therefore display `undefined` for country or omit the weather icon. The HTML also lists a different set of supported cities from `weather.js`. These are follow-up improvements, not additional requirements for the completed 20/20 workshop.
+
+### Main routes
+
+| Method | Path | Behavior |
+|---|---|---|
+| `GET` | `/` | Return `public/index.html` |
+| `GET` | `/api/info` | Return service metadata and `endpoints` array |
+| `GET` | `/api/status` | Return `{ "status": "ok" }` |
+| `GET` | `/docs` | Redirect to `/api/info` |
+| `GET` | `/api/greet/:name` | Return a greeting containing the name |
+| `GET` | `/api/data` | Return demo API data |
+| `POST` | `/api/data` | Return `201` demo creation message |
+| `GET` | `/api/weather` | Return the supported cities list |
+| `GET` | `/api/weather/:city` | Return weather data or `404` JSON error |
+
+### Local verification
+
+```powershell
+npm install
+node --check index.js
+node --check weather.js
+npm start
+```
+
+The server launched on port `3000`. Manual HTTP checks verified the homepage, info, status, cities, successful London weather response, and `NotARealCity` error behavior. Installation reported `0 vulnerabilities`.
+
+The complete explanation, reproducible commands, and workshop results are preserved in `workshops/build-a-weather-service-api/README.md`.
+
+---
+
+## **Lab 01 — Build a Data Sanitizer**
 
 Location:
 
@@ -1424,7 +1520,7 @@ Lab
 
 ---
 
-## Certification Project 01 — Build a Prime Number Checker Module
+## **Certification Project 01 — Build a Prime Number Checker Module**
 
 Location:
 
@@ -1457,7 +1553,7 @@ Unlike the previous workshops, freeCodeCamp supplied user stories rather than st
 The project required a reusable npm module exposing:
 
 ```js
-**isPrime**(number)
+isPrime(number)
 ```
 
 through CommonJS.
@@ -1465,11 +1561,11 @@ through CommonJS.
 Final implementation:
 
 ```js
-function **isPrime**(number) {
-  if (!Number.**isInteger**(number) || number <= 1) {
+function isPrime(number) {
+  if (!Number.isInteger(number) || number <= 1) {
     return false;
   }
-  for (let i = 2; i <= Math.**sqrt**(number); i++) {
+  for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {
       return false;
     }
@@ -1532,7 +1628,7 @@ certification-projects/build-a-prime-number-checker-module/README.md
 
 ---
 
-## Certification Project 02 — Build a Personal Profile App
+## **Certification Project 02 — Build a Personal Profile App**
 
 Location:
 
@@ -1575,8 +1671,8 @@ Required routes:
 Final JSON route:
 
 ```js
-app.**get**("/api/profile", (req, res) => {
-  res.**json**({
+app.get("/api/profile", (req, res) => {
+  res.json({
     name: "Camper Bot",
     hobbies: ["cycling", "boating", "guitar"],
     skills: ["JavaScript", "Node.js", "Express.js"],
@@ -1655,31 +1751,31 @@ certification-projects/build-a-personal-profile-app/README.md
 
 ---
 
-## Repository Principles
+## **Repository Principles**
 
 This repository follows several rules throughout the certification.
 
-### 1. Curriculum First
+### **1. Curriculum First**
 
 The official freeCodeCamp curriculum determines the learning order.
 
 Topics are not implemented early simply because they will be needed later.
 
-### 2. Understand Before Expanding
+### **2. Understand Before Expanding**
 
 Code is kept as small as the lesson requires.
 
 Additional files are not created simply to make a workshop or project look more complex.
 
-### 3. Preserve Practical Work
+### **3. Preserve Practical Work**
 
 Workshop, lab, and certification-project source code is stored after the corresponding freeCodeCamp work has been successfully completed.
 
-### 4. Document How Things Work
+### **4. Document How Things Work**
 
 README files are intended to explain the reasoning behind the code rather than merely repeat instructions.
 
-### 5. Separate Workshops, Labs, and Certification Projects
+### **5. Separate Workshops, Labs, and Certification Projects**
 
 Guided workshops are stored under:
 
@@ -1701,13 +1797,13 @@ certification-projects/
 
 This keeps guided practice, independent labs, and certification assessment work clearly separated.
 
-### 6. Separate Practice from Final Review
+### **6. Separate Practice from Final Review**
 
 Workshop, lab, and certification-project README files document individual practical exercises.
 
 `BACKEND_REVIEW.md` will eventually serve as the consolidated theoretical review for the complete back-end curriculum.
 
-### 7. Do Not Copy Course Infrastructure
+### **7. Do Not Copy Course Infrastructure**
 
 freeCodeCamp testing infrastructure, course runners, loggers, and internal grading files are not copied into this repository unless they are explicitly part of a project requirement.
 
@@ -1715,7 +1811,7 @@ Only the learner's relevant source code and documentation are preserved.
 
 ---
 
-## Development Environment
+## **Development Environment**
 
 The repository is developed locally using:
 
@@ -1743,7 +1839,7 @@ The local development environment and the freeCodeCamp Codespace are separate en
 
 ---
 
-## Node.js in This Curriculum
+## **Node.js in This Curriculum**
 
 Node.js is the JavaScript runtime used throughout the back-end curriculum.
 
@@ -1898,11 +1994,30 @@ Route Handler
 Sanitized Response / Redirect
 ```
 
-This extends the Express foundation into input normalization, sanitization, validation, route-level middleware composition, and controlled redirects before later REST services, route parameters, WebSockets, authentication, and larger back-end applications.
+This extends the Express foundation into input normalization, sanitization, validation, route-level middleware composition, and controlled redirects.
+
+The seventh workshop builds on that foundation with a modular HTTP service:
+
+```text
+Browser / API Client
+    ↓
+Express Application
+    ├── Static HTML frontend
+    ├── API metadata and status
+    └── Mounted Weather Router
+            ↓
+        req.params.city
+            ↓
+        async fetch() → Weather Proxy
+            ↓
+        JSON Response / 404 Error
+```
+
+This leads naturally to later certification projects involving REST APIs, WebSockets, authentication, and more complex back-end applications.
 
 ---
 
-## Real-World Learning
+## **Real-World Learning**
 
 When useful, concepts from the curriculum are compared with real-world back-end development.
 
@@ -1991,6 +2106,18 @@ Input sanitization
 → cleaning selected external input before downstream application logic
 HTTP redirects
 → directing the client to another route when a request cannot continue normally
+Route parameters (`req.params`)
+→ using URL segments as request input
+Express Router mounting
+→ grouping endpoints under one shared base path
+`fetch()` and `async`/`await`
+→ contacting another HTTP service without blocking the event loop
+`response.ok` and `try/catch`
+→ handling failed upstream requests and controlled error responses
+`express.static()` / `res.sendFile()`
+→ serving a browser UI alongside API routes
+Self-documenting endpoint lists
+→ helping clients discover supported paths
 ```
 
 These comparisons are supplementary.
@@ -1999,7 +2126,7 @@ They do not replace the official curriculum or change its learning order.
 
 ---
 
-## Documentation Strategy
+## **Documentation Strategy**
 
 Documentation is organized at four levels:
 
@@ -2013,55 +2140,50 @@ Certification Project README
 BACKEND_REVIEW.md
 ```
 
-### Workshop README
+### **Workshop README**
 
 Explains one guided practical workshop in detail.
 
-### Lab README
+### **Lab README**
 
 Documents one independent practice lab, including user stories, implementation flow, local verification, and completion status.
 
-### Certification Project README
+### **Certification Project README**
 
 Documents a complete requirement-driven project, including implementation, algorithm or architecture, verification, and completion status.
 
-### BACKEND_REVIEW.md
+### **BACKEND_REVIEW.md**
 
 Will consolidate the major theoretical concepts learned throughout the complete certification.
 
 ---
 
-## Progress
+## **Progress**
 
 ```text
 Repository initialized                              ✅
 Node.js and npm local environment verified          ✅
 Git remote configured                               ✅
 Main branch synchronized                            ✅
-
 Learn Node.js REPL                                  ✅ 23/23
 ├── Workshop source preserved                       ✅
 └── Workshop README documented                      ✅
-
 Build a File Processor                              ✅ 30/30
 ├── Workshop source preserved                       ✅
 ├── Workshop assets preserved                       ✅
 └── Workshop README documented                      ✅
-
 Build a Case Converter                              ✅ 45/45
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
 ├── automated tests preserved                       ✅
 ├── .npmignore preserved                            ✅
 └── Workshop README documented                      ✅
-
 Build a Prime Number Checker Module                 ✅ 1/1
 ├── Certification project passed                    ✅
 ├── Project source preserved                        ✅
 ├── package.json preserved                          ✅
 ├── Local Node.js verification completed            ✅
 └── Project README documented                       ✅
-
 Build a Web Server                                  ✅ 60/60
 ├── Workshop source preserved                       ✅
 ├── Static public assets preserved                  ✅
@@ -2069,7 +2191,6 @@ Build a Web Server                                  ✅ 60/60
 ├── HTTP server implementation preserved            ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
 Build a Random Joke App                             ✅ 8/8
 ├── Workshop source preserved                       ✅
 ├── package.json preserved                          ✅
@@ -2079,7 +2200,6 @@ Build a Random Joke App                             ✅ 8/8
 ├── All three routes verified with HTTP 200         ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
 Build a Personal Profile App                        ✅ 1/1
 ├── Certification project passed                    ✅
 ├── Project source preserved                        ✅
@@ -2091,7 +2211,6 @@ Build a Personal Profile App                        ✅ 1/1
 ├── JSON Content-Type verified                      ✅
 ├── JSON response shape verified                    ✅
 └── Project README documented                       ✅
-
 Build a Submission Form                             ✅ 22/22
 ├── Workshop source preserved                       ✅
 ├── middleware/error.middleware.js preserved        ✅
@@ -2103,7 +2222,6 @@ Build a Submission Form                             ✅ 22/22
 ├── 200 / 400 / 404 / 500 routes verified          ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
 Build a Data Sanitizer                              ✅ 1/1
 ├── Lab source preserved                            ✅
 ├── public/index.html preserved                     ✅
@@ -2117,76 +2235,73 @@ Build a Data Sanitizer                              ✅ 1/1
 ├── Validation redirect verified                    ✅
 ├── Lab README documented                           ✅
 └── freeCodeCamp lab completed                      ✅
+Build a Weather Service API                         ✅ 20/20
+├── Workshop source preserved                       ✅
+├── public/index.html preserved                     ✅
+├── index.js / weather.js preserved                 ✅
+├── package.json / package-lock.json preserved      ✅
+├── Local npm install: 0 vulnerabilities            ✅
+├── Local Node.js server startup verified           ✅
+├── Success and 404 responses verified              ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
 
-Build a Weather Service API                         ⏳ Next practical item
+Build a Timestamp Microservice                     ⏳ Next practical item
 Final back-end review                               ⏳ Deferred until later
 ```
 
 ---
 
-## Current Learning Summary
+## **Current Learning Summary**
 
-Completed guided workshops:
+**Completed guided workshops:** 7
 
-```text
-6
-```
+**Completed labs:** 1
 
-Completed labs:
-
-```text
-1
-```
-
-Completed certification projects:
-
-```text
-2
-```
+**Completed certification projects:** 2
 
 Current practical record:
 
 ```text
-Learn Node.js REPL                     23 / 23 ✅
-Build a File Processor                 30 / 30 ✅
-Build a Case Converter                 45 / 45 ✅
-Build a Prime Number Checker Module     1 / 1  ✅
-Build a Web Server                     60 / 60 ✅
-Build a Random Joke App                 8 / 8  ✅
-Build a Personal Profile App            1 / 1  ✅
-Build a Submission Form                22 / 22 ✅
-Build a Data Sanitizer                  1 / 1  ✅
+Learn Node.js REPL                      23 / 23 ✅
+Build a File Processor                  30 / 30 ✅
+Build a Case Converter                  45 / 45 ✅
+Build a Prime Number Checker Module      1 / 1  ✅
+Build a Web Server                      60 / 60 ✅
+Build a Random Joke App                  8 / 8  ✅
+Build a Personal Profile App             1 / 1  ✅
+Build a Submission Form                 22 / 22 ✅
+Build a Data Sanitizer                   1 / 1  ✅
+Build a Weather Service API             20 / 20 ✅
 ```
 
 Current practical checkpoint:
 
 ```text
-Lab
-Build a Data Sanitizer
-1 / 1 completed
-
-Local verification:
-- npm install: completed
-- npm audit result from install: 0 vulnerabilities
-- node --check middleware.js: passed
-- node --check server.js: passed
-- server startup on port 3000: passed
-- GET /: redirect to /form
-- GET /form: 200 OK
-- POST /submit: username normalized to lowercase
-- POST /submit: HTML tags removed from comment
-- invalid short username: 302 redirect with error query
+Workshop 07 — Build a Weather Service API
+20 / 20 steps completed
+freeCodeCamp status: Passed
+Local npm install: 0 vulnerabilities
+Node.js server: port 3000
+GET /: 200 HTML
+GET /api/info: 200 JSON
+GET /api/status: 200 JSON
+GET /api/weather: 200 JSON
+GET /api/weather/London: 200 JSON weather data
+GET /api/weather/NotARealCity: 404 JSON error
 ```
 
 Next practical curriculum item:
 
 ```text
-Build a Weather Service API
+Build a Timestamp Microservice
+Certification Project
+Not started / not yet archived
 ```
 
 ---
 
-## Goal
+## **Goal**
 
 The long-term objective of this repository is to demonstrate both:
 
@@ -2202,7 +2317,7 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 ---
 
-## Current Status
+## **Current Status**
 
 **freeCodeCamp Back-End Development and APIs Certification**
 
@@ -2213,60 +2328,32 @@ In Progress
 Latest completed practical checkpoint:
 
 ```text
-Build a Data Sanitizer
-Lab
-1 / 1
-✅ Completed
+Build a Weather Service API
+Workshop 07
+20 / 20
+✅ Completed — October 14, 2026
 ```
 
 Local verification:
 
 ```text
-npm install                    ✅
-0 vulnerabilities              ✅
-node --check middleware.js     ✅
-node --check server.js         ✅
-node server.js                 ✅
-GET / → /form                  ✅ 302
-GET /form                      ✅ 200
-POST /submit sanitization      ✅ 200
-short username validation      ✅ 302
+npm install                        ✅ 0 vulnerabilities
+node --check index.js             ✅
+node --check weather.js           ✅
+node index.js / npm start          ✅ server on port 3000
+GET /                             ✅ 200 HTML
+GET /api/info                     ✅ 200 JSON
+GET /api/status                   ✅ 200 JSON
+GET /api/weather                  ✅ 200 JSON
+GET /api/weather/London           ✅ 200 JSON
+GET /api/weather/NotARealCity     ✅ 404 JSON error
 ```
 
-Previously completed:
-
-```text
-Build a Submission Form
-Workshop
-22 / 22
-✅ Completed
-Build a Personal Profile App
-Certification Project
-1 / 1
-✅ Completed
-Build a Random Joke App
-8 / 8
-✅ Completed
-Build a Web Server
-60 / 60
-✅ Completed
-Build a Prime Number Checker Module
-Certification Project
-1 / 1
-✅ Completed
-Build a Case Converter
-45 / 45
-✅ Completed
-Build a File Processor
-30 / 30
-✅ Completed
-Learn Node.js REPL
-23 / 23
-✅ Completed
-```
+Previously completed: six other workshops, one lab, and two certification projects. Full details and verification records are retained above and in the individual project READMEs.
 
 Next practical item:
 
 ```text
-Build a Weather Service API
+Build a Timestamp Microservice
+Certification Project
 ```
