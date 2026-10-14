@@ -3,93 +3,264 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Service API</title>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #152338;
+        background: #f3f6fb;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 40px 18px;
+      }
+
+      main {
+        width: min(100%, 760px);
+        margin: 0 auto;
+      }
+
+      header { margin-bottom: 26px; }
+
+      .eyebrow {
+        color: #2461b3;
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 { margin: 9px 0; font-size: clamp(28px, 5vw, 38px); }
+      h2 { margin: 0 0 14px; font-size: 19px; }
+      p { line-height: 1.6; }
+      .description { color: #54657d; margin: 0; }
+      code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+      .panel {
+        margin-top: 20px;
+        padding: 25px;
+        border: 1px solid #e3e9f2;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 7px 28px rgba(28, 55, 95, 0.04);
+      }
+
+      label { display: block; font-weight: 650; margin-bottom: 10px; }
+      .search { display: flex; gap: 10px; }
+
+      input {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 14px;
+        border: 1px solid #bcc9da;
+        border-radius: 9px;
+        font: inherit;
+      }
+
+      input:focus-visible, button:focus-visible {
+        outline: 3px solid #b4d7ff;
+        outline-offset: 2px;
+      }
+
+      button {
+        padding: 12px 19px;
+        border: 0;
+        border-radius: 9px;
+        color: #fff;
+        background: #1769b8;
+        font: inherit;
+        font-weight: 650;
+        cursor: pointer;
+      }
+
+      button:hover:not(:disabled) { background: #105596; }
+      button:disabled { opacity: 0.65; cursor: wait; }
+      .hint { margin: 13px 0 0; font-size: 13px; color: #596a81; }
+
+      .weather-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 15px;
+        border-radius: 10px;
+        background: #f2f7fe;
+      }
+
+      .metric-label { display: block; color: #5a6d86; font-size: 13px; margin-bottom: 7px; }
+      .metric-value { font-size: 19px; font-weight: 700; overflow-wrap: anywhere; }
+
+      .error {
+        margin-top: 20px;
+        padding: 15px 18px;
+        border: 1px solid #f1b6b6;
+        border-radius: 10px;
+        background: #fff3f3;
+        color: #912c2c;
+      }
+
+      pre {
+        margin: 0;
+        padding: 18px;
+        border-radius: 10px;
+        background: #111b2d;
+        color: #e8f1ff;
+        font-size: 13px;
+        line-height: 1.6;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      [hidden] { display: none !important; }
+
+      @media (max-width: 560px) {
+        body { padding: 25px 12px; }
+        .panel { padding: 18px; }
+        .search { flex-direction: column; }
+        button { width: 100%; }
+        .weather-grid { grid-template-columns: 1fr; }
+      }
+    </style>
   </head>
   <body>
-    <h1>Weather API Wrapper</h1>
-    <p>
-      Test the dynamic route <code>GET /api/weather/:city</code>. **Supported
-      cities: New York, Chicago, Los Angeles, Tokyo, London**.
-    </p>
+    <main>
+      <header>
+        <span class="eyebrow">Node.js · Express</span>
+        <h1>Weather API Wrapper</h1>
+        <p class="description">
+          Explore the <code>GET /api/weather/:city</code> endpoint.
+          Weather data is provided by the freeCodeCamp weather proxy.
+        </p>
+      </header>
 
-    <label for="cityInput">Enter City:</label>
-    <input type="text" id="cityInput" value="London" />
-    <button onclick="fetchWeather()">Get Weather</button>
+      <section class="panel" aria-labelledby="searchHeading">
+        <h2 id="searchHeading">Look up a city</h2>
+        <form id="weatherForm">
+          <label for="cityInput">City name</label>
+          <div class="search">
+            <input
+              id="cityInput"
+              name="city"
+              type="text"
+              list="citySuggestions"
+              value="London"
+              placeholder="e.g. London"
+              autocomplete="off"
+              required
+            />
+            <datalist id="citySuggestions"></datalist>
+            <button id="fetchButton" type="submit">Get weather</button>
+          </div>
+        </form>
+        <p class="hint" id="supportedCities">Loading supported cities...</p>
+      </section>
 
-    <hr />
+      <section class="panel" id="weatherResult" aria-labelledby="weatherHeading" hidden>
+        <h2 id="weatherHeading">Weather data</h2>
+        <div class="weather-grid" aria-live="polite">
+          <div class="metric">
+            <span class="metric-label">City</span>
+            <span class="metric-value" id="cityName"></span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Temperature</span>
+            <span class="metric-value" id="temp"></span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Condition</span>
+            <span class="metric-value" id="description"></span>
+          </div>
+        </div>
+      </section>
 
-    <h2>Weather Data</h2>
-    <div id="weatherResult">
-      <p>Current City: <strong id="cityName">N/A</strong></p>
-      <p>Temperature: <strong id="temp">N/A</strong></p>
-      <p>Condition: <strong id="description">N/A</strong></p>
-      <p>Icon:</p>
-      <img
-        id="weatherIcon"
-        src=""
-        alt="Weather Icon"
-        style="display: none; width: 60px"
-      />
-    </div>
+      <div id="errorMessage" class="error" role="alert" hidden></div>
 
-    <h2>Raw JSON Response</h2>
-    <pre id="responseOutput">Click 'Get Weather' to see the data.</pre>
+      <section class="panel" aria-labelledby="jsonHeading">
+        <h2 id="jsonHeading">Raw JSON response</h2>
+        <pre id="responseOutput" aria-live="polite">Click "Get weather" to fetch data.</pre>
+      </section>
+    </main>
 
     <script>
-      async function fetchWeather() {
-        const city = document.getElementById("cityInput").value.trim();
-        const output = document.getElementById("responseOutput");
-        const iconElement = document.getElementById("weatherIcon");
+      const form = document.getElementById("weatherForm");
+      const cityInput = document.getElementById("cityInput");
+      const fetchButton = document.getElementById("fetchButton");
+      const resultPanel = document.getElementById("weatherResult");
+      const errorMessage = document.getElementById("errorMessage");
+      const output = document.getElementById("responseOutput");
 
-        // Reset outputs
-        document.getElementById("cityName").textContent = "Fetching...";
-        document.getElementById("temp").textContent = "Fetching...";
-        document.getElementById("description").textContent = "Fetching...";
-        iconElement.style.display = "none";
-        output.textContent = "Fetching...";
-
-        if (!city) {
-          output.textContent = JSON.stringify(
-            { error: "Please enter a city" },
-            null,
-            2,
-          );
-          return;
-        }
+      async function loadSupportedCities() {
+        const label = document.getElementById("supportedCities");
+        const suggestions = document.getElementById("citySuggestions");
 
         try {
-          const response = await fetch(`/api/weather/${city}`);
+          const response = await fetch("/api/weather");
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
           const data = await response.json();
+          if (!Array.isArray(data.supportedCities)) {
+            throw new Error("Invalid supported cities response");
+          }
 
-          // Display the raw JSON response
-          output.textContent = JSON.stringify(data, null, 2);
+          label.textContent = `Supported cities: ${data.supportedCities.join(", ")}`;
+          suggestions.replaceChildren();
 
-          if (response.ok) {
-            // Display the formatted data
-            document.getElementById("cityName").textContent =
-              data.city + ", " + data.country;
-            document.getElementById("temp").textContent =
-              `${data.temperature}°C`;
-            document.getElementById("description").textContent =
-              data.description;
-            iconElement.src = data.iconUrl;
-            iconElement.style.display = "block";
-          } else {
-            // Display API error message
-            document.getElementById("cityName").textContent = "ERROR";
-            document.getElementById("temp").textContent = "N/A";
-            document.getElementById("description").textContent =
-              data.hint || data.error;
+          for (const city of data.supportedCities) {
+            const option = document.createElement("option");
+            option.value = city;
+            suggestions.appendChild(option);
           }
         } catch (error) {
-          // Network error
-          document.getElementById("cityName").textContent = "ERROR";
-          output.textContent = JSON.stringify(
-            { error: "Network error. Is the Express server running?" },
-            null,
-            2,
-          );
+          label.textContent = "City suggestions are currently unavailable. You can still enter a city.";
         }
       }
+
+      async function fetchWeather(event) {
+        event.preventDefault();
+        const city = cityInput.value.trim();
+        if (!city) return;
+
+        fetchButton.disabled = true;
+        fetchButton.textContent = "Loading...";
+        resultPanel.hidden = true;
+        errorMessage.hidden = true;
+        output.textContent = "Fetching...";
+
+        try {
+          const response = await fetch(`/api/weather/${encodeURIComponent(city)}`);
+          const data = await response.json();
+          output.textContent = JSON.stringify(data, null, 2);
+
+          if (!response.ok) {
+            errorMessage.textContent = data.error || `Unable to fetch weather for "${city}".`;
+            errorMessage.hidden = false;
+            return;
+          }
+
+          document.getElementById("cityName").textContent = data.city;
+          document.getElementById("temp").textContent = `${data.temperature}°C`;
+          document.getElementById("description").textContent = data.description;
+          resultPanel.hidden = false;
+        } catch (error) {
+          const message = "Network or response error. Please check that the API server is running.";
+          errorMessage.textContent = message;
+          errorMessage.hidden = false;
+          output.textContent = JSON.stringify({ error: message }, null, 2);
+        } finally {
+          fetchButton.disabled = false;
+          fetchButton.textContent = "Get weather";
+        }
+      }
+
+      form.addEventListener("submit", fetchWeather);
+      loadSupportedCities();
     </script>
   </body>
 </html>
