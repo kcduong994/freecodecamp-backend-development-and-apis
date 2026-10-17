@@ -175,11 +175,19 @@ certification-projects/
 │   ├── index.js
 │   ├── package.json
 │   └── README.md
-│
-└── build-a-personal-profile-app/
-    ├── package-lock.json
-    ├── package.json
+├── build-a-personal-profile-app/
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
+└── build-a-timestamp-microservice/
+    ├── public/
+    │   └── styles.css
+    ├── views/
+    │   └── index.html
     ├── server.js
+    ├── package.json
+    ├── package-lock.json
     └── README.md
 ```
 
@@ -275,10 +283,19 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── index.js
 │   │   ├── package.json
 │   │   └── README.md
-│   └── build-a-personal-profile-app/
-│       ├── package-lock.json
-│       ├── package.json
+│   ├── build-a-personal-profile-app/
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   └── build-a-timestamp-microservice/
+│       ├── public/
+│       │   └── styles.css
+│       ├── views/
+│       │   └── index.html
 │       ├── server.js
+│       ├── package.json
+│       ├── package-lock.json
 │       └── README.md
 ├── .gitignore
 ├── BACKEND_REVIEW.md
@@ -293,63 +310,23 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** October 14, 2026
-
-Current practical curriculum progression:
-
-```text
-Back-End Development and APIs Certification
-├── Express Middleware
-│   ├── Build a Submission Form       ✅ 22/22
-│   └── Build a Data Sanitizer         ✅ 1/1
-└── Weather Service API practice
-    └── Build a Weather Service API   ✅ 20/20
-```
+**Date:** October 17, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Weather Service API
-Workshop 07
-20 / 20 completed
-Status: Passed
+Build a Timestamp Microservice
+Certification Project 03
+1 / 1 completed
+Official freeCodeCamp status: Passed
+Local user-story checks: 7 / 7 passed
 ```
 
-The weather service extends the Express foundation with modular routes, URL parameters, server-to-server HTTP requests, asynchronous data handling, static front-end files, and self-documenting endpoints.
+The timestamp service accepts a date string, a Unix-millisecond timestamp, or no date parameter. It returns `unix` and `utc` values for valid dates, and a predictable JSON error for invalid dates.
 
-Core topics demonstrated:
+Before this project: 7 workshops, 1 lab, and 2 certification projects had been completed. The current totals, including Timestamp Microservice, are 7 workshops, 1 lab, and 3 certification projects. Their source code, documentation, and verification records are preserved below.
 
-```text
-ES Modules: import / export default
-express.Router()
-router.get()
-app.use() router mounting
-app.route().get().post()
-req.params
-res.send() / res.json() / res.redirect() / res.sendFile()
-HTTP 200 / 201 / 302 / 404
-async / await
-Node.js fetch()
-response.ok and response.json()
-try / catch
-express.static()
-path.join()
-fileURLToPath(import.meta.url)
-API endpoint discovery via GET /api/info
-```
-
-Local verification (October 14, 2026): `npm install` completed with `0 vulnerabilities`; the Node.js server started on port `3000`; and the following HTTP responses were verified:
-
-| Method | Endpoint | Result |
-|---|---|---|
-| `GET` | `/` | `200`, HTML |
-| `GET` | `/api/info` | `200`, JSON with `endpoints` |
-| `GET` | `/api/status` | `200`, JSON status |
-| `GET` | `/api/weather` | `200`, JSON object containing `supportedCities` |
-| `GET` | `/api/weather/London` | `200`, JSON containing city, temperature, description |
-| `GET` | `/api/weather/NotARealCity` | `404`, JSON error |
-
-The next practical item shown by freeCodeCamp is **Build a Timestamp Microservice** (Certification Project). Its code is not added before the official exercise is started.
+The timestamp project is archived at `certification-projects/build-a-timestamp-microservice/` after passing the required local verification.
 
 ---
 
@@ -381,6 +358,7 @@ The next practical item shown by freeCodeCamp is **Build a Timestamp Microservic
 |---|---|---|---|
 | 1 | Build a Prime Number Checker Module | Certification Project | ✅ Completed — 1/1 |
 | 2 | Build a Personal Profile App | Certification Project | ✅ Completed — 1/1 |
+| 3 | Build a Timestamp Microservice | Certification Project | ✅ Completed — 1/1 |
 
 ---
 
@@ -1344,7 +1322,7 @@ The check of `response.ok` is important because `fetch()` does not automatically
 
 `express.static(path.join(__dirname, "public"))` serves the assets under `public/`, while the root handler defines `res.sendFile(path.join(__dirname, "public", "index.html"))`. The ESM entry point derives `__dirname` from `fileURLToPath(import.meta.url)` and `path.dirname()`.
 
-**Known UI limitation:** The supplied `public/index.html` assumes optional `country` and `iconUrl` properties, but the implemented weather route returns only `city`, `temperature`, and `description`. The interface may therefore display `undefined` for country or omit the weather icon. The HTML also lists a different set of supported cities from `weather.js`. These are follow-up improvements, not additional requirements for the completed 20/20 workshop.
+**Frontend integration fix (October 14, 2026):** The original course HTML expected optional `country` and `iconUrl` fields that were not included in the workshop's weather JSON response. A follow-up fix in `public/index.html` now displays the available `city`, `temperature`, and `description` fields, hides the icon when `iconUrl` is absent, URL-encodes city names, and matches the city list in `weather.js`. The Express backend and successful **20/20** workshop result were preserved.
 
 ### Main routes
 
@@ -1748,6 +1726,46 @@ Full notes and explanations are available in:
 ```text
 certification-projects/build-a-personal-profile-app/README.md
 ```
+
+---
+
+## **Certification Project 03 — Build a Timestamp Microservice**
+
+**Location:** `certification-projects/build-a-timestamp-microservice/`
+
+**Completion:** ✅ **1 / 1** freeCodeCamp certification project, October 17, 2026. The archived source passed **7 / 7** local user-story checks.
+
+This project implements a RESTful timestamp API with Node.js and Express 5. Its input is a URL date string, a numeric Unix timestamp in milliseconds, or an omitted date parameter. Valid inputs return a JSON object with the `unix` number and `utc` GMT string; invalid inputs return `{ "error": "Invalid Date" }`.
+
+Project files:
+
+```text
+build-a-timestamp-microservice/
+├── public/
+│   └── styles.css
+├── views/
+│   └── index.html
+├── server.js
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+API examples:
+
+| Path | Expected result |
+|---|---|
+| `GET /api/2016-12-25` | `unix: 1482624000000`, UTC date |
+| `GET /api/1451001600000` | `Fri, 25 Dec 2015 00:00:00 GMT` |
+| `GET /api/05%20October%202011` | Parsed human-readable date |
+| `GET /api/this-is-not-a-date` | `{ "error": "Invalid Date" }` |
+| `GET /api` | Current time in Unix milliseconds and UTC |
+
+Important concepts: Express routing, `req.params`, the JavaScript `Date` object, numeric Unix milliseconds, `new Date()`, `Date.getTime()`, `Date.toUTCString()`, invalid-date validation, CORS, ESM, and local API verification.
+
+The official project uses port `8000`. To run the archived project: `npm ci`, then `npm start`. The project-specific README includes architecture notes, expected responses, and commands for verifying all seven requirements.
+
+**Documentation:** `certification-projects/build-a-timestamp-microservice/README.md`
 
 ---
 
@@ -2246,7 +2264,12 @@ Build a Weather Service API                         ✅ 20/20
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
 
-Build a Timestamp Microservice                     ⏳ Next practical item
+Build a Timestamp Microservice                     ✅ 1/1
+├── Certification project completed                 ✅
+├── 7 / 7 local user-story checks passed            ✅
+├── server.js and static assets archived            ✅
+├── package.json / package-lock.json preserved      ✅
+└── Project README documented                       ✅
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -2258,9 +2281,9 @@ Final back-end review                               ⏳ Deferred until later
 
 **Completed labs:** 1
 
-**Completed certification projects:** 2
+**Completed certification projects:** 3
 
-Current practical record:
+Latest practical record:
 
 ```text
 Learn Node.js REPL                      23 / 23 ✅
@@ -2273,31 +2296,10 @@ Build a Personal Profile App             1 / 1  ✅
 Build a Submission Form                 22 / 22 ✅
 Build a Data Sanitizer                   1 / 1  ✅
 Build a Weather Service API             20 / 20 ✅
+Build a Timestamp Microservice           1 / 1  ✅
 ```
 
-Current practical checkpoint:
-
-```text
-Workshop 07 — Build a Weather Service API
-20 / 20 steps completed
-freeCodeCamp status: Passed
-Local npm install: 0 vulnerabilities
-Node.js server: port 3000
-GET /: 200 HTML
-GET /api/info: 200 JSON
-GET /api/status: 200 JSON
-GET /api/weather: 200 JSON
-GET /api/weather/London: 200 JSON weather data
-GET /api/weather/NotARealCity: 404 JSON error
-```
-
-Next practical curriculum item:
-
-```text
-Build a Timestamp Microservice
-Certification Project
-Not started / not yet archived
-```
+Current checkpoint: **Build a Timestamp Microservice** — official 1/1 and local 7/7 verified, October 17, 2026. Continue with the next exercise in the official freeCodeCamp sequence.
 
 ---
 
@@ -2319,41 +2321,14 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 ## **Current Status**
 
-**freeCodeCamp Back-End Development and APIs Certification**
+**freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-```text
-In Progress
-```
+**Latest completed practical checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** passed, October 17, 2026.
 
-Latest completed practical checkpoint:
+**Windows local verification:** 7 / 7 user-story checks passed on port `8000`.
 
-```text
-Build a Weather Service API
-Workshop 07
-20 / 20
-✅ Completed — October 14, 2026
-```
+**Repository totals:** 7 completed workshops, 1 completed lab, and 3 completed certification projects.
 
-Local verification:
+Previously completed projects and detailed technical notes are preserved above and in their individual README files.
 
-```text
-npm install                        ✅ 0 vulnerabilities
-node --check index.js             ✅
-node --check weather.js           ✅
-node index.js / npm start          ✅ server on port 3000
-GET /                             ✅ 200 HTML
-GET /api/info                     ✅ 200 JSON
-GET /api/status                   ✅ 200 JSON
-GET /api/weather                  ✅ 200 JSON
-GET /api/weather/London           ✅ 200 JSON
-GET /api/weather/NotARealCity     ✅ 404 JSON error
-```
-
-Previously completed: six other workshops, one lab, and two certification projects. Full details and verification records are retained above and in the individual project READMEs.
-
-Next practical item:
-
-```text
-Build a Timestamp Microservice
-Certification Project
-```
+**Next:** Continue in the official freeCodeCamp curriculum order.
