@@ -99,13 +99,21 @@ workshops/
 │   ├── server.js
 │   └── README.md
 │
-└── build-a-weather-service-api/
-    ├── public/
-    │   └── index.html
-    ├── index.js
-    ├── weather.js
+├── build-a-weather-service-api/
+│   ├── public/
+│   │   └── index.html
+│   ├── index.js
+│   ├── weather.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
+│
+└── build-a-bank-api/
+    ├── accounts.json
+    ├── db.js
     ├── package.json
     ├── package-lock.json
+    ├── server.js
     └── README.md
 ```
 
@@ -261,13 +269,20 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── package.json
 │   │   ├── server.js
 │   │   └── README.md
-│   └── build-a-weather-service-api/
-│       ├── public/
-│       │   └── index.html
-│       ├── index.js
-│       ├── weather.js
+│   ├── build-a-weather-service-api/
+│   │   ├── public/
+│   │   │   └── index.html
+│   │   ├── index.js
+│   │   ├── weather.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── README.md
+│   └── build-a-bank-api/
+│       ├── accounts.json
+│       ├── db.js
 │       ├── package.json
 │       ├── package-lock.json
+│       ├── server.js
 │       └── README.md
 ├── labs/
 │   └── build-a-data-sanitizer/
@@ -310,44 +325,55 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** October 17, 2026
+**Date:** October 20, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Timestamp Microservice
-Certification Project 03
-1 / 1 completed
+Build a Bank API
+Workshop 08
+35 / 35 completed
 Official freeCodeCamp status: Passed
-Local user-story checks: 7 / 7 passed
+Windows local verification: GET /, /accounts, /accounts/1, /health passed
 ```
 
-The timestamp service accepts a date string, a Unix-millisecond timestamp, or no date parameter. It returns `unix` and `utc` values for valid dates, and a predictable JSON error for invalid dates.
+Tiny Bank API uses Express 5 async error propagation, structured JSON errors, JSON-backed account persistence, a health-check endpoint, and SIGTERM/SIGINT graceful shutdown. Its source is preserved under `workshops/build-a-bank-api/`.
 
-Before this project: 7 workshops, 1 lab, and 2 certification projects had been completed. The current totals, including Timestamp Microservice, are 7 workshops, 1 lab, and 3 certification projects. Their source code, documentation, and verification records are preserved below.
+The previous checkpoint was **Build a Timestamp Microservice**, Certification Project 03 (1/1 official and 7/7 local checks), completed October 17, 2026. Its source remains archived at `certification-projects/build-a-timestamp-microservice/`.
 
-The timestamp project is archived at `certification-projects/build-a-timestamp-microservice/` after passing the required local verification.
+**Current totals:** 8 completed workshops, 1 completed lab, and 3 completed certification projects.
 
 ---
 
 ## **Completed Workshops**
 
 | # | Workshop | Type | Status |
+
 |---|---|---|---|
+
 | 1 | Learn Node.js REPL | Workshop | ✅ Completed — 23/23 |
+
 | 2 | Build a File Processor | Workshop | ✅ Completed — 30/30 |
+
 | 3 | Build a Case Converter | Workshop | ✅ Completed — 45/45 |
+
 | 4 | Build a Web Server | Workshop | ✅ Completed — 60/60 |
+
 | 5 | Build a Random Joke App | Workshop | ✅ Completed — 8/8 |
+
 | 6 | Build a Submission Form | Workshop | ✅ Completed — 22/22 |
+
 | 7 | Build a Weather Service API | Workshop | ✅ Completed — 20/20 |
+| 8 | Build a Bank API | Workshop | ✅ Completed — 35/35 |
 
 ---
 
 ## **Completed Labs**
 
 | # | Lab | Type | Status |
+
 |---|---|---|---|
+
 | 1 | Build a Data Sanitizer | Lab | ✅ Completed — 1/1 |
 
 ---
@@ -355,9 +381,13 @@ The timestamp project is archived at `certification-projects/build-a-timestamp-m
 ## **Completed Certification Projects**
 
 | # | Project | Type | Status |
+
 |---|---|---|---|
+
 | 1 | Build a Prime Number Checker Module | Certification Project | ✅ Completed — 1/1 |
+
 | 2 | Build a Personal Profile App | Certification Project | ✅ Completed — 1/1 |
+
 | 3 | Build a Timestamp Microservice | Certification Project | ✅ Completed — 1/1 |
 
 ---
@@ -806,7 +836,7 @@ Requested files are read asynchronously:
 
 ```js
 readFile(filePath, (error, file) => {
-  // success or 404 handling
+  // success or 404 handling*
 });
 ```
 
@@ -954,9 +984,13 @@ local HTTP verification
 The application defines three routes:
 
 | Method | Path | Purpose |
+
 |---|---|---|
+
 | `GET` | `/` | Return the welcome message |
+
 | `GET` | `/joke` | Return one random joke |
+
 | `GET` | `/about` | Return information about the Express server |
 
 The Express application is created with:
@@ -1132,9 +1166,13 @@ app.use(finalErrorHandler);
 The API router defines three routes:
 
 | Method | Path | Purpose |
+
 |---|---|---|
+
 | `GET` | `/api` | Return `API is available!` |
+
 | `GET` | `/api/crash` | Demonstrate an internal `500` error |
+
 | `GET` | `/api/bad-request` | Demonstrate a custom `400` error |
 
 The router is mounted under a shared base path:
@@ -1261,18 +1299,16 @@ build-a-weather-service-api/
 
 The project uses **ES Modules**, **Express 5**, and Node.js's built-in `fetch()` API. `index.js` holds application-level routing and static middleware. `weather.js` exports a separate Express router.
 
-### Router mounting and dynamic paths
+### **Router mounting and dynamic paths**
 
 ```js
 // weather.js (excerpt)
 import express from "express";
 const router = express.Router();
 const SUPPORTED_CITIES = ["London", "Tokyo", "New York", "Paris", "Seoul"];
-
 router.get("/", (req, res) => {
   res.json({ supportedCities: SUPPORTED_CITIES });
 });
-
 export default router;
 ```
 
@@ -1285,23 +1321,20 @@ app.use("/api/weather", weatherRouter);
 
 The router's relative `/` path resolves to `GET /api/weather`. The relative `/:city` path resolves to `GET /api/weather/:city`, with its city name available through `req.params.city`.
 
-### Fetching weather data
+### **Fetching weather data**
 
 The route handler uses `async`/`await` and a server-to-server request:
 
 ```js
 router.get("/:city", async (req, res) => {
   const { city } = req.params;
-
   try {
     const response = await fetch(
       `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
     );
-
     if (!response.ok) {
       throw new Error(`Status ${response.status}`);
     }
-
     const data = await response.json();
     res.json({
       city: data.name,
@@ -1318,27 +1351,37 @@ router.get("/:city", async (req, res) => {
 
 The check of `response.ok` is important because `fetch()` does not automatically throw on HTTP `404` or `500`. The workshop intentionally maps failed requests to a `404` JSON response. A production service should distinguish invalid city names from external provider/network failures.
 
-### Serving the browser interface
+### **Serving the browser interface**
 
 `express.static(path.join(__dirname, "public"))` serves the assets under `public/`, while the root handler defines `res.sendFile(path.join(__dirname, "public", "index.html"))`. The ESM entry point derives `__dirname` from `fileURLToPath(import.meta.url)` and `path.dirname()`.
 
 **Frontend integration fix (October 14, 2026):** The original course HTML expected optional `country` and `iconUrl` fields that were not included in the workshop's weather JSON response. A follow-up fix in `public/index.html` now displays the available `city`, `temperature`, and `description` fields, hides the icon when `iconUrl` is absent, URL-encodes city names, and matches the city list in `weather.js`. The Express backend and successful **20/20** workshop result were preserved.
 
-### Main routes
+### **Main routes**
 
 | Method | Path | Behavior |
+
 |---|---|---|
+
 | `GET` | `/` | Return `public/index.html` |
+
 | `GET` | `/api/info` | Return service metadata and `endpoints` array |
+
 | `GET` | `/api/status` | Return `{ "status": "ok" }` |
+
 | `GET` | `/docs` | Redirect to `/api/info` |
+
 | `GET` | `/api/greet/:name` | Return a greeting containing the name |
+
 | `GET` | `/api/data` | Return demo API data |
+
 | `POST` | `/api/data` | Return `201` demo creation message |
+
 | `GET` | `/api/weather` | Return the supported cities list |
+
 | `GET` | `/api/weather/:city` | Return weather data or `404` JSON error |
 
-### Local verification
+### **Local verification**
 
 ```powershell
 npm install
@@ -1350,6 +1393,61 @@ npm start
 The server launched on port `3000`. Manual HTTP checks verified the homepage, info, status, cities, successful London weather response, and `NotARealCity` error behavior. Installation reported `0 vulnerabilities`.
 
 The complete explanation, reproducible commands, and workshop results are preserved in `workshops/build-a-weather-service-api/README.md`.
+
+---
+
+## **Workshop 08 — Build a Bank API**
+
+**Location:** `workshops/build-a-bank-api/`
+
+**Completion:** ✅ **35 / 35 freeCodeCamp steps passed**, October 20, 2026.
+
+This workshop implements a small Express 5 REST API backed by `accounts.json`, with asynchronous reading and writing through `db.js`. It covers HTTP validation, structured JSON errors, health diagnostics, and graceful shutdown.
+
+Project files:
+
+```text
+build-a-bank-api/
+├── accounts.json
+├── db.js
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+```
+
+The `db.js` module exports `getAccounts()` and `saveAccounts()` using `fs/promises`. A successful transfer updates account balances and saves the modified array.
+
+### API endpoints
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `GET` | `/` | Return the Express 5 status message |
+| `GET` | `/accounts` | List all accounts |
+| `GET` | `/accounts/:id` | Retrieve an account by ID |
+| `POST` | `/transfer` | Validate and persist a funds transfer |
+| `GET` | `/health` | Report status, uptime, UTC timestamp, and memory metrics |
+
+The API demonstrates HTTP `200`, `400`, `404`, `409`, and `500` responses. Express 5 forwards errors thrown by async route handlers to centralized four-argument error middleware without repetitive `try/catch` blocks. The temporary `GET /broken` route was used to verify the error response before being commented out.
+
+The `SIGTERM` and `SIGINT` handlers call `server.close()` for graceful shutdown.
+
+### Local Windows verification
+
+The workshop was transferred from GitHub Codespaces to the Windows development environment. Dependencies were installed using `npm.cmd ci`; the application was started using `node server.js` on port `9000`.
+
+Manual browser and `curl.exe -i` checks confirmed:
+
+```text
+GET /             ✅
+GET /accounts     ✅
+GET /accounts/1   ✅
+GET /health       ✅
+```
+
+During installation, npm reported **three dependency vulnerabilities** (one low, one moderate, and one critical). They should be reviewed using `npm audit` before any deployment.
+
+**Full documentation:** `workshops/build-a-bank-api/README.md`
 
 ---
 
@@ -1431,16 +1529,20 @@ res.redirect(
 The application defines these behaviors:
 
 | Method | Path | Purpose |
+
 |---|---|---|
+
 | `GET` | `/` | Redirect to `/form` |
+
 | `GET` | `/form` | Serve `public/index.html` |
+
 | `POST` | `/submit` | Clean, validate, and return submitted data |
 
 Successful example:
 
 ```text
 username = CuOnG
-comment  = <b>Hello</b>
+comment  = \<b>Hello\</b>
 ```
 
 becomes:
@@ -1640,10 +1742,15 @@ The project required an Express HTTP server listening on port `3000` with three 
 Required routes:
 
 | Method | Path | Response |
+
 |---|---|---|
+
 | `GET` | `/` | `Welcome to Camper Bot's homepage!` |
+
 | `GET` | `/hobbies` | `I cycle, go boating, and play guitar.` |
+
 | `GET` | `/skills` | `JavaScript, Node.js, and Express.js!` |
+
 | `GET` | `/api/profile` | JSON profile object |
 
 Final JSON route:
@@ -1754,11 +1861,17 @@ build-a-timestamp-microservice/
 API examples:
 
 | Path | Expected result |
+
 |---|---|
+
 | `GET /api/2016-12-25` | `unix: 1482624000000`, UTC date |
+
 | `GET /api/1451001600000` | `Fri, 25 Dec 2015 00:00:00 GMT` |
+
 | `GET /api/05%20October%202011` | Parsed human-readable date |
+
 | `GET /api/this-is-not-a-date` | `{ "error": "Invalid Date" }` |
+
 | `GET /api` | Current time in Unix milliseconds and UTC |
 
 Important concepts: Express routing, `req.params`, the JavaScript `Date` object, numeric Unix milliseconds, `new Date()`, `Date.getTime()`, `Date.toUTCString()`, invalid-date validation, CORS, ESM, and local API verification.
@@ -2031,6 +2144,22 @@ Express Application
         JSON Response / 404 Error
 ```
 
+The eighth workshop consolidates Express 5, JSON file persistence, and Node.js process management:
+
+```text
+HTTP Request
+    ↓
+Express 5 Route
+    ↓
+Read / Validate / Transfer / Health
+    ↓
+JSON Success Response or Thrown Error
+    ↓
+Centralized Error Middleware (on error)
+```
+
+It also introduces health monitoring and graceful shutdown using `server.close()`, `SIGTERM`, and `SIGINT`.
+
 This leads naturally to later certification projects involving REST APIs, WebSockets, authentication, and more complex back-end applications.
 
 ---
@@ -2136,6 +2265,18 @@ Express Router mounting
 → serving a browser UI alongside API routes
 Self-documenting endpoint lists
 → helping clients discover supported paths
+
+Express 5 automatic async error propagation
+→ forwarding rejected Promises and thrown errors to centralized middleware
+
+Health monitoring
+→ uptime, UTC timestamps, and process memory usage
+
+Graceful shutdown
+→ stopping HTTP acceptance when SIGTERM or SIGINT is received
+
+JSON file persistence
+→ reading and saving sample account data using fs/promises
 ```
 
 These comparisons are supplementary.
@@ -2263,13 +2404,18 @@ Build a Weather Service API                         ✅ 20/20
 ├── Success and 404 responses verified              ✅
 ├── Workshop README documented                      ✅
 └── freeCodeCamp workshop completed                 ✅
-
 Build a Timestamp Microservice                     ✅ 1/1
 ├── Certification project completed                 ✅
 ├── 7 / 7 local user-story checks passed            ✅
 ├── server.js and static assets archived            ✅
 ├── package.json / package-lock.json preserved      ✅
 └── Project README documented                       ✅
+Build a Bank API                                      ✅ 35/35
+├── Express 5 async error handling documented         ✅
+├── Account persistence and transfer routes preserved ✅
+├── Health check and shutdown handlers preserved      ✅
+├── Windows localhost read endpoints verified         ✅
+└── Workshop README documented                         ✅
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -2277,7 +2423,7 @@ Final back-end review                               ⏳ Deferred until later
 
 ## **Current Learning Summary**
 
-**Completed guided workshops:** 7
+**Completed guided workshops:** 8
 
 **Completed labs:** 1
 
@@ -2297,9 +2443,10 @@ Build a Submission Form                 22 / 22 ✅
 Build a Data Sanitizer                   1 / 1  ✅
 Build a Weather Service API             20 / 20 ✅
 Build a Timestamp Microservice           1 / 1  ✅
+Build a Bank API                          35 / 35 ✅
 ```
 
-Current checkpoint: **Build a Timestamp Microservice** — official 1/1 and local 7/7 verified, October 17, 2026. Continue with the next exercise in the official freeCodeCamp sequence.
+Current checkpoint: **Build a Bank API** — official 35/35 and Windows localhost read-endpoint verification completed, October 20, 2026. Continue with the next exercise in the official freeCodeCamp sequence.
 
 ---
 
@@ -2323,11 +2470,13 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-**Latest completed practical checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** passed, October 17, 2026.
+**Latest completed practical checkpoint:** Build a Bank API — Workshop 08, **35 / 35** passed, October 20, 2026.
 
-**Windows local verification:** 7 / 7 user-story checks passed on port `8000`.
+**Windows local verification:** `GET /`, `GET /accounts`, `GET /accounts/1`, and `GET /health` passed on port `9000`.
 
-**Repository totals:** 7 completed workshops, 1 completed lab, and 3 completed certification projects.
+**Previous certification checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** official and **7 / 7** local checks passed, October 17, 2026.
+
+**Repository totals:** 8 completed workshops, 1 completed lab, and 3 completed certification projects.
 
 Previously completed projects and detailed technical notes are preserved above and in their individual README files.
 
