@@ -108,9 +108,17 @@ workshops/
 │   ├── package-lock.json
 │   └── README.md
 │
-└── build-a-bank-api/
-    ├── accounts.json
-    ├── db.js
+├── build-a-bank-api/
+│   ├── accounts.json
+│   ├── db.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── README.md
+└── build-a-resource-monitor/
+    ├── public/
+    │   ├── index.html
+    │   └── script.js
     ├── package.json
     ├── package-lock.json
     ├── server.js
@@ -277,9 +285,17 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── package.json
 │   │   ├── package-lock.json
 │   │   └── README.md
-│   └── build-a-bank-api/
-│       ├── accounts.json
-│       ├── db.js
+│   ├── build-a-bank-api/
+│   │   ├── accounts.json
+│   │   ├── db.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── server.js
+│   │   └── README.md
+│   └── build-a-resource-monitor/
+│       ├── public/
+│       │   ├── index.html
+│       │   └── script.js
 │       ├── package.json
 │       ├── package-lock.json
 │       ├── server.js
@@ -325,23 +341,23 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** October 20, 2026
+**Date:** October 25, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Bank API
-Workshop 08
-35 / 35 completed
+Build a Resource Monitor
+Workshop 09
+20 / 20 completed
 Official freeCodeCamp status: Passed
-Windows local verification: GET /, /accounts, /accounts/1, /health passed
+Windows local verification: Passed (user-confirmed)
 ```
 
-Tiny Bank API uses Express 5 async error propagation, structured JSON errors, JSON-backed account persistence, a health-check endpoint, and SIGTERM/SIGINT graceful shutdown. Its source is preserved under `workshops/build-a-bank-api/`.
+This workshop implements a Node.js HTTP server and WebSocket-based dashboard that streams system load averages and memory metrics once per second. Its source is preserved under `workshops/build-a-resource-monitor/`.
 
-The previous checkpoint was **Build a Timestamp Microservice**, Certification Project 03 (1/1 official and 7/7 local checks), completed October 17, 2026. Its source remains archived at `certification-projects/build-a-timestamp-microservice/`.
+The previous checkpoint was **Build a Bank API**, Workshop 08 (35/35 official steps passed), completed October 20, 2026. Its source remains archived under `workshops/build-a-bank-api/`.
 
-**Current totals:** 8 completed workshops, 1 completed lab, and 3 completed certification projects.
+**Current totals:** 9 completed workshops, 1 completed lab, and 3 completed certification projects.
 
 ---
 
@@ -365,6 +381,7 @@ The previous checkpoint was **Build a Timestamp Microservice**, Certification Pr
 
 | 7 | Build a Weather Service API | Workshop | ✅ Completed — 20/20 |
 | 8 | Build a Bank API | Workshop | ✅ Completed — 35/35 |
+| 9 | Build a Resource Monitor | Workshop | ✅ Completed — 20/20 |
 
 ---
 
@@ -1451,6 +1468,51 @@ During installation, npm reported **three dependency vulnerabilities** (one low,
 
 ---
 
+## **Workshop 09 — Build a Resource Monitor**
+
+**Location:** `workshops/build-a-resource-monitor/`
+
+**Completion:** ✅ **20 / 20 freeCodeCamp steps passed**, October 25, 2026.
+
+The workshop builds an HTTP server in Node.js that serves a browser dashboard and streams operating-system metrics using WebSocket. The browser updates the displayed metrics every second without a page reload.
+
+Project files:
+
+```text
+build-a-resource-monitor/
+├── public/
+│   ├── index.html
+│   └── script.js
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+```
+
+### Core components
+
+- `http.createServer()` serves `/` and `/script.js` with the correct content types.
+- `new WebSocketServer({ server })` attaches WebSocket upgrades to the existing HTTP server on port `3000`.
+- `getMetrics()` obtains 1-, 5-, and 15-minute system load averages, free/total memory, and memory usage percentage through Node.js `os`.
+- `setInterval()` and `socket.send(JSON.stringify(getMetrics()))` stream a JSON payload every `1000` milliseconds per client.
+- `clearInterval(interval)` runs on disconnection to avoid stale timer callbacks.
+- The browser's `onopen`, `onmessage`, `onclose`, and `onerror` handlers manage status, updates, and diagnostics.
+
+Run locally:
+
+```bash
+npm ci
+npm start
+```
+
+Open `http://localhost:3000/`. Node.js `os.loadavg()` reports zeros on Windows; this is expected platform behavior rather than an application failure.
+
+**Windows local verification:** Passed (user-confirmed).
+
+Full architecture, event lifecycle, payload schema, and test instructions are documented in `workshops/build-a-resource-monitor/README.md`.
+
+---
+
 ## **Lab 01 — Build a Data Sanitizer**
 
 Location:
@@ -2416,6 +2478,12 @@ Build a Bank API                                      ✅ 35/35
 ├── Health check and shutdown handlers preserved      ✅
 ├── Windows localhost read endpoints verified         ✅
 └── Workshop README documented                         ✅
+Build a Resource Monitor                              ✅ 20/20
+├── HTTP and WebSocket server source preserved            ✅
+├── Browser dashboard and script preserved                ✅
+├── WebSocket metrics streaming and cleanup documented    ✅
+├── Windows localhost runtime verification                 ✅
+└── Workshop README documented                            ✅
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -2423,7 +2491,7 @@ Final back-end review                               ⏳ Deferred until later
 
 ## **Current Learning Summary**
 
-**Completed guided workshops:** 8
+**Completed guided workshops:** 9
 
 **Completed labs:** 1
 
@@ -2444,9 +2512,10 @@ Build a Data Sanitizer                   1 / 1  ✅
 Build a Weather Service API             20 / 20 ✅
 Build a Timestamp Microservice           1 / 1  ✅
 Build a Bank API                          35 / 35 ✅
+Build a Resource Monitor                  20 / 20 ✅
 ```
 
-Current checkpoint: **Build a Bank API** — official 35/35 and Windows localhost read-endpoint verification completed, October 20, 2026. Continue with the next exercise in the official freeCodeCamp sequence.
+Current checkpoint: **Build a Resource Monitor** — official 20/20 completed October 25, 2026; Windows local verification user-confirmed. Continue with the next exercise in the official freeCodeCamp sequence.
 
 ---
 
@@ -2470,13 +2539,15 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-**Latest completed practical checkpoint:** Build a Bank API — Workshop 08, **35 / 35** passed, October 20, 2026.
+**Latest completed practical checkpoint:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026.
 
-**Windows local verification:** `GET /`, `GET /accounts`, `GET /accounts/1`, and `GET /health` passed on port `9000`.
+**Windows local verification:** Passed (user-confirmed); HTTP and WebSocket monitoring tested on localhost:3000.
+
+**Previous workshop:** Build a Bank API — Workshop 08, **35 / 35** passed, October 20, 2026. Local HTTP read endpoints were verified on port `9000`.
 
 **Previous certification checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** official and **7 / 7** local checks passed, October 17, 2026.
 
-**Repository totals:** 8 completed workshops, 1 completed lab, and 3 completed certification projects.
+**Repository totals:** 9 completed workshops, 1 completed lab, and 3 completed certification projects.
 
 Previously completed projects and detailed technical notes are preserved above and in their individual README files.
 
