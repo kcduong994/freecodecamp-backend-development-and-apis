@@ -196,11 +196,19 @@ certification-projects/
 │   ├── package.json
 │   ├── server.js
 │   └── README.md
-└── build-a-timestamp-microservice/
+├── build-a-timestamp-microservice/
+│   ├── public/
+│   │   └── styles.css
+│   ├── views/
+│   │   └── index.html
+│   ├── server.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
+└── build-a-chat-app/
     ├── public/
-    │   └── styles.css
-    ├── views/
-    │   └── index.html
+    │   ├── index.html
+    │   └── script.js
     ├── server.js
     ├── package.json
     ├── package-lock.json
@@ -319,11 +327,19 @@ freecodecamp-backend-development-and-apis/
 │   │   ├── package.json
 │   │   ├── server.js
 │   │   └── README.md
-│   └── build-a-timestamp-microservice/
+│   ├── build-a-timestamp-microservice/
+│   │   ├── public/
+│   │   │   └── styles.css
+│   │   ├── views/
+│   │   │   └── index.html
+│   │   ├── server.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── README.md
+│   └── build-a-chat-app/
 │       ├── public/
-│       │   └── styles.css
-│       ├── views/
-│       │   └── index.html
+│       │   ├── index.html
+│       │   └── script.js
 │       ├── server.js
 │       ├── package.json
 │       ├── package-lock.json
@@ -341,23 +357,23 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** October 25, 2026
+**Date:** October 28, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Resource Monitor
-Workshop 09
-20 / 20 completed
+Build a Chat App
+Certification Project 04
+1 / 1 completed
 Official freeCodeCamp status: Passed
 Windows local verification: Passed (user-confirmed)
 ```
 
-This workshop implements a Node.js HTTP server and WebSocket-based dashboard that streams system load averages and memory metrics once per second. Its source is preserved under `workshops/build-a-resource-monitor/`.
+This certification project implements a real-time chat server with multi-client WebSocket broadcasting, username join/leave notifications, and a browser chat interface. Its archived source is under `certification-projects/build-a-chat-app/`.
 
-The previous checkpoint was **Build a Bank API**, Workshop 08 (35/35 official steps passed), completed October 20, 2026. Its source remains archived under `workshops/build-a-bank-api/`.
+The previous checkpoint was **Build a Resource Monitor**, Workshop 09 (20/20 official steps passed, Windows local verification complete), completed October 25, 2026. Its source is preserved under `workshops/build-a-resource-monitor/`.
 
-**Current totals:** 9 completed workshops, 1 completed lab, and 3 completed certification projects.
+**Current totals:** 9 completed workshops, 1 completed lab, and 4 completed certification projects.
 
 ---
 
@@ -406,6 +422,7 @@ The previous checkpoint was **Build a Bank API**, Workshop 08 (35/35 official st
 | 2 | Build a Personal Profile App | Certification Project | ✅ Completed — 1/1 |
 
 | 3 | Build a Timestamp Microservice | Certification Project | ✅ Completed — 1/1 |
+| 4 | Build a Chat App | Certification Project | ✅ Completed — 1/1 |
 
 ---
 
@@ -1944,6 +1961,41 @@ The official project uses port `8000`. To run the archived project: `npm ci`, th
 
 ---
 
+## **Certification Project 04 — Build a Chat App**
+
+**Location:** `certification-projects/build-a-chat-app/`
+
+**Completion:** ✅ **1 / 1 official freeCodeCamp challenge passed**, October 28, 2026.
+
+The application is a multi-client real-time WebSocket chat server implemented with Node.js, built-in HTTP/file-system modules, and the `ws` package. The provided browser UI connects to port `3001`; the server accepts upgrades, broadcasts user join/leave notices, and delivers chat messages to every connected client, including the sender.
+
+Project files:
+
+```text
+build-a-chat-app/
+├── public/
+│   ├── index.html
+│   └── script.js
+├── package.json
+├── package-lock.json
+├── server.js
+└── README.md
+```
+
+### HTTP and WebSocket contracts
+
+- `GET /` serves the chat interface with HTTP `200` and `text/html`.
+- `ws://localhost:3001?username=Alice` creates a named chat connection.
+- New connections broadcast `{ "type": "system", "text": "Alice joined" }`.
+- A JSON chat message is broadcast as `{ "type": "chat", "username": "Alice", "text": "..." }` to all connected clients.
+- Disconnecting Alice broadcasts `{ "type": "system", "text": "Alice left" }` to the remaining clients.
+
+**Local Windows verification:** Passed (user-confirmed) — HTTP and multi-client WebSocket join/chat/leave checks.
+
+**Documentation:** `certification-projects/build-a-chat-app/README.md`
+
+---
+
 ## **Repository Principles**
 
 This repository follows several rules throughout the certification.
@@ -2484,6 +2536,12 @@ Build a Resource Monitor                              ✅ 20/20
 ├── WebSocket metrics streaming and cleanup documented    ✅
 ├── Windows localhost runtime verification                 ✅
 └── Workshop README documented                            ✅
+Build a Chat App                                     ✅ 1/1
+├── Multi-client WebSocket server source preserved          ✅
+├── Browser chat interface and client preserved             ✅
+├── Join, message broadcast, and leave documented           ✅
+├── Windows local HTTP/WebSocket verification               ✅
+└── Certification project README documented                 ✅
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -2495,7 +2553,7 @@ Final back-end review                               ⏳ Deferred until later
 
 **Completed labs:** 1
 
-**Completed certification projects:** 3
+**Completed certification projects:** 4
 
 Latest practical record:
 
@@ -2513,9 +2571,10 @@ Build a Weather Service API             20 / 20 ✅
 Build a Timestamp Microservice           1 / 1  ✅
 Build a Bank API                          35 / 35 ✅
 Build a Resource Monitor                  20 / 20 ✅
+Build a Chat App                             1 / 1  ✅
 ```
 
-Current checkpoint: **Build a Resource Monitor** — official 20/20 completed October 25, 2026; Windows local verification user-confirmed. Continue with the next exercise in the official freeCodeCamp sequence.
+Current checkpoint: **Build a Chat App** — Certification Project 04, official 1/1 passed October 28, 2026; Windows local verification passed (user-confirmed). Continue with the next exercise in the official freeCodeCamp sequence.
 
 ---
 
@@ -2539,15 +2598,15 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-**Latest completed practical checkpoint:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026.
+**Latest completed practical checkpoint:** Build a Chat App — Certification Project 04, **1 / 1** official passed, October 28, 2026.
 
-**Windows local verification:** Passed (user-confirmed); HTTP and WebSocket monitoring tested on localhost:3000.
+**Windows local verification:** Passed (user-confirmed) — HTTP and multi-client WebSocket join/chat/leave checks.
 
-**Previous workshop:** Build a Bank API — Workshop 08, **35 / 35** passed, October 20, 2026. Local HTTP read endpoints were verified on port `9000`.
+**Previous workshop:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026; Windows HTTP/WebSocket monitoring verified on port `3000`.
 
 **Previous certification checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** official and **7 / 7** local checks passed, October 17, 2026.
 
-**Repository totals:** 9 completed workshops, 1 completed lab, and 3 completed certification projects.
+**Repository totals:** 9 completed workshops, 1 completed lab, and 4 completed certification projects.
 
 Previously completed projects and detailed technical notes are preserved above and in their individual README files.
 
