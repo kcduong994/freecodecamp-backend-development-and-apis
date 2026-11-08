@@ -51,77 +51,99 @@ Current workshops:
 ```text
 workshops/
 ├── learn-nodejs-repl/
-│   ├── hello.js
-│   └── README.md
+│   ├── hello.js
+│   └── README.md
 │
 ├── build-a-file-processor/
-│   ├── server.js
-│   ├── README.md
-│   └── assets/
-│       ├── poem.txt
-│       ├── output.txt
-│       └── stream-output.txt
+│   ├── server.js
+│   ├── README.md
+│   └── assets/
+│       ├── poem.txt
+│       ├── output.txt
+│       └── stream-output.txt
 │
 ├── build-a-case-converter/
-│   ├── .npmignore
-│   ├── index.js
-│   ├── index.test.js
-│   ├── package.json
-│   └── README.md
+│   ├── .npmignore
+│   ├── index.js
+│   ├── index.test.js
+│   ├── package.json
+│   └── README.md
 │
 ├── build-a-web-server/
-│   ├── public/
-│   │   ├── 404.html
-│   │   ├── about.html
-│   │   ├── forrest1.png
-│   │   ├── forrest2.png
-│   │   ├── forrest3.png
-│   │   ├── index.html
-│   │   ├── products.html
-│   │   └── style.css
-│   ├── package.json
-│   ├── server.js
-│   └── README.md
+│   ├── public/
+│   │   ├── 404.html
+│   │   ├── about.html
+│   │   ├── forrest1.png
+│   │   ├── forrest2.png
+│   │   ├── forrest3.png
+│   │   ├── index.html
+│   │   ├── products.html
+│   │   └── style.css
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
 │
 ├── build-a-random-joke-app/
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── server.js
-│   └── README.md
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
 │
 ├── build-a-submission-form/
-│   ├── middleware/
-│   │   └── error.middleware.js
-│   ├── routes/
-│   │   └── api.routes.js
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── server.js
-│   └── README.md
+│   ├── middleware/
+│   │   └── error.middleware.js
+│   ├── routes/
+│   │   └── api.routes.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
 │
 ├── build-a-weather-service-api/
-│   ├── public/
-│   │   └── index.html
-│   ├── index.js
-│   ├── weather.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── README.md
+│   ├── public/
+│   │   └── index.html
+│   ├── index.js
+│   ├── weather.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
 │
 ├── build-a-bank-api/
-│   ├── accounts.json
-│   ├── db.js
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── server.js
-│   └── README.md
-└── build-a-resource-monitor/
-    ├── public/
-    │   ├── index.html
-    │   └── script.js
+│   ├── accounts.json
+│   ├── db.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── README.md
+├── build-a-resource-monitor/
+    ├── public/
+    │   ├── index.html
+    │   └── script.js
+    ├── package.json
+    ├── package-lock.json
+    ├── server.js
+    └── README.md
+│
+└── build-jwt-protected-routes/
+    ├── data/
+    │   └── users.example.json
+    ├── middleware/
+    │   ├── authenticate.js
+    │   └── authorize.js
+    ├── routes/
+    │   ├── auth.js
+    │   └── admin.js
+    ├── scripts/
+    │   └── verify-jwt-local.mjs
+    ├── utils/
+    │   ├── db.js
+    │   ├── jwt.js
+    │   └── token-blacklist.js
+    ├── .env.example
+    ├── .gitignore
+    ├── index.js
     ├── package.json
     ├── package-lock.json
-    ├── server.js
     └── README.md
 ```
 
@@ -150,13 +172,13 @@ Independent practice labs are stored separately from guided workshops:
 ```text
 labs/
 └── build-a-data-sanitizer/
-    ├── public/
-    │   └── index.html
-    ├── middleware.js
-    ├── package-lock.json
-    ├── package.json
-    ├── server.js
-    └── README.md
+    ├── public/
+    │   └── index.html
+    ├── middleware.js
+    ├── package-lock.json
+    ├── package.json
+    ├── server.js
+    └── README.md
 ```
 
 Labs are requirement-driven practice exercises. They are used to apply concepts introduced by the surrounding theory and workshops with less step-by-step guidance.
@@ -188,31 +210,31 @@ Certification projects are stored separately from workshops:
 ```text
 certification-projects/
 ├── build-a-prime-number-checker-module/
-│   ├── index.js
-│   ├── package.json
-│   └── README.md
+│   ├── index.js
+│   ├── package.json
+│   └── README.md
 ├── build-a-personal-profile-app/
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── server.js
-│   └── README.md
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── server.js
+│   └── README.md
 ├── build-a-timestamp-microservice/
-│   ├── public/
-│   │   └── styles.css
-│   ├── views/
-│   │   └── index.html
-│   ├── server.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── README.md
+│   ├── public/
+│   │   └── styles.css
+│   ├── views/
+│   │   └── index.html
+│   ├── server.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── README.md
 └── build-a-chat-app/
-    ├── public/
-    │   ├── index.html
-    │   └── script.js
-    ├── server.js
-    ├── package.json
-    ├── package-lock.json
-    └── README.md
+    ├── public/
+    │   ├── index.html
+    │   └── script.js
+    ├── server.js
+    ├── package.json
+    ├── package-lock.json
+    └── README.md
 ```
 
 Certification projects are requirement-driven rather than step-by-step workshop exercises.
@@ -242,108 +264,129 @@ Current structure:
 ```text
 freecodecamp-backend-development-and-apis/
 ├── workshops/
-│   ├── learn-nodejs-repl/
-│   │   ├── hello.js
-│   │   └── README.md
-│   ├── build-a-file-processor/
-│   │   ├── server.js
-│   │   ├── README.md
-│   │   └── assets/
-│   │       ├── poem.txt
-│   │       ├── output.txt
-│   │       └── stream-output.txt
-│   ├── build-a-case-converter/
-│   │   ├── .npmignore
-│   │   ├── index.js
-│   │   ├── index.test.js
-│   │   ├── package.json
-│   │   └── README.md
-│   ├── build-a-web-server/
-│   │   ├── public/
-│   │   │   ├── 404.html
-│   │   │   ├── about.html
-│   │   │   ├── forrest1.png
-│   │   │   ├── forrest2.png
-│   │   │   ├── forrest3.png
-│   │   │   ├── index.html
-│   │   │   ├── products.html
-│   │   │   └── style.css
-│   │   ├── package.json
-│   │   ├── server.js
-│   │   └── README.md
-│   ├── build-a-random-joke-app/
-│   │   ├── package-lock.json
-│   │   ├── package.json
-│   │   ├── server.js
-│   │   └── README.md
-│   ├── build-a-submission-form/
-│   │   ├── middleware/
-│   │   │   └── error.middleware.js
-│   │   ├── routes/
-│   │   │   └── api.routes.js
-│   │   ├── package-lock.json
-│   │   ├── package.json
-│   │   ├── server.js
-│   │   └── README.md
-│   ├── build-a-weather-service-api/
-│   │   ├── public/
-│   │   │   └── index.html
-│   │   ├── index.js
-│   │   ├── weather.js
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   └── README.md
-│   ├── build-a-bank-api/
-│   │   ├── accounts.json
-│   │   ├── db.js
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   ├── server.js
-│   │   └── README.md
-│   └── build-a-resource-monitor/
-│       ├── public/
-│       │   ├── index.html
-│       │   └── script.js
+│   ├── learn-nodejs-repl/
+│   │   ├── hello.js
+│   │   └── README.md
+│   ├── build-a-file-processor/
+│   │   ├── server.js
+│   │   ├── README.md
+│   │   └── assets/
+│   │       ├── poem.txt
+│   │       ├── output.txt
+│   │       └── stream-output.txt
+│   ├── build-a-case-converter/
+│   │   ├── .npmignore
+│   │   ├── index.js
+│   │   ├── index.test.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── build-a-web-server/
+│   │   ├── public/
+│   │   │   ├── 404.html
+│   │   │   ├── about.html
+│   │   │   ├── forrest1.png
+│   │   │   ├── forrest2.png
+│   │   │   ├── forrest3.png
+│   │   │   ├── index.html
+│   │   │   ├── products.html
+│   │   │   └── style.css
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   ├── build-a-random-joke-app/
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   ├── build-a-submission-form/
+│   │   ├── middleware/
+│   │   │   └── error.middleware.js
+│   │   ├── routes/
+│   │   │   └── api.routes.js
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   ├── build-a-weather-service-api/
+│   │   ├── public/
+│   │   │   └── index.html
+│   │   ├── index.js
+│   │   ├── weather.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── README.md
+│   ├── build-a-bank-api/
+│   │   ├── accounts.json
+│   │   ├── db.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── server.js
+│   │   └── README.md
+│   ├── build-a-resource-monitor/
+│       ├── public/
+│       │   ├── index.html
+│       │   └── script.js
+│       ├── package.json
+│       ├── package-lock.json
+│       ├── server.js
+│       └── README.md
+│   └── build-jwt-protected-routes/
+│       ├── data/
+│       │   └── users.example.json
+│       ├── middleware/
+│       │   ├── authenticate.js
+│       │   └── authorize.js
+│       ├── routes/
+│       │   ├── auth.js
+│       │   └── admin.js
+│       ├── scripts/
+│       │   └── verify-jwt-local.mjs
+│       ├── utils/
+│       │   ├── db.js
+│       │   ├── jwt.js
+│       │   └── token-blacklist.js
+│       ├── .env.example
+│       ├── .gitignore
+│       ├── index.js
 │       ├── package.json
 │       ├── package-lock.json
-│       ├── server.js
 │       └── README.md
 ├── labs/
-│   └── build-a-data-sanitizer/
-│       ├── public/
-│       │   └── index.html
-│       ├── middleware.js
-│       ├── package-lock.json
-│       ├── package.json
-│       ├── server.js
-│       └── README.md
+│   └── build-a-data-sanitizer/
+│       ├── public/
+│       │   └── index.html
+│       ├── middleware.js
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── server.js
+│       └── README.md
 ├── certification-projects/
-│   ├── build-a-prime-number-checker-module/
-│   │   ├── index.js
-│   │   ├── package.json
-│   │   └── README.md
-│   ├── build-a-personal-profile-app/
-│   │   ├── package-lock.json
-│   │   ├── package.json
-│   │   ├── server.js
-│   │   └── README.md
-│   ├── build-a-timestamp-microservice/
-│   │   ├── public/
-│   │   │   └── styles.css
-│   │   ├── views/
-│   │   │   └── index.html
-│   │   ├── server.js
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   └── README.md
-│   └── build-a-chat-app/
-│       ├── public/
-│       │   ├── index.html
-│       │   └── script.js
-│       ├── server.js
-│       ├── package.json
-│       ├── package-lock.json
-│       └── README.md
+│   ├── build-a-prime-number-checker-module/
+│   │   ├── index.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── build-a-personal-profile-app/
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── server.js
+│   │   └── README.md
+│   ├── build-a-timestamp-microservice/
+│   │   ├── public/
+│   │   │   └── styles.css
+│   │   ├── views/
+│   │   │   └── index.html
+│   │   ├── server.js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── README.md
+│   └── build-a-chat-app/
+│       ├── public/
+│       │   ├── index.html
+│       │   └── script.js
+│       ├── server.js
+│       ├── package.json
+│       ├── package-lock.json
+│       └── README.md
 ├── .gitignore
 ├── BACKEND_REVIEW.md
 └── README.md
@@ -357,23 +400,28 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** October 28, 2026
+**Date:** November 8, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build a Chat App
-Certification Project 04
-1 / 1 completed
-Official freeCodeCamp status: Passed
-Windows local verification: Passed (user-confirmed)
+Build JWT Protected Routes
+Workshop 10
+36 / 36 completed
+Official freeCodeCamp status: Passed (user screenshot)
+Codespaces: HTTP server running on port 8800
+Windows: npm ci 0 vulnerabilities; GET / HTTP 200
+Windows API integration: 7 / 7 PASS
+Windows npm audit --omit=dev: 0 vulnerabilities
 ```
 
-This certification project implements a real-time chat server with multi-client WebSocket broadcasting, username join/leave notifications, and a browser chat interface. Its archived source is under `certification-projects/build-a-chat-app/`.
+This workshop implements a JWT-based Express 5 API with registration, login, profile access, logout, role-based admin authorization, and token invalidation. The local project is stored at `workshops/build-jwt-protected-routes/`.
 
-The previous checkpoint was **Build a Resource Monitor**, Workshop 09 (20/20 official steps passed, Windows local verification complete), completed October 25, 2026. Its source is preserved under `workshops/build-a-resource-monitor/`.
+The preceding practical checkpoint was **Build a Chat App**, Certification Project 04 (1/1 official freeCodeCamp completion, October 28, 2026). The previous guided workshop was **Build a Resource Monitor**, Workshop 09 (20/20, October 25, 2026).
 
-**Current totals:** 9 completed workshops, 1 completed lab, and 4 completed certification projects.
+**Current totals:** 10 completed guided workshops, 1 completed lab, and 4 completed certification projects.
+
+**Verification:** Official freeCodeCamp 36/36 completion and Windows 7/7 HTTP integration tests are user-confirmed by screenshots. Dependency installation and production-dependency audit each reported **0 vulnerabilities** on November 8, 2026. The source is archived under its own workshop directory; GitHub publication is tracked by Git history.
 
 ---
 
@@ -398,6 +446,7 @@ The previous checkpoint was **Build a Resource Monitor**, Workshop 09 (20/20 off
 | 7 | Build a Weather Service API | Workshop | ✅ Completed — 20/20 |
 | 8 | Build a Bank API | Workshop | ✅ Completed — 35/35 |
 | 9 | Build a Resource Monitor | Workshop | ✅ Completed — 20/20 |
+| 10 | Build JWT Protected Routes | Workshop | ✅ Completed — 36/36 |
 
 ---
 
@@ -437,7 +486,7 @@ workshops/learn-nodejs-repl/
 Permanent source code:
 
 ```js
-console.log("Hello from a file");
+console.**log**("Hello from a file");
 ```
 
 The workshop primarily focused on terminal and runtime interaction rather than application development.
@@ -554,22 +603,22 @@ readable.pipe(writable)
 The final workshop code connects a readable file stream directly to a writable file stream:
 
 ```js
-const readable = fs.createReadStream("assets/poem.txt");
-const writable = fs.createWriteStream("assets/stream-output.txt");
-readable.pipe(writable);
+const readable = fs.**createReadStream**("assets/poem.txt");
+const writable = fs.**createWriteStream**("assets/stream-output.txt");
+readable.**pipe**(writable);
 ```
 
 Conceptually:
 
 ```text
 poem.txt
-   ↓
+   ↓
 Readable Stream
-   ↓
+   ↓
 pipe()
-   ↓
+   ↓
 Writable Stream
-   ↓
+   ↓
 stream-output.txt
 ```
 
@@ -653,59 +702,59 @@ npm publication preparation
 The package exposes four public functions:
 
 ```js
-getUpperCase();
-getLowerCase();
-getSentenceCase();
-getProperCase();
+**getUpperCase**();
+**getLowerCase**();
+**getSentenceCase**();
+**getProperCase**();
 ```
 
 Example:
 
 ```js
-const caseConverter = require("./index");
+const caseConverter = **require**("./index");
 const str = "hello free Code Camp!";
-console.log(caseConverter.getUpperCase(str));
-// HELLO FREE CODE CAMP!
-console.log(caseConverter.getLowerCase(str));
-// hello free code camp!
-console.log(caseConverter.getSentenceCase(str));
-// Hello free code camp!
-console.log(caseConverter.getProperCase(str));
-// Hello Free Code Camp!
+console.**log**(caseConverter.**getUpperCase**(str));
+*// HELLO FREE CODE CAMP!*
+console.**log**(caseConverter.**getLowerCase**(str));
+*// hello free code camp!*
+console.**log**(caseConverter.**getSentenceCase**(str));
+*// Hello free code camp!*
+console.**log**(caseConverter.**getProperCase**(str));
+*// Hello Free Code Camp!*
 ```
 
 The module exports its public API through CommonJS:
 
 ```js
 module.exports = {
-  getUpperCase,
-  getLowerCase,
-  getSentenceCase,
-  getProperCase,
+  getUpperCase,
+  getLowerCase,
+  getSentenceCase,
+  getProperCase,
 };
 ```
 
 The automated test suite uses Node.js's built-in strict assertion API:
 
 ```js
-const assert = require("node:assert/strict");
-const caseConverter = require("./index");
-assert.strictEqual(
-  caseConverter.getUpperCase("hello free Code Camp!"),
-  "HELLO FREE CODE CAMP!",
+const assert = **require**("node:assert/strict");
+const caseConverter = **require**("./index");
+assert.**strictEqual**(
+  caseConverter.**getUpperCase**("hello free Code Camp!"),
+  "HELLO FREE CODE CAMP!",
 );
 ```
 
 The test script is executed through npm:
 
 ```bash
-npm test
+**npm** test
 ```
 
 The package publication process is inspected safely with:
 
 ```bash
-npm publish --dry-run
+**npm** publish --dry-run
 ```
 
 The test file is intentionally excluded from the npm publication package with:
@@ -845,23 +894,23 @@ const url = request.url === "/" ? "/index.html" : request.url;
 It then builds the requested file path:
 
 ```js
-const filePath = join("public", url);
+const filePath = **join**("public", url);
 ```
 
 The file extension is normalized:
 
 ```js
-const ext = extname(filePath).toLowerCase();
+const ext = **extname**(filePath).**toLowerCase**();
 ```
 
 A MIME mapping is used to choose the correct response media type:
 
 ```js
 const mimeTypes = {
-  ".html": "text/html",
-  ".css": "text/css",
-  ".png": "image/png",
-  ".js": "text/javascript",
+  ".html": "text/html",
+  ".css": "text/css",
+  ".png": "image/png",
+  ".js": "text/javascript",
 };
 const contentType = mimeTypes[ext] || "application/octet-stream";
 ```
@@ -869,16 +918,16 @@ const contentType = mimeTypes[ext] || "application/octet-stream";
 Requested files are read asynchronously:
 
 ```js
-readFile(filePath, (error, file) => {
-  // success or 404 handling*
+**readFile**(filePath, (error, file) => {
+  *// success or 404 handling**
 });
 ```
 
 Successful responses use:
 
 ```js
-response.writeHead(200, {
-  "Content-Type": contentType,
+response.**writeHead**(200, {
+  "Content-Type": contentType,
 });
 ```
 
@@ -898,7 +947,7 @@ Content-Type: text/html
 The project was also converted from CommonJS:
 
 ```js
-const http = require("http");
+const http = **require**("http");
 ```
 
 to ESM:
@@ -913,7 +962,7 @@ with:
 
 ```json
 {
-  "type": "module"
+  "type": "module"
 }
 ```
 
@@ -922,14 +971,14 @@ in `package.json`.
 The server was tested manually with `curl`:
 
 ```bash
-curl http://localhost:3001
-curl -v http://localhost:3001/not-found
+**curl** http://localhost:3001
+**curl** -v http://localhost:3001/not-found
 ```
 
 and load-tested with:
 
 ```bash
-wrk -t2 -c5 -d5s http://localhost:3001
+**wrk** -t2 -c5 -d5s http://localhost:3001
 ```
 
 The load test uses:
@@ -1030,25 +1079,25 @@ The application defines three routes:
 The Express application is created with:
 
 ```js
-const express = require("express");
-const app = express();
+const express = **require**("express");
+const app = **express**();
 const port = 3000;
 ```
 
 A route follows the pattern:
 
 ```js
-app.get("/path", (req, res) => {
-  res.send("response");
+app.**get**("/path", (req, res) => {
+  res.**send**("response");
 });
 ```
 
 The random joke route uses:
 
 ```js
-app.get("/joke", (req, res) => {
-  const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-  res.send(randomJoke);
+app.**get**("/joke", (req, res) => {
+  const randomJoke = jokes[Math.**floor**(Math.**random**() * jokes.length)];
+  res.**send**(randomJoke);
 });
 ```
 
@@ -1056,40 +1105,40 @@ Conceptually:
 
 ```text
 Client
-  ↓
+  ↓
 HTTP GET request
-  ↓
+  ↓
 Express router
-  ↓
+  ↓
 matching app.get(...)
-  ↓
+  ↓
 route handler
-  ↓
+  ↓
 res.send(...)
-  ↓
+  ↓
 HTTP response
 ```
 
 Compared with the previous Node.js HTTP workshop:
 
 ```text
-Node.js http                  Express
--------------------------     -------------------------
-http.createServer()           express()
-request.url                   app.get("/path", ...)
-response.end()                res.send()
-server.listen()               app.listen()
+Node.js http                  Express
+-------------------------     -------------------------
+http.createServer()           express()
+request.url                   app.get("/path", ...)
+response.end()                res.send()
+server.listen()               app.listen()
 ```
 
 Local verification completed successfully:
 
 ```text
-npm install                   ✅
-node --check server.js        ✅
-node server.js                ✅
-GET /                         ✅ 200 OK
-GET /joke                     ✅ 200 OK
-GET /about                    ✅ 200 OK
+npm install                   ✅
+node --check server.js        ✅
+node server.js                ✅
+GET /                         ✅ 200 OK
+GET /joke                     ✅ 200 OK
+GET /about                    ✅ 200 OK
 ```
 
 Full notes and explanations are available in:
@@ -1186,15 +1235,15 @@ local API verification
 The application-level middleware stack is assembled in `server.js`:
 
 ```js
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
+app.**use**((req, res, next) => {
+  console.**log**(`${req.method} ${req.url}`);
+  **next**();
 });
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/api", apiRouter);
-app.use(notFoundHandler);
-app.use(finalErrorHandler);
+app.**use**(express.**json**());
+app.**use**(express.**urlencoded**({ extended: true }));
+app.**use**("/api", apiRouter);
+app.**use**(notFoundHandler);
+app.**use**(finalErrorHandler);
 ```
 
 The API router defines three routes:
@@ -1212,7 +1261,7 @@ The API router defines three routes:
 The router is mounted under a shared base path:
 
 ```js
-app.use("/api", apiRouter);
+app.**use**("/api", apiRouter);
 ```
 
 The workshop demonstrates the difference between normal middleware flow:
@@ -1236,27 +1285,27 @@ enter error-handling middleware
 A catch-all handler creates controlled `404` errors:
 
 ```js
-function notFoundHandler(req, res, next) {
-  const error = new Error(`Not Found - ${req.originalUrl}`);
-  error.status = 404;
-  next(error);
+function **notFoundHandler**(req, res, next) {
+  const error = new **Error**(`Not Found - ${req.originalUrl}`);
+  error.status = 404;
+  **next**(error);
 }
 ```
 
 The final error middleware uses Express's four-parameter error-handler signature:
 
 ```js
-function finalErrorHandler(err, req, res, next) {
-  const status = err.status || 500;
-  console.error(err);
-  res.status(status).json({
-    error: true,
-    status,
-    message:
-      status === 500
-        ? "Internal Server Error (Check Server Logs)"
-        : err.message,
-  });
+function **finalErrorHandler**(err, req, res, next) {
+  const status = err.status || 500;
+  console.**error**(err);
+  res.**status**(status).**json**({
+    error: true,
+    status,
+    message:
+      status === 500
+        ? "Internal Server Error (Check Server Logs)"
+        : err.message,
+  });
 }
 ```
 
@@ -1264,34 +1313,34 @@ Conceptually:
 
 ```text
 Incoming Request
-      ↓
+      ↓
 Logger Middleware
-      ↓
+      ↓
 express.json()
-      ↓
+      ↓
 express.urlencoded()
-      ↓
+      ↓
 API Router
-      ↓
+      ↓
 notFoundHandler
-      ↓
+      ↓
 finalErrorHandler
-      ↓
+      ↓
 HTTP Response
 ```
 
 Local verification completed successfully:
 
 ```text
-npm install                                  ✅
-node --check server.js                       ✅
-node --check routes/api.routes.js            ✅
-node --check middleware/error.middleware.js  ✅
-npm start                                    ✅
-GET /api                                     ✅ 200
-GET /api/crash                               ✅ 500
-GET /api/bad-request                         ✅ 400
-GET /nonsense                                ✅ 404
+npm install                                  ✅
+node --check server.js                       ✅
+node --check routes/api.routes.js            ✅
+node --check middleware/error.middleware.js  ✅
+npm start                                    ✅
+GET /api                                     ✅ 200
+GET /api/crash                               ✅ 500
+GET /api/bad-request                         ✅ 400
+GET /nonsense                                ✅ 404
 ```
 
 Full notes and explanations are available in:
@@ -1323,7 +1372,7 @@ Project files:
 ```text
 build-a-weather-service-api/
 ├── public/
-│   └── index.html
+│   └── index.html
 ├── index.js
 ├── weather.js
 ├── package.json
@@ -1336,21 +1385,21 @@ The project uses **ES Modules**, **Express 5**, and Node.js's built-in `fetch()`
 ### **Router mounting and dynamic paths**
 
 ```js
-// weather.js (excerpt)
+*// weather.js (excerpt)*
 import express from "express";
-const router = express.Router();
+const router = express.**Router**();
 const SUPPORTED_CITIES = ["London", "Tokyo", "New York", "Paris", "Seoul"];
-router.get("/", (req, res) => {
-  res.json({ supportedCities: SUPPORTED_CITIES });
+router.**get**("/", (req, res) => {
+  res.**json**({ supportedCities: SUPPORTED_CITIES });
 });
 export default router;
 ```
 
 ```js
-// index.js (excerpt)
+*// index.js (excerpt)*
 import weatherRouter from "./weather.js";
-// app is the Express application created with express().
-app.use("/api/weather", weatherRouter);
+*// app is the Express application created with express().*
+app.**use**("/api/weather", weatherRouter);
 ```
 
 The router's relative `/` path resolves to `GET /api/weather`. The relative `/:city` path resolves to `GET /api/weather/:city`, with its city name available through `req.params.city`.
@@ -1360,26 +1409,26 @@ The router's relative `/` path resolves to `GET /api/weather`. The relative `/:c
 The route handler uses `async`/`await` and a server-to-server request:
 
 ```js
-router.get("/:city", async (req, res) => {
-  const { city } = req.params;
-  try {
-    const response = await fetch(
-      `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
-    );
-    if (!response.ok) {
-      throw new Error(`Status ${response.status}`);
-    }
-    const data = await response.json();
-    res.json({
-      city: data.name,
-      temperature: data.main.temp,
-      description: data.weather[0].description,
-    });
-  } catch (error) {
-    res.status(404).json({
-      error: `Could not fetch weather data for "${city}".`,
-    });
-  }
+router.**get**("/:city", async (req, res) => {
+  const { city } = req.params;
+  try {
+    const response = await **fetch**(
+      `https://weather-proxy.freecodecamp.rocks/api/city/${city}`,
+    );
+    if (!response.ok) {
+      throw new **Error**(`Status ${response.status}`);
+    }
+    const data = await response.**json**();
+    res.**json**({
+      city: data.name,
+      temperature: data.main.temp,
+      description: data.weather[0].description,
+    });
+  } catch (error) {
+    res.**status**(404).**json**({
+      error: `Could not fetch weather data for "${city}".`,
+    });
+  }
 });
 ```
 
@@ -1452,7 +1501,7 @@ build-a-bank-api/
 
 The `db.js` module exports `getAccounts()` and `saveAccounts()` using `fs/promises`. A successful transfer updates account balances and saves the modified array.
 
-### API endpoints
+### **API endpoints**
 
 | Method | Endpoint | Purpose |
 |---|---|---|
@@ -1466,17 +1515,17 @@ The API demonstrates HTTP `200`, `400`, `404`, `409`, and `500` responses. Expre
 
 The `SIGTERM` and `SIGINT` handlers call `server.close()` for graceful shutdown.
 
-### Local Windows verification
+### **Local Windows verification**
 
 The workshop was transferred from GitHub Codespaces to the Windows development environment. Dependencies were installed using `npm.cmd ci`; the application was started using `node server.js` on port `9000`.
 
 Manual browser and `curl.exe -i` checks confirmed:
 
 ```text
-GET /             ✅
-GET /accounts     ✅
-GET /accounts/1   ✅
-GET /health       ✅
+GET /             ✅
+GET /accounts     ✅
+GET /accounts/1   ✅
+GET /health       ✅
 ```
 
 During installation, npm reported **three dependency vulnerabilities** (one low, one moderate, and one critical). They should be reviewed using `npm audit` before any deployment.
@@ -1498,15 +1547,15 @@ Project files:
 ```text
 build-a-resource-monitor/
 ├── public/
-│   ├── index.html
-│   └── script.js
+│   ├── index.html
+│   └── script.js
 ├── package.json
 ├── package-lock.json
 ├── server.js
 └── README.md
 ```
 
-### Core components
+### **Core components**
 
 - `http.createServer()` serves `/` and `/script.js` with the correct content types.
 - `new WebSocketServer({ server })` attaches WebSocket upgrades to the existing HTTP server on port `3000`.
@@ -1518,8 +1567,8 @@ build-a-resource-monitor/
 Run locally:
 
 ```bash
-npm ci
-npm start
+**npm** ci
+**npm** start
 ```
 
 Open `http://localhost:3000/`. Node.js `os.loadavg()` reports zeros on Windows; this is expected platform behavior rather than an application failure.
@@ -1527,6 +1576,89 @@ Open `http://localhost:3000/`. Node.js `os.loadavg()` reports zeros on Windows; 
 **Windows local verification:** Passed (user-confirmed).
 
 Full architecture, event lifecycle, payload schema, and test instructions are documented in `workshops/build-a-resource-monitor/README.md`.
+
+---
+
+## **Workshop 10 — Build JWT Protected Routes**
+
+**Location:** `workshops/build-jwt-protected-routes/`
+
+**Completion:** ✅ **36 / 36 official freeCodeCamp steps**, November 8, 2026.
+
+This workshop builds an educational authentication and authorization API using **Node.js**, **Express 5**, **Helmet**, **bcryptjs**, **jsonwebtoken**, and a JSON file for user storage. It separates authentication routes, administration routes, middleware, and reusable database/token utilities.
+
+### **Core architecture**
+
+```text
+Client HTTP request
+        |
+        v
+Express 5 + helmet() + express.json()
+        |
+        +-- /api/auth/register, /api/auth/login
+        |       -> bcrypt password verification + signed JWT
+        |
+        +-- /api/auth/profile, /api/auth/logout
+        |       -> authenticate -> JWT verification + token denylist
+        |
+        +-- /api/admin/users
+                -> authenticate -> authorizeRole("admin")
+                   -> user list without passwordHash
+```
+
+- `utils/db.js` reads, writes, and looks up user records in the JSON file.
+- `utils/jwt.js` issues JWTs with a one-day expiry and verifies their signature.
+- `utils/token-blacklist.js` maintains a process-memory `Set` of revoked tokens.
+- `middleware/authenticate.js` requires a Bearer token, checks revocation, verifies the JWT, and assigns `req.user`.
+- `middleware/authorize.js` enforces the required role; admin routes exclude password hashes from responses.
+- `index.js` mounts the routers and registers the four-argument Express error handler.
+
+### **HTTP contract**
+
+| Method | Endpoint | Result |
+|---|---|---|
+| `GET` | `/` | HTTP 200 health/status JSON |
+| `POST` | `/api/auth/register` | HTTP 201 + JWT, 400 on missing fields, 409 on duplicate email |
+| `POST` | `/api/auth/login` | HTTP 200 + JWT, 400 on missing fields, 401 on invalid credentials |
+| `GET` | `/api/auth/profile` | HTTP 200 for a valid JWT; otherwise HTTP 401 |
+| `POST` | `/api/auth/logout` | HTTP 200 and token blacklisted; reuse returns HTTP 401 |
+| `GET` | `/api/admin/users` | HTTP 200 for admin; HTTP 403 for normal user; no `passwordHash` leakage |
+
+### **Local Windows verification (November 8, 2026)**
+
+Confirmed by screenshots:
+
+- `npm.cmd ci` installed the project dependencies and reported **0 vulnerabilities**.
+- The Express application started with `npm.cmd start` on port **8800**.
+- `http://127.0.0.1:8800/` displayed `{ "message": "Auth API is running" }`.
+- `curl.exe -i http://127.0.0.1:8800/` returned the expected JSON body.
+
+**Final Windows integration verification: 7 / 7 PASS** (November 8, 2026; user-confirmed screenshot). The `scripts/verify-jwt-local.mjs` suite checked:
+
+1. Registration returns HTTP 201 and a JWT, while the stored password is hashed.
+2. Login with correct credentials returns HTTP 200 and a signed JWT.
+3. Profile access without a token returns HTTP 401.
+4. Profile access with a valid JWT returns HTTP 200 and the expected identity.
+5. A normal user attempting an admin endpoint receives HTTP 403.
+6. An admin JWT retrieves the users array without exposing `passwordHash`.
+7. Logout invalidates the JWT; reuse is rejected with HTTP 401.
+
+The separate `npm.cmd audit --omit=dev` reported **0 vulnerabilities**. The test suite created a disposable user record in the ignored `data/users.json` file; this data file and the real `.env` must not be committed.
+
+Reproduce from the workshop directory (with `npm.cmd start` running in another terminal):
+
+```powershell
+node --env-file=.env scripts/verify-jwt-local.mjs
+npm.cmd audit --omit=dev
+```
+
+### **Secrets and educational limitations**
+
+Real `.env`, `data/users.json` and `node_modules/` are excluded from source control. Only `.env.example` and `data/users.example.json` should be committed as templates. Do not publish tokens or real account data.
+
+This is an educational design, **not a production-ready identity system**: the token denylist is lost on process restart, user storage is not a transactional database, and JWT role claims are not refreshed from a live account store when authorization occurs.
+
+**Documentation:** `workshops/build-jwt-protected-routes/README.md`
 
 ---
 
@@ -1569,39 +1701,39 @@ The route-level middleware chain is:
 
 ```text
 POST /submit
-      ↓
+      ↓
 inputCleaner
-      ↓
+      ↓
 inputValidator
-      ↓
+      ↓
 final route handler
 ```
 
 The cleaner normalizes the username:
 
 ```js
-req.body.username = req.body.username.toLowerCase();
+req.body.username = req.body.username.**toLowerCase**();
 ```
 
 and removes HTML tags from the comment for the purposes of this curriculum exercise:
 
 ```js
-req.body.comment = req.body.comment.replace(/<[^>]*>/g, "");
+req.body.comment = req.body.comment.**replace**(/<[^>]*>/g, "");
 ```
 
 The validator allows valid usernames to continue:
 
 ```js
 if (req.body.username && req.body.username.length >= 3) {
-  return next();
+  return **next**();
 }
 ```
 
 and redirects invalid submissions:
 
 ```js
-res.redirect(
-  "/form?error=Username must be at least 3 characters."
+res.**redirect**(
+  "/form?error=Username must be at least 3 characters."
 );
 ```
 
@@ -1621,15 +1753,15 @@ Successful example:
 
 ```text
 username = CuOnG
-comment  = \<b>Hello\</b>
+comment  = \\<b>Hello\\</b>
 ```
 
 becomes:
 
 ```json
 {
-  "username": "cuong",
-  "comment": "Hello"
+  "username": "cuong",
+  "comment": "Hello"
 }
 ```
 
@@ -1649,15 +1781,15 @@ Location: /form?error=Username%20must%20be%20at%20least%203%20characters.
 Local verification completed successfully:
 
 ```text
-npm install                    ✅
-0 vulnerabilities              ✅
-node --check middleware.js     ✅
-node --check server.js         ✅
-node server.js                 ✅
-GET / → redirect /form         ✅
-GET /form                      ✅ 200
-POST /submit sanitization      ✅ 200
-short username redirect        ✅ 302
+npm install                    ✅
+0 vulnerabilities              ✅
+node --check middleware.js     ✅
+node --check server.js         ✅
+node server.js                 ✅
+GET / → redirect /form         ✅
+GET /form                      ✅ 200
+POST /submit sanitization      ✅ 200
+short username redirect        ✅ 302
 ```
 
 The HTML-tag removal used here is intentionally the simple transformation required by the lab. It should not be treated as a general-purpose production HTML sanitizer.
@@ -1712,7 +1844,7 @@ Unlike the previous workshops, freeCodeCamp supplied user stories rather than st
 The project required a reusable npm module exposing:
 
 ```js
-isPrime(number)
+**isPrime**(number)
 ```
 
 through CommonJS.
@@ -1720,19 +1852,19 @@ through CommonJS.
 Final implementation:
 
 ```js
-function isPrime(number) {
-  if (!Number.isInteger(number) || number <= 1) {
-    return false;
-  }
-  for (let i = 2; i <= Math.sqrt(number); i++) {
-    if (number % i === 0) {
-      return false;
-    }
-  }
-  return true;
+function **isPrime**(number) {
+  if (!Number.**isInteger**(number) || number <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.**sqrt**(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 module.exports = {
-  isPrime,
+  isPrime,
 };
 ```
 
@@ -1835,12 +1967,12 @@ Required routes:
 Final JSON route:
 
 ```js
-app.get("/api/profile", (req, res) => {
-  res.json({
-    name: "Camper Bot",
-    hobbies: ["cycling", "boating", "guitar"],
-    skills: ["JavaScript", "Node.js", "Express.js"],
-  });
+app.**get**("/api/profile", (req, res) => {
+  res.**json**({
+    name: "Camper Bot",
+    hobbies: ["cycling", "boating", "guitar"],
+    skills: ["JavaScript", "Node.js", "Express.js"],
+  });
 });
 ```
 
@@ -1848,9 +1980,9 @@ Expected JSON response:
 
 ```json
 {
-  "name": "Camper Bot",
-  "hobbies": ["cycling", "boating", "guitar"],
-  "skills": ["JavaScript", "Node.js", "Express.js"]
+  "name": "Camper Bot",
+  "hobbies": ["cycling", "boating", "guitar"],
+  "skills": ["JavaScript", "Node.js", "Express.js"]
 }
 ```
 
@@ -1888,15 +2020,15 @@ automated certification tests
 Local verification completed successfully:
 
 ```text
-npm install                      ✅
-node --check server.js           ✅
-node server.js                   ✅
-GET /                            ✅ 200 OK
-GET /hobbies                     ✅ 200 OK
-GET /skills                      ✅ 200 OK
-GET /api/profile                 ✅ 200 OK
-JSON Content-Type                ✅ application/json
-JSON object shape                ✅
+npm install                      ✅
+node --check server.js           ✅
+node server.js                   ✅
+GET /                            ✅ 200 OK
+GET /hobbies                     ✅ 200 OK
+GET /skills                      ✅ 200 OK
+GET /api/profile                 ✅ 200 OK
+JSON Content-Type                ✅ application/json
+JSON object shape                ✅
 ```
 
 The project passed the official freeCodeCamp certification-project tests:
@@ -1928,9 +2060,9 @@ Project files:
 ```text
 build-a-timestamp-microservice/
 ├── public/
-│   └── styles.css
+│   └── styles.css
 ├── views/
-│   └── index.html
+│   └── index.html
 ├── server.js
 ├── package.json
 ├── package-lock.json
@@ -1974,15 +2106,15 @@ Project files:
 ```text
 build-a-chat-app/
 ├── public/
-│   ├── index.html
-│   └── script.js
+│   ├── index.html
+│   └── script.js
 ├── package.json
 ├── package-lock.json
 ├── server.js
 └── README.md
 ```
 
-### HTTP and WebSocket contracts
+### **HTTP and WebSocket contracts**
 
 - `GET /` serves the chat interface with HTTP `200` and `text/html`.
 - `ws://localhost:3001?username=Alice` creates a named chat connection.
@@ -2092,13 +2224,13 @@ The first workshop demonstrated several ways Node.js can execute JavaScript:
 
 ```text
 JavaScript expression
-        ↓
+        ↓
 node -e / node -p
 JavaScript file
-        ↓
+        ↓
 node file.js
 Interactive input
-        ↓
+        ↓
 Node.js REPL
 ```
 
@@ -2119,19 +2251,19 @@ The third workshop extended the foundation into npm package development:
 
 ```text
 Node.js
-   ↓
+   ↓
 npm
-   ↓
+   ↓
 package.json
-   ↓
+   ↓
 Reusable module
-   ↓
+   ↓
 Automated tests
-   ↓
+   ↓
 npm scripts
-   ↓
+   ↓
 Publication dry run
-   ↓
+   ↓
 Publishable package
 ```
 
@@ -2139,15 +2271,15 @@ The first certification project required those concepts to be applied independen
 
 ```text
 User Stories
-    ↓
+    ↓
 npm Package
-    ↓
+    ↓
 Algorithm Design
-    ↓
+    ↓
 CommonJS Export
-    ↓
+    ↓
 Local Verification
-    ↓
+    ↓
 Certification Tests
 ```
 
@@ -2155,19 +2287,19 @@ The fourth workshop then moved into networking and HTTP:
 
 ```text
 Client
-   ↓
+   ↓
 HTTP Request
-   ↓
+   ↓
 Node.js http Server
-   ↓
+   ↓
 URL → File Path
-   ↓
+   ↓
 File System
-   ↓
+   ↓
 HTTP Status + Headers + Body
-   ↓
+   ↓
 HTTP Response
-   ↓
+   ↓
 Client
 ```
 
@@ -2175,15 +2307,15 @@ The fifth workshop introduced Express on top of Node.js:
 
 ```text
 Node.js
-   ↓
+   ↓
 Express
-   ↓
+   ↓
 app.get() routing
-   ↓
+   ↓
 req / res
-   ↓
+   ↓
 res.send()
-   ↓
+   ↓
 HTTP response
 ```
 
@@ -2191,17 +2323,17 @@ The second certification project then applies Express independently and introduc
 
 ```text
 User Stories
-    ↓
+    ↓
 Express Server
-    ↓
+    ↓
 GET Routes
-    ↓
+    ↓
 res.send() / res.json()
-    ↓
+    ↓
 JSON API
-    ↓
+    ↓
 Local Verification
-    ↓
+    ↓
 Certification Tests
 ```
 
@@ -2209,17 +2341,17 @@ The sixth workshop then introduces Express middleware and centralized error hand
 
 ```text
 Incoming Request
-    ↓
+    ↓
 Application Middleware
-    ↓
+    ↓
 Body Parsers
-    ↓
+    ↓
 Mounted Router
-    ↓
+    ↓
 Route Handler
-    ↓
+    ↓
 404 / Error Pipeline
-    ↓
+    ↓
 JSON Response
 ```
 
@@ -2227,15 +2359,15 @@ The first lab applies middleware directly to user-submitted form data:
 
 ```text
 HTML Form
-    ↓
+    ↓
 express.urlencoded()
-    ↓
+    ↓
 inputCleaner
-    ↓
+    ↓
 inputValidator
-    ↓
+    ↓
 Route Handler
-    ↓
+    ↓
 Sanitized Response / Redirect
 ```
 
@@ -2245,30 +2377,30 @@ The seventh workshop builds on that foundation with a modular HTTP service:
 
 ```text
 Browser / API Client
-    ↓
+    ↓
 Express Application
-    ├── Static HTML frontend
-    ├── API metadata and status
-    └── Mounted Weather Router
-            ↓
-        req.params.city
-            ↓
-        async fetch() → Weather Proxy
-            ↓
-        JSON Response / 404 Error
+    ├── Static HTML frontend
+    ├── API metadata and status
+    └── Mounted Weather Router
+            ↓
+        req.params.city
+            ↓
+        async fetch() → Weather Proxy
+            ↓
+        JSON Response / 404 Error
 ```
 
 The eighth workshop consolidates Express 5, JSON file persistence, and Node.js process management:
 
 ```text
 HTTP Request
-    ↓
+    ↓
 Express 5 Route
-    ↓
+    ↓
 Read / Validate / Transfer / Health
-    ↓
+    ↓
 JSON Success Response or Thrown Error
-    ↓
+    ↓
 Centralized Error Middleware (on error)
 ```
 
@@ -2405,11 +2537,11 @@ Documentation is organized at four levels:
 
 ```text
 Individual Workshop README
-        ↓
+        ↓
 Individual Lab README
-        ↓
+        ↓
 Certification Project README
-        ↓
+        ↓
 BACKEND_REVIEW.md
 ```
 
@@ -2434,122 +2566,129 @@ Will consolidate the major theoretical concepts learned throughout the complete 
 ## **Progress**
 
 ```text
-Repository initialized                              ✅
-Node.js and npm local environment verified          ✅
-Git remote configured                               ✅
-Main branch synchronized                            ✅
-Learn Node.js REPL                                  ✅ 23/23
-├── Workshop source preserved                       ✅
-└── Workshop README documented                      ✅
-Build a File Processor                              ✅ 30/30
-├── Workshop source preserved                       ✅
-├── Workshop assets preserved                       ✅
-└── Workshop README documented                      ✅
-Build a Case Converter                              ✅ 45/45
-├── Workshop source preserved                       ✅
-├── package.json preserved                          ✅
-├── automated tests preserved                       ✅
-├── .npmignore preserved                            ✅
-└── Workshop README documented                      ✅
-Build a Prime Number Checker Module                 ✅ 1/1
-├── Certification project passed                    ✅
-├── Project source preserved                        ✅
-├── package.json preserved                          ✅
-├── Local Node.js verification completed            ✅
-└── Project README documented                       ✅
-Build a Web Server                                  ✅ 60/60
-├── Workshop source preserved                       ✅
-├── Static public assets preserved                  ✅
-├── package.json / ESM configuration preserved      ✅
-├── HTTP server implementation preserved            ✅
-├── Workshop README documented                      ✅
-└── freeCodeCamp workshop completed                 ✅
-Build a Random Joke App                             ✅ 8/8
-├── Workshop source preserved                       ✅
-├── package.json preserved                          ✅
-├── package-lock.json preserved                     ✅
-├── Express dependency installed locally            ✅
-├── JavaScript syntax verification completed        ✅
-├── All three routes verified with HTTP 200         ✅
-├── Workshop README documented                      ✅
-└── freeCodeCamp workshop completed                 ✅
-Build a Personal Profile App                        ✅ 1/1
-├── Certification project passed                    ✅
-├── Project source preserved                        ✅
-├── package.json preserved                          ✅
-├── package-lock.json preserved                     ✅
-├── Express dependency installed locally            ✅
-├── JavaScript syntax verification completed        ✅
-├── All four routes verified with HTTP 200          ✅
-├── JSON Content-Type verified                      ✅
-├── JSON response shape verified                    ✅
-└── Project README documented                       ✅
-Build a Submission Form                             ✅ 22/22
-├── Workshop source preserved                       ✅
-├── middleware/error.middleware.js preserved        ✅
-├── routes/api.routes.js preserved                  ✅
-├── package.json preserved                          ✅
-├── package-lock.json preserved                     ✅
-├── Local dependency installation completed         ✅
-├── JavaScript syntax verification completed        ✅
-├── 200 / 400 / 404 / 500 routes verified          ✅
-├── Workshop README documented                      ✅
-└── freeCodeCamp workshop completed                 ✅
-Build a Data Sanitizer                              ✅ 1/1
-├── Lab source preserved                            ✅
-├── public/index.html preserved                     ✅
-├── middleware.js preserved                         ✅
-├── package.json preserved                          ✅
-├── package-lock.json preserved                     ✅
-├── Local dependency installation completed         ✅
-├── 0 vulnerabilities reported by npm install       ✅
-├── JavaScript syntax verification completed        ✅
-├── Sanitization behavior verified                  ✅
-├── Validation redirect verified                    ✅
-├── Lab README documented                           ✅
-└── freeCodeCamp lab completed                      ✅
-Build a Weather Service API                         ✅ 20/20
-├── Workshop source preserved                       ✅
-├── public/index.html preserved                     ✅
-├── index.js / weather.js preserved                 ✅
-├── package.json / package-lock.json preserved      ✅
-├── Local npm install: 0 vulnerabilities            ✅
-├── Local Node.js server startup verified           ✅
-├── Success and 404 responses verified              ✅
-├── Workshop README documented                      ✅
-└── freeCodeCamp workshop completed                 ✅
-Build a Timestamp Microservice                     ✅ 1/1
-├── Certification project completed                 ✅
-├── 7 / 7 local user-story checks passed            ✅
-├── server.js and static assets archived            ✅
-├── package.json / package-lock.json preserved      ✅
-└── Project README documented                       ✅
-Build a Bank API                                      ✅ 35/35
-├── Express 5 async error handling documented         ✅
+Repository initialized                              ✅
+Node.js and npm local environment verified          ✅
+Git remote configured                               ✅
+Main branch synchronized                            ✅
+Learn Node.js REPL                                  ✅ 23/23
+├── Workshop source preserved                       ✅
+└── Workshop README documented                      ✅
+Build a File Processor                              ✅ 30/30
+├── Workshop source preserved                       ✅
+├── Workshop assets preserved                       ✅
+└── Workshop README documented                      ✅
+Build a Case Converter                              ✅ 45/45
+├── Workshop source preserved                       ✅
+├── package.json preserved                          ✅
+├── automated tests preserved                       ✅
+├── .npmignore preserved                            ✅
+└── Workshop README documented                      ✅
+Build a Prime Number Checker Module                 ✅ 1/1
+├── Certification project passed                    ✅
+├── Project source preserved                        ✅
+├── package.json preserved                          ✅
+├── Local Node.js verification completed            ✅
+└── Project README documented                       ✅
+Build a Web Server                                  ✅ 60/60
+├── Workshop source preserved                       ✅
+├── Static public assets preserved                  ✅
+├── package.json / ESM configuration preserved      ✅
+├── HTTP server implementation preserved            ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+Build a Random Joke App                             ✅ 8/8
+├── Workshop source preserved                       ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Express dependency installed locally            ✅
+├── JavaScript syntax verification completed        ✅
+├── All three routes verified with HTTP 200         ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+Build a Personal Profile App                        ✅ 1/1
+├── Certification project passed                    ✅
+├── Project source preserved                        ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Express dependency installed locally            ✅
+├── JavaScript syntax verification completed        ✅
+├── All four routes verified with HTTP 200          ✅
+├── JSON Content-Type verified                      ✅
+├── JSON response shape verified                    ✅
+└── Project README documented                       ✅
+Build a Submission Form                             ✅ 22/22
+├── Workshop source preserved                       ✅
+├── middleware/error.middleware.js preserved        ✅
+├── routes/api.routes.js preserved                  ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Local dependency installation completed         ✅
+├── JavaScript syntax verification completed        ✅
+├── 200 / 400 / 404 / 500 routes verified          ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+Build a Data Sanitizer                              ✅ 1/1
+├── Lab source preserved                            ✅
+├── public/index.html preserved                     ✅
+├── middleware.js preserved                         ✅
+├── package.json preserved                          ✅
+├── package-lock.json preserved                     ✅
+├── Local dependency installation completed         ✅
+├── 0 vulnerabilities reported by npm install       ✅
+├── JavaScript syntax verification completed        ✅
+├── Sanitization behavior verified                  ✅
+├── Validation redirect verified                    ✅
+├── Lab README documented                           ✅
+└── freeCodeCamp lab completed                      ✅
+Build a Weather Service API                         ✅ 20/20
+├── Workshop source preserved                       ✅
+├── public/index.html preserved                     ✅
+├── index.js / weather.js preserved                 ✅
+├── package.json / package-lock.json preserved      ✅
+├── Local npm install: 0 vulnerabilities            ✅
+├── Local Node.js server startup verified           ✅
+├── Success and 404 responses verified              ✅
+├── Workshop README documented                      ✅
+└── freeCodeCamp workshop completed                 ✅
+Build a Timestamp Microservice                     ✅ 1/1
+├── Certification project completed                 ✅
+├── 7 / 7 local user-story checks passed            ✅
+├── server.js and static assets archived            ✅
+├── package.json / package-lock.json preserved      ✅
+└── Project README documented                       ✅
+Build a Bank API                                      ✅ 35/35
+├── Express 5 async error handling documented         ✅
 ├── Account persistence and transfer routes preserved ✅
-├── Health check and shutdown handlers preserved      ✅
-├── Windows localhost read endpoints verified         ✅
-└── Workshop README documented                         ✅
-Build a Resource Monitor                              ✅ 20/20
-├── HTTP and WebSocket server source preserved            ✅
-├── Browser dashboard and script preserved                ✅
-├── WebSocket metrics streaming and cleanup documented    ✅
-├── Windows localhost runtime verification                 ✅
-└── Workshop README documented                            ✅
-Build a Chat App                                     ✅ 1/1
-├── Multi-client WebSocket server source preserved          ✅
-├── Browser chat interface and client preserved             ✅
-├── Join, message broadcast, and leave documented           ✅
-├── Windows local HTTP/WebSocket verification               ✅
-└── Certification project README documented                 ✅
-Final back-end review                               ⏳ Deferred until later
+├── Health check and shutdown handlers preserved      ✅
+├── Windows localhost read endpoints verified         ✅
+└── Workshop README documented                         ✅
+Build a Resource Monitor                              ✅ 20/20
+├── HTTP and WebSocket server source preserved            ✅
+├── Browser dashboard and script preserved                ✅
+├── WebSocket metrics streaming and cleanup documented    ✅
+├── Windows localhost runtime verification                 ✅
+└── Workshop README documented                            ✅
+Build a Chat App                                     ✅ 1/1
+├── Multi-client WebSocket server source preserved          ✅
+├── Browser chat interface and client preserved             ✅
+├── Join, message broadcast, and leave documented           ✅
+├── Windows local HTTP/WebSocket verification               ✅
+└── Certification project README documented                 ✅
+Build JWT Protected Routes                            ✅ 36/36
+├── Official freeCodeCamp workshop completed          ✅
+├── Workshop source and dedicated README on Windows   ✅
+├── npm ci (0 vulnerabilities)                        ✅
+├── Windows server on port 8800 + GET / HTTP 200       ✅
+├── Windows HTTP integration verification             ✅ 7/7
+└── npm audit --omit=dev (0 vulnerabilities)         ✅
+Final back-end review                               ⏳ Deferred until later
 ```
 
 ---
 
 ## **Current Learning Summary**
 
-**Completed guided workshops:** 9
+**Completed guided workshops:** 10
 
 **Completed labs:** 1
 
@@ -2558,23 +2697,24 @@ Final back-end review                               ⏳ Deferred until later
 Latest practical record:
 
 ```text
-Learn Node.js REPL                      23 / 23 ✅
-Build a File Processor                  30 / 30 ✅
-Build a Case Converter                  45 / 45 ✅
-Build a Prime Number Checker Module      1 / 1  ✅
-Build a Web Server                      60 / 60 ✅
-Build a Random Joke App                  8 / 8  ✅
-Build a Personal Profile App             1 / 1  ✅
-Build a Submission Form                 22 / 22 ✅
-Build a Data Sanitizer                   1 / 1  ✅
-Build a Weather Service API             20 / 20 ✅
-Build a Timestamp Microservice           1 / 1  ✅
-Build a Bank API                          35 / 35 ✅
-Build a Resource Monitor                  20 / 20 ✅
-Build a Chat App                             1 / 1  ✅
+Learn Node.js REPL                      23 / 23 ✅
+Build a File Processor                  30 / 30 ✅
+Build a Case Converter                  45 / 45 ✅
+Build a Prime Number Checker Module      1 / 1  ✅
+Build a Web Server                      60 / 60 ✅
+Build a Random Joke App                  8 / 8  ✅
+Build a Personal Profile App             1 / 1  ✅
+Build a Submission Form                 22 / 22 ✅
+Build a Data Sanitizer                   1 / 1  ✅
+Build a Weather Service API             20 / 20 ✅
+Build a Timestamp Microservice           1 / 1  ✅
+Build a Bank API                          35 / 35 ✅
+Build a Resource Monitor                  20 / 20 ✅
+Build a Chat App                             1 / 1  ✅
+Build JWT Protected Routes                  36 / 36 ✅
 ```
 
-Current checkpoint: **Build a Chat App** — Certification Project 04, official 1/1 passed October 28, 2026; Windows local verification passed (user-confirmed). Continue with the next exercise in the official freeCodeCamp sequence.
+Current checkpoint: **Build JWT Protected Routes** — Workshop 10, official 36/36 passed November 8, 2026; Windows HTTP integration 7/7 passed, with 0 vulnerabilities reported by npm audit.
 
 ---
 
@@ -2598,16 +2738,19 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-**Latest completed practical checkpoint:** Build a Chat App — Certification Project 04, **1 / 1** official passed, October 28, 2026.
+**Latest completed practical checkpoint:** Build JWT Protected Routes — Workshop 10, **36 / 36** official steps passed, November 8, 2026.
 
-**Windows local verification:** Passed (user-confirmed) — HTTP and multi-client WebSocket join/chat/leave checks.
+**Windows local verification:** `npm.cmd ci` (0 vulnerabilities), server running on port `8800`, HTTP `GET /` verified, and **7 / 7 integration tests PASS**. `npm.cmd audit --omit=dev` also reported **0 vulnerabilities**.
 
-**Previous workshop:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026; Windows HTTP/WebSocket monitoring verified on port `3000`.
+**Previous practical checkpoint:** Build a Chat App — Certification Project 04, **1 / 1** official passed, October 28, 2026.
 
-**Previous certification checkpoint:** Build a Timestamp Microservice — Certification Project 03, **1 / 1** official and **7 / 7** local checks passed, October 17, 2026.
+**Previous guided workshop:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026.
 
-**Repository totals:** 9 completed workshops, 1 completed lab, and 4 completed certification projects.
+**Repository totals:** 10 completed guided workshops, 1 completed lab, and 4 completed certification projects.
 
-Previously completed projects and detailed technical notes are preserved above and in their individual README files.
+**Source archive:** `workshops/build-jwt-protected-routes/` contains the workshop implementation and its dedicated README. Runtime secrets, local user data and `node_modules/` are excluded from Git tracking.
 
-**Next:** Continue in the official freeCodeCamp curriculum order.
+All previous project histories and detailed notes remain preserved in this README and in the relevant project READMEs.
+
+**Next:** Continue with the next exercise in the official freeCodeCamp curriculum.
+
