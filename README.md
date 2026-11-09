@@ -237,6 +237,8 @@ certification-projects/
     └── README.md
 ```
 
+The fifth completed project is `certification-projects/build-a-family-movie-watchlist-api/` (JWT authentication, parent/child authorization and movie CRUD, with dedicated README and local test helper).
+
 Certification projects are requirement-driven rather than step-by-step workshop exercises.
 
 Each project directory preserves:
@@ -392,6 +394,8 @@ freecodecamp-backend-development-and-apis/
 └── README.md
 ```
 
+Certification Project 05 has been added at `certification-projects/build-a-family-movie-watchlist-api/` with source modules, sanitized example JSON fixtures, and a Windows test helper.
+
 The structure will expand naturally as the curriculum introduces additional workshops, labs, and certification projects.
 
 No project directories are created before they are reached in the official curriculum.
@@ -400,28 +404,26 @@ No project directories are created before they are reached in the official curri
 
 ## **Current Checkpoint**
 
-**Date:** November 8, 2026
+**Date:** November 9, 2026
 
 Latest completed practical checkpoint:
 
 ```text
-Build JWT Protected Routes
-Workshop 10
-36 / 36 completed
-Official freeCodeCamp status: Passed (user screenshot)
-Codespaces: HTTP server running on port 8800
-Windows: npm ci 0 vulnerabilities; GET / HTTP 200
-Windows API integration: 7 / 7 PASS
-Windows npm audit --omit=dev: 0 vulnerabilities
+Build a Family Movie Watchlist API
+Certification Project 05
+Official freeCodeCamp certification challenge: 1 / 1 PASSED
+Official project grader: 23 user-story tests
+Codespaces: login endpoint returned HTTP 200 and JWT
+Windows: server on port 3000; independent integration: 23 / 23 PASS
 ```
 
-This workshop implements a JWT-based Express 5 API with registration, login, profile access, logout, role-based admin authorization, and token invalidation. The local project is stored at `workshops/build-jwt-protected-routes/`.
+The project implements JWT authentication, bcrypt-based login, parent/child role authorization, and authenticated movie-watchlist CRUD routes. The completed archive is at `certification-projects/build-a-family-movie-watchlist-api/`.
 
-The preceding practical checkpoint was **Build a Chat App**, Certification Project 04 (1/1 official freeCodeCamp completion, October 28, 2026). The previous guided workshop was **Build a Resource Monitor**, Workshop 09 (20/20, October 25, 2026).
+**Previous practical checkpoint:** Build JWT Protected Routes — Workshop 10 (36/36 official, 7/7 Windows HTTP integration, November 8, 2026).
 
-**Current totals:** 10 completed guided workshops, 1 completed lab, and 4 completed certification projects.
+**Current totals:** 10 completed guided workshops, 1 completed lab, and 5 completed certification projects.
 
-**Verification:** Official freeCodeCamp 36/36 completion and Windows 7/7 HTTP integration tests are user-confirmed by screenshots. Dependency installation and production-dependency audit each reported **0 vulnerabilities** on November 8, 2026. The source is archived under its own workshop directory; GitHub publication is tracked by Git history.
+**Verification:** Official freeCodeCamp completion is user-confirmed by screenshot. The independent Windows 23/23 integration result is recorded after successful local execution; publication status is verified from Git history, not inferred from this README.
 
 ---
 
@@ -472,6 +474,7 @@ The preceding practical checkpoint was **Build a Chat App**, Certification Proje
 
 | 3 | Build a Timestamp Microservice | Certification Project | ✅ Completed — 1/1 |
 | 4 | Build a Chat App | Certification Project | ✅ Completed — 1/1 |
+| 5 | Build a Family Movie Watchlist API | Certification Project | ✅ Completed — 1/1 |
 
 ---
 
@@ -2128,6 +2131,38 @@ build-a-chat-app/
 
 ---
 
+## **Certification Project 05 — Build a Family Movie Watchlist API**
+
+**Location:** `certification-projects/build-a-family-movie-watchlist-api/`
+
+**Completion:** ✅ **1 / 1 official freeCodeCamp certification challenge**, November 9, 2026 (user-confirmed screenshot).
+
+This certification project uses **Node.js, Express 5, Helmet, bcryptjs and jsonwebtoken** to implement a movie-watchlist HTTP API with two roles, `parent` and `child`. A valid JWT is needed for every watchlist route. A parent can add, update and delete movies on any family watchlist; a child can only modify their own list, though they can read other family members' lists.
+
+### **API contract**
+
+| Method | Route | Purpose |
+|---|---|---|
+| POST | `/api/auth/login` | Validate `username`/`password` and return a signed JWT |
+| GET | `/api/watchlist/:userId` | Return a family member's watchlist with a valid JWT |
+| POST | `/api/watchlist/:userId/movies` | Add a movie, subject to parent/child permissions |
+| PUT | `/api/watchlist/:userId/movies/:movieId` | Update movie fields with permission checking |
+| DELETE | `/api/watchlist/:userId/movies/:movieId` | Delete a movie with permission checking |
+
+### **Architecture and verification**
+
+- Authentication: named middleware export `authenticate`, Bearer token extraction, JWT verification, and `req.user`.
+- Authorization: named middleware export `authorizeModification`, permission decisions and HTTP 403 for unauthorized changes.
+- Persistence: course-provided `utils/db.js` performs JSON-based lookup and movie CRUD. Route parameters are converted from strings to numeric IDs before lookup.
+- Source: archive includes `index.js`, `middleware/`, `routes/`, `utils/db.js`, `package.json`, `package-lock.json`, safe fixture templates and the dedicated README.
+- **freeCodeCamp:** ✅ 1/1 completed, November 9, 2026.
+- **Windows integration:** ✅ independent **23/23 HTTP and middleware checks PASS** after installing dependencies and running the API locally on port `3000`.
+- **Data hygiene:** `.env`, runtime `data/users.json`, runtime `data/watchlists.json` and `node_modules/` are ignored. Sanitized `*.example.json` training fixtures allow local initialization.
+
+**Documentation:** `certification-projects/build-a-family-movie-watchlist-api/README.md`
+
+---
+
 ## **Repository Principles**
 
 This repository follows several rules throughout the certification.
@@ -2681,6 +2716,11 @@ Build JWT Protected Routes                            ✅ 36/36
 ├── Windows server on port 8800 + GET / HTTP 200       ✅
 ├── Windows HTTP integration verification             ✅ 7/7
 └── npm audit --omit=dev (0 vulnerabilities)         ✅
+Build a Family Movie Watchlist API                    ✅ 1/1
+├── Official certification project completed          ✅
+├── Codespaces login JWT verified                     ✅
+├── Windows HTTP + middleware checks                  ✅ 23/23
+└── Project source and README archived                ✅
 Final back-end review                               ⏳ Deferred until later
 ```
 
@@ -2692,7 +2732,7 @@ Final back-end review                               ⏳ Deferred 
 
 **Completed labs:** 1
 
-**Completed certification projects:** 4
+**Completed certification projects:** 5
 
 Latest practical record:
 
@@ -2712,9 +2752,10 @@ Build a Bank API                          35 / 35 ✅
 Build a Resource Monitor                  20 / 20 ✅
 Build a Chat App                             1 / 1  ✅
 Build JWT Protected Routes                  36 / 36 ✅
+Build a Family Movie Watchlist API            1 / 1  ✅
 ```
 
-Current checkpoint: **Build JWT Protected Routes** — Workshop 10, official 36/36 passed November 8, 2026; Windows HTTP integration 7/7 passed, with 0 vulnerabilities reported by npm audit.
+Current checkpoint: **Build a Family Movie Watchlist API** — Certification Project 05, 1/1 official challenge completed November 9, 2026; independent Windows 23/23 integration checks passed.
 
 ---
 
@@ -2738,19 +2779,19 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
 
-**Latest completed practical checkpoint:** Build JWT Protected Routes — Workshop 10, **36 / 36** official steps passed, November 8, 2026.
+**Latest completed practical checkpoint:** Build a Family Movie Watchlist API — Certification Project 05, **1 / 1** official challenge passed November 9, 2026.
 
-**Windows local verification:** `npm.cmd ci` (0 vulnerabilities), server running on port `8800`, HTTP `GET /` verified, and **7 / 7 integration tests PASS**. `npm.cmd audit --omit=dev` also reported **0 vulnerabilities**.
+**Windows local verification:** Project server on port `3000`, with **23 / 23 independent HTTP and middleware integration tests PASS** using `scripts/verify-movie-local.mjs`. npm audit findings, if any, must be recorded separately from this functional result.
 
-**Previous practical checkpoint:** Build a Chat App — Certification Project 04, **1 / 1** official passed, October 28, 2026.
+**Previous practical checkpoint:** Build JWT Protected Routes — Workshop 10, **36 / 36** official and **7 / 7** Windows integration checks passed, November 8, 2026.
 
-**Previous guided workshop:** Build a Resource Monitor — Workshop 09, **20 / 20** passed, October 25, 2026.
+**Previous certification project:** Build a Chat App — Project 04, **1 / 1** official passed October 28, 2026.
 
-**Repository totals:** 10 completed guided workshops, 1 completed lab, and 4 completed certification projects.
+**Repository totals:** 10 completed guided workshops, 1 completed lab, and 5 completed certification projects.
 
-**Source archive:** `workshops/build-jwt-protected-routes/` contains the workshop implementation and its dedicated README. Runtime secrets, local user data and `node_modules/` are excluded from Git tracking.
+**Latest source archive:** `certification-projects/build-a-family-movie-watchlist-api/`. The app preserves provided JSON database helpers, with source routes, documentation, test script and example fixtures. Runtime secrets and mutable local JSON data are ignored by Git.
 
-All previous project histories and detailed notes remain preserved in this README and in the relevant project READMEs.
+All earlier workshops, labs, certification projects and detailed historical notes remain preserved in this README and their dedicated documentation files.
 
 **Next:** Continue with the next exercise in the official freeCodeCamp curriculum.
 
