@@ -34,13 +34,13 @@ Theory lessons are studied directly through freeCodeCamp.
 
 Separate source files are not created for every theory lesson.
 
-Important concepts will eventually be consolidated into:
+The consolidated technical concepts are available in:
 
 ```text
 BACKEND_REVIEW.md
 ```
 
-This file will be completed after progressing through the curriculum rather than being used as a running lesson transcript.
+This document was prepared after the practical curriculum, rather than as a running lesson transcript. It explains concepts, request lifecycles, failures and verification strategies; individual projects retain their own implementation READMEs.
 
 ### **Workshops**
 
@@ -201,7 +201,7 @@ Reviews and quizzes are used to verify understanding.
 
 Answers are not stored as standalone projects merely to increase repository size.
 
-Important knowledge will later be summarized in `BACKEND_REVIEW.md`.
+Important technical knowledge is synthesized in [`BACKEND_REVIEW.md`](BACKEND_REVIEW.md). Official freeCodeCamp reviews and quizzes remain separate assessment activities.
 
 ### **Certification Projects**
 
@@ -2213,7 +2213,7 @@ This keeps guided practice, independent labs, and certification assessment work 
 
 Workshop, lab, and certification-project README files document individual practical exercises.
 
-`BACKEND_REVIEW.md` will eventually serve as the consolidated theoretical review for the complete back-end curriculum.
+[`BACKEND_REVIEW.md`](BACKEND_REVIEW.md) serves as the consolidated theoretical review for the complete back-end curriculum. It is concept-focused and does not replace the official assessment.
 
 ### **7. Do Not Copy Course Infrastructure**
 
@@ -2594,7 +2594,7 @@ Documents a complete requirement-driven project, including implementation, algor
 
 ### **BACKEND_REVIEW.md**
 
-Will consolidate the major theoretical concepts learned throughout the complete certification.
+Consolidates the major theoretical concepts across the curriculum, including request lifecycles, Node.js, Express, persistence, WebSockets, security, JWT, authorization, failure diagnosis and testing.
 
 ---
 
@@ -2721,7 +2721,7 @@ Build a Family Movie Watchlist API                    ✅ 1/1
 ├── Codespaces login JWT verified                     ✅
 ├── Windows HTTP + middleware checks                  ✅ 23/23
 └── Project source and README archived                ✅
-Final back-end review                               ⏳ Deferred until later
+Final back-end theory synthesis (repository)            ✅ Prepared; official Review and Exam pending
 ```
 
 ---
@@ -2775,6 +2775,15 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 ---
 
+## **Final Back-End Theory Synthesis**
+
+The consolidated [**BACKEND_REVIEW.md**](BACKEND_REVIEW.md) is the concept-based reference prepared after the practical curriculum. It begins with the eight foundational topics (websites; front end/back end; client/server; HTTP; URLs and routes; JSON; Node.js; API mental model) and expands into Node.js modules and async I/O, Express middleware, REST/CRUD, persistence, WebSockets, security, JWT, RBAC, debugging and testing.
+
+It uses the agreed six-question framework: **what was learned → what the server receives → what the server does → what the server returns → what may fail → how to test it**. Each workshop and certification project retains its own detailed README; the consolidated review is not a duplicate lesson transcript.
+
+**Assessment status:** The five certification projects are archived and verified. The official **Back-End Development and APIs Review** and **Back-End Development and APIs Certification Exam** are the next curriculum activities; neither is marked complete here.
+
+---
 ## **Current Status**
 
 **freeCodeCamp Back-End Development and APIs Certification:** In Progress
@@ -2793,5 +2802,5 @@ Understanding why the code works, being able to explain it, and applying the sam
 
 All earlier workshops, labs, certification projects and detailed historical notes remain preserved in this README and their dedicated documentation files.
 
-**Next:** Continue with the next exercise in the official freeCodeCamp curriculum.
+**Next:** Complete the official **Back-End Development and APIs Review**, then the **Certification Exam**. Prepare with [`BACKEND_REVIEW.md`](BACKEND_REVIEW.md); no assessment pass is claimed in advance.
 
